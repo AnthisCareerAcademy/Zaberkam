@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
+using Unity.XR.CoreUtils.Capabilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.XR.OpenXR.NativeTypes;
 using Random = UnityEngine.Random;
 
 // Don't mess with these; they're just naming the dropdowns.
@@ -34,6 +36,7 @@ public abstract class ClassTemplate : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float jumpHeight = 5f;
     [SerializeField] float gravity = -10f;
+    [SerializeField] float scale = 1f;
     
     [Header("Camera Options")]
     [SerializeField] InputActionReference look;
@@ -74,6 +77,27 @@ public abstract class ClassTemplate : MonoBehaviour
         camLens = cam.GetComponent<Camera>();
         camLens.fieldOfView = defaultFOV;
         
+        // Change everything to match scale.
+        moveSpeed *= scale;
+        jumpHeight *= scale;
+        gravity *= scale;
+        
+        transform.localScale = Vector3.one * scale;
+
+        attackHandlers.primary.scale = scale;
+        attackHandlers.secondary.scale = scale;
+        attackHandlers.firstAbility.scale = scale;
+        attackHandlers.secondAbility.scale = scale;
+        attackHandlers.thirdAbility.scale = scale;
+        attackHandlers.fourthAbility.scale = scale;
+        
+        Controller.minMoveDistance *= scale;
+        Controller.skinWidth = 0.05f * scale;
+        Controller.stepOffset *= scale;
+        
+        camLens.nearClipPlane *= scale;
+        camLens.farClipPlane *= scale;
+        
         // Activate all actions.
         for (int i = 0; i < activeActions.Length; i++)
         {
@@ -85,6 +109,7 @@ public abstract class ClassTemplate : MonoBehaviour
 
     public virtual void Update()
     {
+        CheckPause();
         DoLook();
         DoMove();
         
