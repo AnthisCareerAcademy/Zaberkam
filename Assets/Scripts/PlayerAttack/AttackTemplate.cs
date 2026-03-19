@@ -4,6 +4,7 @@ using UnityEngine;
 public abstract class AttackTemplate : MonoBehaviour
 {
     [SerializeField] protected float damage;
+    public float scale = 1f;
     
     // Call this to perform an attack.
     public abstract void DoAttack(float multiplier = 1f, Vector3? direction = null);
