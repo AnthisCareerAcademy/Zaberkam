@@ -1271,8 +1271,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2035489863}
-        m_TargetAssemblyTypeName: RelayManager, Assembly-CSharp
+      - m_Target: {fileID: 2035489864}
+        m_TargetAssemblyTypeName: IpManager, Assembly-CSharp
         m_MethodName: DestroyPlayer
         m_Mode: 1
         m_Arguments:
@@ -2915,8 +2915,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 743471033722644590, guid: 9862ef4562871254b8c151604489c108, type: 3}
+      propertyPath: m_ProtocolType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 743471033722644590, guid: 9862ef4562871254b8c151604489c108, type: 3}
       propertyPath: ConnectionData.Address
       value: 192.168.56.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 968902018460019162, guid: 9862ef4562871254b8c151604489c108, type: 3}
+      propertyPath: LogLevel
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1521592292279581559, guid: 9862ef4562871254b8c151604489c108, type: 3}
       propertyPath: m_Name
@@ -4477,8 +4485,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2035489863}
-        m_TargetAssemblyTypeName: RelayManager, Assembly-CSharp
+      - m_Target: {fileID: 2035489864}
+        m_TargetAssemblyTypeName: IpManager, Assembly-CSharp
         m_MethodName: DestroyPlayer
         m_Mode: 1
         m_Arguments:
@@ -4704,8 +4712,16 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3642600068982690156, guid: 41e5719f8d890434eba9cf0562f2f7df, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2035489864}
   m_SourcePrefab: {fileID: 100100000, guid: 41e5719f8d890434eba9cf0562f2f7df, type: 3}
+--- !u!1 &1879558790 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3642600068982690156, guid: 41e5719f8d890434eba9cf0562f2f7df, type: 3}
+  m_PrefabInstance: {fileID: 1879558789}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1943130479 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3591072307428592019, guid: fcd1c5940911fd3458220578387d6719, type: 3}
@@ -4889,17 +4905,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1615986351}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &2035489863 stripped
+--- !u!114 &2035489864
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7554087025941479088, guid: 41e5719f8d890434eba9cf0562f2f7df, type: 3}
-  m_PrefabInstance: {fileID: 1879558789}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1879558790}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda466ce9a33eb44ba6c1d5dde4d639d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a5290a8c4af06d428db11b5454565d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hostButton: {fileID: 401270353}
+  joinButton: {fileID: 1825862459}
+  ipInput: {fileID: 1155318115}
+  infoText: {fileID: 1576470559}
+  hostText: {fileID: 40825046}
+  player: {fileID: 1295075037}
+  port: 7777
 --- !u!1 &2066581718
 GameObject:
   m_ObjectHideFlags: 0
