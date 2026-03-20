@@ -7,11 +7,16 @@ public class Attack : AttackTemplate
 {
     public List<IDamageable> Damageables { get; } = new();
 
+    void Start()
+    {
+        transform.localScale = Vector3.one * scale;
+    }
+
     public void OnTriggerStay(Collider other)
     {
         // Add the damageable object when it enters the hitbox.
         var damageable = other.GetComponent<IDamageable>();
-        if (damageable != null && !Damageables.Contains(damageable)) Damageables.Add(damageable);
+        if (damageable != null && !Damageables.Contains(damageable) && !damageable.IsPlayer) Damageables.Add(damageable);
     }
 
     public void OnTriggerExit(Collider other)

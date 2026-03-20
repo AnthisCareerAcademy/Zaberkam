@@ -7,6 +7,8 @@ public class Health : NetworkBehaviour, IDamageable
 {
     [SerializeField] float maxHealth = 100f;
     [SerializeField] Slider healthSlider;
+    [SerializeField] bool isPlayer;
+    public bool IsPlayer => isPlayer;
     public bool invincible;
 
     private NetworkVariable<float> _healthTracker = new NetworkVariable<float>();
