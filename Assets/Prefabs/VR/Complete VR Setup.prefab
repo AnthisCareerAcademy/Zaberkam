@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2864251574
+  GlobalObjectIdHash: 2702799017
   InScenePlacedSourceGlobalObjectIdHash: 2864251574
   DeferredDespawnTick: 0
   Ownership: 1
@@ -697,6 +697,10 @@ PrefabInstance:
     - target: {fileID: 3883427218063994830, guid: 4d01487f34e16374e8e4057d1507a4e3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3938320878363885656, guid: 4d01487f34e16374e8e4057d1507a4e3, type: 3}
+      propertyPath: m_TargetDisplay
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5357073778776687339, guid: 4d01487f34e16374e8e4057d1507a4e3, type: 3}
       propertyPath: m_PokeDepth

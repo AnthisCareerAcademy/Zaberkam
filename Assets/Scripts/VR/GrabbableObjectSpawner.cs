@@ -51,6 +51,7 @@ public class GrabbableObjectSpawner : XRBaseInteractable
 
     void Update()
     {
+        resourcePool ??= FindFirstObjectByType<ResourcePool>();
         if (hovering)
         {
             objectVisualMesh.material = resourcePool.Resources >= cost ? validMaterial : invalidMaterial;
