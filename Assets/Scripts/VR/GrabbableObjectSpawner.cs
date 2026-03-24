@@ -29,8 +29,7 @@ public class GrabbableObjectSpawner : XRBaseInteractable
         [SerializeField] Material invalidMaterial;
     
     [Header("Spawn Costs")]
-        [Tooltip("A reference to the resource pool that should be drained to spawn objects.")]
-        [SerializeField] ResourcePool resourcePool;
+        private ResourcePool resourcePool;
         
         [Tooltip("How many resources to consume when spawning an object.")]
         [SerializeField] float cost;
@@ -46,11 +45,14 @@ public class GrabbableObjectSpawner : XRBaseInteractable
 
     void Start()
     {
+        resourcePool = FindFirstObjectByType<ResourcePool>();
         costText.text = "Cost: " + cost + " " + resourcePool.ResourceName;
     }
 
     void Update()
     {
+        if (!resourcePool) resourcePool = FindFirstObjectByType<ResourcePool>();
+        
         if (hovering)
         {
             objectVisualMesh.material = resourcePool.Resources >= cost ? validMaterial : invalidMaterial;
@@ -66,17 +68,8 @@ public class GrabbableObjectSpawner : XRBaseInteractable
         hovering = true;
         
         // Display the HUDs.
-        IXRHoverInteractor interactor = args.interactorObject;
-        
-        // The only time the second one is activated/deactivated is when the right hand triggers the spawner.
-        if (resourceDisplays.Length == 2 && interactor.handedness == InteractorHandedness.Right)
-        {
-            resourceDisplays[1].SetActive(true);
-        }
-        else
-        {
-            resourceDisplays[0].SetActive(true);
-        }
+        DirectInteractorUIActivator interactor = args.interactorObject as DirectInteractorUIActivator;
+        if (interactor != null) interactor.DisplayWristUI();
         
         base.OnHoverEntered(args);
     }
@@ -86,17 +79,8 @@ public class GrabbableObjectSpawner : XRBaseInteractable
         hovering = false;
         
         // Display the HUDs.
-        IXRHoverInteractor interactor = args.interactorObject;
-        
-        // The only time the second one is activated/deactivated is when the right hand triggers the spawner.
-        if (resourceDisplays.Length == 2 && interactor.handedness == InteractorHandedness.Right)
-        {
-            resourceDisplays[1].SetActive(false);
-        }
-        else
-        {
-            resourceDisplays[0].SetActive(false);
-        }
+        DirectInteractorUIActivator interactor = args.interactorObject as DirectInteractorUIActivator;
+        if (interactor != null) interactor.HideWristUI();
         
         base.OnHoverExited(args);
     }

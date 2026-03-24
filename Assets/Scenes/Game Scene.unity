@@ -2981,7 +2981,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1537210898}
   m_CullTransparentMesh: 1
-<<<<<<< HEAD:Assets/Scenes/VR Player Menu.unity
+<<<<<<<< HEAD:Assets/Scenes/VR Player Menu.unity
 --- !u!1 &1576470557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,8 +3119,8 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1576470557}
   m_CullTransparentMesh: 1
-=======
->>>>>>> 5bab5a52ff93a6e30128a2ac9d23d64feccdfb0a:Assets/Scenes/Game Scene.unity
+========
+>>>>>>>> f159e0238f88125b6b463f02cbeb5114a4baaaa9:Assets/Scenes/Game Scene.unity
 --- !u!1 &1615986350
 GameObject:
   m_ObjectHideFlags: 0
