@@ -840,10 +840,6 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1924219389
       objectReference: {fileID: 0}
-    - target: {fileID: 927254909283099870, guid: d3b9b035933f5c04c90579d5530bfe02, type: 3}
-      propertyPath: isPlayer
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1460173544637939895, guid: d3b9b035933f5c04c90579d5530bfe02, type: 3}
       propertyPath: m_Name
       value: RangerClass
