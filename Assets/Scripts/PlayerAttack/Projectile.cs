@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using Interfaces;
 using UnityEngine;
@@ -24,15 +23,22 @@ public class Projectile : MonoBehaviour
 
         print($"Doing {damage} to {contact.otherCollider.name}");
 
-        if (!damageable.IsPlayer)
+        if (damageable is { IsPlayer: false })
         {
-            damageable?.TakeDamage(damage);
-            Destroy(gameObject);
+            damageable.TakeDamage(damage);
         }
+        Destroy(gameObject);
     }
 
     public void Fire(float speed)
     {
         rb.AddForce(transform.forward * speed, ForceMode.Impulse);
+        StartCoroutine(Lifetime());
+    }
+
+    IEnumerator Lifetime()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 }
