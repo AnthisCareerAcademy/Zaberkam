@@ -65,7 +65,7 @@ public abstract class ClassTemplate : MonoBehaviour
     private float xRotation;
     private Camera camLens;
 
-    void Start()
+    public virtual void Start()
     {
         Controller = GetComponent<CharacterController>();
         if (Controller == null) Debug.LogError("CharacterController not found");
