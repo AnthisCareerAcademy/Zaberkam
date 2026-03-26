@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
@@ -17,6 +18,11 @@ public class RelayManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI hostText;
     [SerializeField] GameObject player;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     async void Start()
     {
         await UnityServices.InitializeAsync();
@@ -32,16 +38,18 @@ public class RelayManager : MonoBehaviour
     async void CreateRelay()
     {
         Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3);
+        
         string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
         
         codeText.text = "Code: " + joinCode;
         codeText.gameObject.SetActive(true);
 
         var relayServerData = AllocationUtils.ToRelayServerData(allocation, "dtls");
+        
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
         NetworkManager.Singleton.StartHost();
-        
+
         UpdateHostStatus();
     }
 
@@ -50,10 +58,11 @@ public class RelayManager : MonoBehaviour
         var joinAllocation = await RelayService.Instance.JoinAllocationAsync(JoinCode);
         
         var relayServerData = AllocationUtils.ToRelayServerData(joinAllocation, "dtls");
+        
         NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
         
         NetworkManager.Singleton.StartClient();
-        
+
         UpdateHostStatus();
     }
 
