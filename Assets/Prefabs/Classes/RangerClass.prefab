@@ -165,7 +165,7 @@ MonoBehaviour:
     fourthAbility: {fileID: 6622118747953338859}
   critMultiplier: 1.5
   critChance: 0.3
-  arrowRainCenter: {x: 0, y: 3, z: 3}
+  arrowRainCenter: {x: 0, y: 3, z: 5}
   arrowRainAngle: 90
   radius: 3
   minArrows: 50

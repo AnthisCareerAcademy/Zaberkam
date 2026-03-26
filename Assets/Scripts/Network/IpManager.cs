@@ -18,6 +18,11 @@ public class IpManager : MonoBehaviour
 
     [SerializeField] ushort port = 7777;
 
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -35,6 +40,7 @@ public class IpManager : MonoBehaviour
         transport.SetConnectionData(localIP, port);
 
         NetworkManager.Singleton.StartHost();
+        NetworkManager.Singleton.SceneManager.LoadScene("Game Scene", UnityEngine.SceneManagement.LoadSceneMode.Single);
 
         infoText.text = $"Host IP: {localIP}:{port}";
         infoText.gameObject.SetActive(true);
@@ -45,9 +51,10 @@ public class IpManager : MonoBehaviour
     void StartClient(string ip)
     {
         var transport = NetworkManager.Singleton.GetComponent<UnityTransport>();
-        transport.SetConnectionData(ip, port);
+        transport.SetConnectionData("0.0.0.0", port);
 
         NetworkManager.Singleton.StartClient();
+        NetworkManager.Singleton.SceneManager.LoadScene("Game Scene", UnityEngine.SceneManagement.LoadSceneMode.Single);
 
         UpdateHostStatus();
     }
