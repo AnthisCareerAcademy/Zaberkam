@@ -46,7 +46,8 @@ public class GrabbableObjectSpawner : XRBaseInteractable
     void Start()
     {
         resourcePool = FindFirstObjectByType<ResourcePool>();
-        costText.text = "Cost: " + cost + " " + resourcePool.ResourceName;
+        if (resourcePool) costText.text = "Cost: " + cost + " " + resourcePool.ResourceName;
+        else costText.text = "Cost: " + cost + " Lifeblood";
     }
 
     void Update()
@@ -69,7 +70,7 @@ public class GrabbableObjectSpawner : XRBaseInteractable
         
         // Display the HUDs.
         DirectInteractorUIActivator interactor = args.interactorObject as DirectInteractorUIActivator;
-        if (interactor != null) interactor.DisplayWristUI();
+        if (interactor) interactor.DisplayWristUI();
         
         base.OnHoverEntered(args);
     }
@@ -80,7 +81,7 @@ public class GrabbableObjectSpawner : XRBaseInteractable
         
         // Display the HUDs.
         DirectInteractorUIActivator interactor = args.interactorObject as DirectInteractorUIActivator;
-        if (interactor != null) interactor.HideWristUI();
+        if (interactor) interactor.HideWristUI();
         
         base.OnHoverExited(args);
     }
