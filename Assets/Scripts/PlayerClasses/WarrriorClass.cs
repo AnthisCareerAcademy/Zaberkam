@@ -4,6 +4,14 @@ public class WarriorClass : ClassTemplate
 {
     [SerializeField] float lungeSpeed = 10f;
     [SerializeField] float leapHeight = 10f;
+
+    public override void Start()
+    {
+        base.Start();
+
+        lungeSpeed *= scale;
+        leapHeight *= scale;
+    }
     
     // Nothing special for the primary attack. Basic sword thrust.
 
