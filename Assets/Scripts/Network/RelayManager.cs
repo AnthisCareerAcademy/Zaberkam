@@ -17,8 +17,6 @@ public class RelayManager : MonoBehaviour
     [SerializeField] TMP_InputField joinInput;
     [SerializeField] TextMeshProUGUI codeText;
     [SerializeField] TextMeshProUGUI hostText;
-    [SerializeField] GameObject host;
-    [SerializeField] GameObject client;
 
     private void Awake()
     {

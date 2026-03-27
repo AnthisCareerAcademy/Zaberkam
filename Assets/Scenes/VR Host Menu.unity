@@ -1215,14 +1215,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3642600068982690156, guid: 41e5719f8d890434eba9cf0562f2f7df, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 274381598}
+      addedObject: {fileID: 274381601}
   m_SourcePrefab: {fileID: 100100000, guid: 41e5719f8d890434eba9cf0562f2f7df, type: 3}
 --- !u!1 &274381594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3642600068982690156, guid: 41e5719f8d890434eba9cf0562f2f7df, type: 3}
   m_PrefabInstance: {fileID: 274381593}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &274381598
+--- !u!114 &274381601
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1231,17 +1231,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 274381594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fda466ce9a33eb44ba6c1d5dde4d639d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a5290a8c4af06d428db11b5454565d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hostButton: {fileID: 1933636153}
-  joinButton: {fileID: 78055303}
   startButton: {fileID: 1360171373}
-  joinInput: {fileID: 1881649174}
-  codeText: {fileID: 1061412934}
+  joinButton: {fileID: 78055303}
+  ipInput: {fileID: 1881649174}
+  infoText: {fileID: 1061412934}
   hostText: {fileID: 1928515971}
-  host: {fileID: 438606811}
-  client: {fileID: 2600043559358336248, guid: e8e02912748db3949a92f5f802cb55ed, type: 3}
+  port: 7777
 --- !u!1 &346438668
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,11 +1878,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3591072307428592019, guid: fcd1c5940911fd3458220578387d6719, type: 3}
   m_PrefabInstance: {fileID: 436136591}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &438606811 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2606563795174566423, guid: d4d3c30603e7de44e9bf5064f1ea5af2, type: 3}
-  m_PrefabInstance: {fileID: 900950303}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &482017373
 GameObject:
@@ -2568,7 +2562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6960e84d07fb87f47956e7a81d71c4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ProtocolType: 1
+  m_ProtocolType: 0
   m_UseWebSockets: 0
   m_UseEncryption: 0
   m_MaxPacketQueueSize: 128

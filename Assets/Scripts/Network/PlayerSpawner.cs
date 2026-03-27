@@ -34,7 +34,7 @@ public class PlayerSpawner : NetworkBehaviour
     void SpawnVrServerRpc(ServerRpcParams rpcParams = default)
     {
         ulong clientId = rpcParams.Receive.SenderClientId;
-        host = Instantiate(VrPlayer, vrSpawn, Quaternion.identity);
+        GameObject host = Instantiate(VrPlayer, vrSpawn, Quaternion.identity);
         host.GetComponent<NetworkObject>().SpawnWithOwnership(clientId);
     }
 
