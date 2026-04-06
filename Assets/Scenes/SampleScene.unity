@@ -591,6 +591,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1133248946411929212, guid: fd723706b6fa9854596212624d1992b3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 1199256392956936347, guid: fd723706b6fa9854596212624d1992b3, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2085534256
@@ -598,6 +602,14 @@ PrefabInstance:
     - target: {fileID: 2502993944930348481, guid: fd723706b6fa9854596212624d1992b3, type: 3}
       propertyPath: m_Name
       value: WarriorClass
+      objectReference: {fileID: 0}
+    - target: {fileID: 2502993944930348481, guid: fd723706b6fa9854596212624d1992b3, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3683559854077592104, guid: fd723706b6fa9854596212624d1992b3, type: 3}
+      propertyPath: m_Size.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3984969317473792658, guid: fd723706b6fa9854596212624d1992b3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -646,22 +658,6 @@ PrefabInstance:
     - target: {fileID: 5856161095560114944, guid: fd723706b6fa9854596212624d1992b3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190734803528948346, guid: fd723706b6fa9854596212624d1992b3, type: 3}
-      propertyPath: cooldowns.primary
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190734803528948346, guid: fd723706b6fa9854596212624d1992b3, type: 3}
-      propertyPath: cooldowns.secondary
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190734803528948346, guid: fd723706b6fa9854596212624d1992b3, type: 3}
-      propertyPath: cooldowns.firstAbility
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6190734803528948346, guid: fd723706b6fa9854596212624d1992b3, type: 3}
-      propertyPath: cooldowns.secondAbility
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
