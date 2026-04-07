@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.XR.CoreUtils.Capabilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngine.XR.OpenXR.NativeTypes;
 using Random = UnityEngine.Random;
 
@@ -22,6 +23,13 @@ public struct AttackCooldowns
 }
 
 [Serializable]
+public struct AttackIndicators
+{
+    public Image
+        primary, secondary, firstAbility, secondAbility, thirdAbility, fourthAbility;
+}
+
+[Serializable]
 public struct AttackHandlers
 {
     public AttackTemplate
@@ -36,7 +44,7 @@ public abstract class ClassTemplate : MonoBehaviour
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float jumpHeight = 5f;
     [SerializeField] float gravity = -10f;
-    [SerializeField] float scale = 1f;
+    [SerializeField] protected float scale = 1f;
     
     [Header("Camera Options")]
     [SerializeField] InputActionReference look;
@@ -48,6 +56,7 @@ public abstract class ClassTemplate : MonoBehaviour
     [Header("Attack Options")]
     [SerializeField] AttackActionReferences attackInputs;
     [SerializeField] AttackCooldowns cooldowns;
+    [SerializeField] AttackIndicators indicators;
     [SerializeField] protected AttackHandlers attackHandlers;
 
     [Header("Stats")]
@@ -83,7 +92,8 @@ public abstract class ClassTemplate : MonoBehaviour
         gravity *= scale;
         
         transform.localScale = Vector3.one * scale;
-
+        
+        // Resize hitboxes.
         attackHandlers.primary.scale = scale;
         attackHandlers.secondary.scale = scale;
         attackHandlers.firstAbility.scale = scale;
@@ -103,6 +113,14 @@ public abstract class ClassTemplate : MonoBehaviour
         {
             activeActions[i] = true;
         }
+        
+        // Set all the images to be filled so they can display cooldown properly.
+        indicators.primary.type = Image.Type.Filled;
+        indicators.secondary.type = Image.Type.Filled;
+        indicators.firstAbility.type = Image.Type.Filled;
+        indicators.secondAbility.type = Image.Type.Filled;
+        indicators.thirdAbility.type = Image.Type.Filled;
+        indicators.fourthAbility.type = Image.Type.Filled;
 
         Unpause();
     }
@@ -192,8 +210,26 @@ public abstract class ClassTemplate : MonoBehaviour
 
     private IEnumerator Cooldown(float cooldown, int id)
     {
+        float time = 0f;
+
+        Image indicator = id switch
+        {
+            0 => indicators.primary,
+            1 => indicators.secondary,
+            2 => indicators.firstAbility,
+            3 => indicators.secondAbility,
+            4 => indicators.thirdAbility,
+            5 => indicators.fourthAbility,
+            _ => null
+        };
+
         activeActions[id] = false;
-        yield return new WaitForSeconds(cooldown);
+        while (time < cooldown)
+        {
+            time += Time.deltaTime;
+            if (indicator) indicator.fillAmount = time / cooldown;
+            yield return null;
+        }
         activeActions[id] = true;
     }
     
