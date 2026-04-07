@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Scripts/Dungeon.meta
 guid: 86e0cae30055e0641bc3d7cecb4864ea
 folderAsset: yes
 DefaultImporter:
+=======
+guid: 3238d59ebbe1b6145a54afef857bca55
+PrefabImporter:
+>>>>>>> Stashed changes:Assets/Prefabs/Hitbox.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
