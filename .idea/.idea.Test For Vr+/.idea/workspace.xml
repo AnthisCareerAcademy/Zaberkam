@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="10f8419f-11a6-4337-8527-1a2a21966126" name="Changes" comment="" />
+    <list default="true" id="10f8419f-11a6-4337-8527-1a2a21966126" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/DefaultNetworkPrefabs.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Classes/Mage .prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Classes/Mage .prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Cube.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Enemies/Cube.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Health.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Health.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Rooms/BossRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Rooms/BossRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Rooms/StartingRoom.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Rooms/StartingRoom.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/XR/Settings/OpenXR Package Settings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/sure/testing.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/sure/testing.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test For Vr+.slnx" beforeDir="false" afterPath="$PROJECT_DIR$/Test For Vr+.slnx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 4
-}]]></component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
   <component name="ProjectId" id="3AOnxPYMH0mj373yrIXUELYU487" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -19,12 +34,13 @@
   "keyToString": {
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "seth-branch",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.62f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.67f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;C:\Users\johns512cs15\Desktop\Create with Code\Prototype 2\Test For Vr+&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\johns512cs15\Desktop\Create with Code\Prototype 2\Test For Vr+" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -36,7 +52,7 @@
       <method v="2" />
     </configuration>
     <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.62f1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.0.67f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;C:\Users\johns512cs15\Desktop\Create with Code\Prototype 2\Test For Vr+&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="C:\Users\johns512cs15\Desktop\Create with Code\Prototype 2\Test For Vr+" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -87,6 +103,7 @@
       <option name="presentableId" value="Default" />
       <updated>1772472731560</updated>
       <workItem from="1772472733892" duration="11000" />
+      <workItem from="1775575862825" duration="24000" />
     </task>
     <servers />
   </component>
