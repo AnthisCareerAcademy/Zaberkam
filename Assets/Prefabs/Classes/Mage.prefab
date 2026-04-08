@@ -424,7 +424,7 @@ MonoBehaviour:
     fourthAbility: {fileID: 0}
   critMultiplier: 1.5
   critChance: 0.1
-  manaSlider: {fileID: 7540437419941992938}
+  manaSlider: {fileID: 0}
   maxMana: 100
   mana: 100
   manaRegenRate: 5
@@ -881,6 +881,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2843462057421305491, guid: ac20d513a1d063843940498a2a070e12, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca7ac568287a3ff4e961710d97934ee3, type: 3}
+    - target: {fileID: 2931672296535090310, guid: ac20d513a1d063843940498a2a070e12, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e2628ec111df26e46ae08b865f90eb37, type: 3}
     - target: {fileID: 3312102703775077087, guid: ac20d513a1d063843940498a2a070e12, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -889,10 +897,26 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3415358121349576529, guid: ac20d513a1d063843940498a2a070e12, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5cca9a4e84525c34194a516a9a439e9f, type: 3}
+    - target: {fileID: 3633430456293982813, guid: ac20d513a1d063843940498a2a070e12, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c0ec3e35fead19f46952050c8d9f045f, type: 3}
     - target: {fileID: 5670868439801263752, guid: ac20d513a1d063843940498a2a070e12, type: 3}
       propertyPath: m_Name
       value: MageUi
       objectReference: {fileID: 0}
+    - target: {fileID: 6521110821600199867, guid: ac20d513a1d063843940498a2a070e12, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7317a06c8f0aa614f9012e9df2f8148a, type: 3}
+    - target: {fileID: 8449773408573656685, guid: ac20d513a1d063843940498a2a070e12, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ff00b9a154d5f1f449e4b9d66f897d6b, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -901,17 +925,6 @@ PrefabInstance:
 --- !u!114 &6770322418219123530 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4011611420181048371, guid: ac20d513a1d063843940498a2a070e12, type: 3}
-  m_PrefabInstance: {fileID: 7663190374866366329}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &7540437419941992938 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 215078675814463123, guid: ac20d513a1d063843940498a2a070e12, type: 3}
   m_PrefabInstance: {fileID: 7663190374866366329}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
