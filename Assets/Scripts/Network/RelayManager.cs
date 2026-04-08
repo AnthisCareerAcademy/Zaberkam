@@ -13,10 +13,10 @@ public class RelayManager : MonoBehaviour
 {
     [SerializeField] Button hostButton;
     [SerializeField] Button joinButton;
+    [SerializeField] Button startButton;
     [SerializeField] TMP_InputField joinInput;
     [SerializeField] TextMeshProUGUI codeText;
     [SerializeField] TextMeshProUGUI hostText;
-    [SerializeField] GameObject player;
 
     private void Awake()
     {
@@ -31,6 +31,8 @@ public class RelayManager : MonoBehaviour
         hostButton.onClick.AddListener(() => print("yay you clicked it"));
         hostButton.onClick.AddListener(CreateRelay);
         joinButton.onClick.AddListener(() => JoinRelay(joinInput.text));
+
+        startButton.onClick.AddListener(SwitchScene);
         
         UpdateHostStatus();
     }
@@ -82,11 +84,16 @@ public class RelayManager : MonoBehaviour
         }
     }
 
-    public void DestroyPlayer()
+    void SwitchScene()
     {
-        if (player != null)
+        if (NetworkManager.Singleton.IsHost || NetworkManager.Singleton.IsClient)
         {
-            Destroy(player);
+
+            NetworkManager.Singleton.SceneManager.LoadScene("Game Scene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+        }
+        else
+        {
+            Debug.LogWarning("You need to be connected to the network");
         }
     }
 }
