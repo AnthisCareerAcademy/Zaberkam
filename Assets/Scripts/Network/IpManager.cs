@@ -10,12 +10,11 @@ using System.Net.Sockets;
 public class IpManager : MonoBehaviour
 {
     [SerializeField] Button hostButton;
+    [SerializeField] Button startButton;
     [SerializeField] Button joinButton;
     [SerializeField] TMP_InputField ipInput;
     [SerializeField] TextMeshProUGUI infoText;
     [SerializeField] TextMeshProUGUI hostText;
-    [SerializeField] GameObject player;
-
     [SerializeField] ushort port = 7777;
 
     private void Awake()
@@ -28,6 +27,7 @@ public class IpManager : MonoBehaviour
     {
         hostButton.onClick.AddListener(StartHost);
         joinButton.onClick.AddListener(() => StartClient(ipInput.text));
+        startButton.onClick.AddListener(SwitchScene);
 
         UpdateHostStatus();
     }
@@ -40,7 +40,6 @@ public class IpManager : MonoBehaviour
         transport.SetConnectionData(localIP, port);
 
         NetworkManager.Singleton.StartHost();
-        NetworkManager.Singleton.SceneManager.LoadScene("Game Scene", UnityEngine.SceneManagement.LoadSceneMode.Single);
 
         infoText.text = $"Host IP: {localIP}:{port}";
         infoText.gameObject.SetActive(true);
@@ -54,7 +53,6 @@ public class IpManager : MonoBehaviour
         transport.SetConnectionData("0.0.0.0", port);
 
         NetworkManager.Singleton.StartClient();
-        NetworkManager.Singleton.SceneManager.LoadScene("Game Scene", UnityEngine.SceneManagement.LoadSceneMode.Single);
 
         UpdateHostStatus();
     }
@@ -91,11 +89,16 @@ public class IpManager : MonoBehaviour
         }
     }
 
-    public void DestroyPlayer()
+    void SwitchScene()
     {
-        if (player != null)
+        if (NetworkManager.Singleton.IsHost || NetworkManager.Singleton.IsClient)
         {
-            Destroy(player);
+
+            NetworkManager.Singleton.SceneManager.LoadScene("Game Scene", UnityEngine.SceneManagement.LoadSceneMode.Single);
+        }
+        else
+        {
+            Debug.LogWarning("You need to be connected to the network");
         }
     }
 }

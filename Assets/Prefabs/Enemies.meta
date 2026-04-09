@@ -1,7 +1,12 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/Prefabs/Enemies.meta
 guid: 52583dfc4c7782c4fbc3d6506e5ae311
 folderAsset: yes
 DefaultImporter:
+=======
+guid: 340a6740c71d0f741ba28c36cdb06ed5
+PrefabImporter:
+>>>>>>> Stashed changes:Assets/Prefabs/Breakable Box.prefab.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
