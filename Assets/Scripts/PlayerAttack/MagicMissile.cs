@@ -7,13 +7,10 @@ public class MagicMissile : Projectile
     
     // THIS MUST BE SET IN PREFAB--the normal speed setter doesn't work.
     public float speed = 10f;
-    [SerializeField] private float lifetime = 5f;
 
     void Start()
     {
         FindTarget();
-
-        Destroy(gameObject, lifetime);
     }
 
     void FixedUpdate()
