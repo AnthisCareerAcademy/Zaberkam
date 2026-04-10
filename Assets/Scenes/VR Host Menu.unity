@@ -1215,14 +1215,14 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3642600068982690156, guid: 41e5719f8d890434eba9cf0562f2f7df, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 274381601}
+      addedObject: {fileID: 274381604}
   m_SourcePrefab: {fileID: 100100000, guid: 41e5719f8d890434eba9cf0562f2f7df, type: 3}
 --- !u!1 &274381594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3642600068982690156, guid: 41e5719f8d890434eba9cf0562f2f7df, type: 3}
   m_PrefabInstance: {fileID: 274381593}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &274381601
+--- !u!114 &274381604
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1231,16 +1231,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 274381594}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a5290a8c4af06d428db11b5454565d0, type: 3}
+  m_Script: {fileID: 11500000, guid: fda466ce9a33eb44ba6c1d5dde4d639d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hostButton: {fileID: 1933636153}
   joinButton: {fileID: 78055303}
-  ipInput: {fileID: 1881649174}
-  infoText: {fileID: 1061412934}
+  startButton: {fileID: 1360171373}
+  joinInput: {fileID: 1881649174}
+  codeText: {fileID: 1061412934}
   hostText: {fileID: 1928515971}
-  player: {fileID: 0}
-  port: 7777
 --- !u!1 &346438668
 GameObject:
   m_ObjectHideFlags: 0
@@ -2562,7 +2561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6960e84d07fb87f47956e7a81d71c4e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_ProtocolType: 0
+  m_ProtocolType: 1
   m_UseWebSockets: 0
   m_UseEncryption: 0
   m_MaxPacketQueueSize: 128

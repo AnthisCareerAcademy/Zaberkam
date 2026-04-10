@@ -469,6 +469,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5417428257705961053, guid: dae3cff53c305594bab5767f52de154d, type: 3}
   m_PrefabInstance: {fileID: 100677367}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &122515223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 122515225}
+  - component: {fileID: 122515224}
+  m_Layer: 0
+  m_Name: Roomgen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &122515224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122515223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d7a7e2ca64162c4480930c27607f987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startRoomPrefab: {fileID: 7551399147445353226, guid: 5d6fb5743e4a81048979bbd9ba06693e, type: 3}
+  bossRoomPrefab: {fileID: 8501153169542685276, guid: 1fef5c62a33aa004e8ee70832672a8ee, type: 3}
+  roomPrefabs:
+  - {fileID: 8504488979673083061, guid: cf48361b72fd9284e861579b63b78831, type: 3}
+  sideRoomPrefabs:
+  - {fileID: 8305833340241047557, guid: 77d16ebdc6eaa5843b25cff5ce0d4cd9, type: 3}
+  dungeonBounds:
+    m_Center: {x: 0, y: 0, z: 1}
+    m_Extent: {x: 1, y: 2, z: 3}
+  maxRooms: 10
+--- !u!4 &122515225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122515223}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.1899999, z: 1}
+  m_LocalScale: {x: 0.33, y: 0.33, z: 0.33}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &147896825
 GameObject:
   m_ObjectHideFlags: 0
@@ -4552,6 +4606,7 @@ MeshRenderer:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 122515225}
   - {fileID: 867725738}
   - {fileID: 1615986351}
   - {fileID: 546575195}
