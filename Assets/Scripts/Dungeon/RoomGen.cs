@@ -7,6 +7,7 @@ public class RoomGen : MonoBehaviour
     public Room bossRoomPrefab;
     public List<Room> roomPrefabs;
     public List<Room> sideRoomPrefabs;
+    public Bounds dungeonBounds;
 
     public int maxRooms = 15;
 
@@ -29,7 +30,8 @@ public class RoomGen : MonoBehaviour
         spawnedRooms.Clear();
         spawnedBounds.Clear();
 
-        Room startRoom = Instantiate(startRoomPrefab, Vector3.zero, Quaternion.identity);
+        // ✅ Spawn start room at THIS object's position & rotation
+        Room startRoom = Instantiate(startRoomPrefab, transform.position, transform.rotation);
         RegisterRoom(startRoom);
 
         List<ConnectorTransform> openConnectors = new List<ConnectorTransform>(startRoom.connectors);
@@ -53,7 +55,6 @@ public class RoomGen : MonoBehaviour
             {
                 prefabToUse = bossRoomPrefab;
             }
-            // 5% chance to use a side room if available, otherwise use a regular room
             else
             {
                 bool useSide = sideRoomPrefabs.Count > 0 && Random.value < 0.05f;
@@ -62,7 +63,8 @@ public class RoomGen : MonoBehaviour
                     : roomPrefabs[Random.Range(0, roomPrefabs.Count)];
             }
 
-            Room newRoom = Instantiate(prefabToUse);
+            // ✅ Spawn new rooms at generator position (instead of 0,0,0)
+            Room newRoom = Instantiate(prefabToUse, transform.position, transform.rotation);
 
             if (!AlignRoomToConnector(newRoom, parentConnector))
             {
@@ -80,7 +82,13 @@ public class RoomGen : MonoBehaviour
                 continue;
             }
 
-            // Successful placement
+            if (OutOfBounds(newBounds))
+            {
+                Destroy(newRoom.gameObject);
+                openConnectors.RemoveAt(parentIndex);
+                continue;
+            }
+
             RegisterRoom(newRoom);
 
             ConnectorTransform childConnector = GetBestFacingConnector(newRoom, parentConnector);
@@ -169,5 +177,25 @@ public class RoomGen : MonoBehaviour
         }
 
         return false;
+    }
+
+    bool OutOfBounds(Bounds newBounds)
+    {
+        if (dungeonBounds.size == Vector3.zero) return false;
+
+        if (!dungeonBounds.Contains(newBounds.min) ||
+            !dungeonBounds.Contains(newBounds.max))
+            return true;
+
+        return false;
+    }
+
+    void OnDrawGizmos()
+    {
+        if (dungeonBounds.size == Vector3.zero)
+            return;
+
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(dungeonBounds.center, dungeonBounds.size);
     }
 }
