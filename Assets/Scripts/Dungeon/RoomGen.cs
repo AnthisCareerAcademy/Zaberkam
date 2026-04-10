@@ -10,6 +10,10 @@ public class RoomGen : MonoBehaviour
 
     public int maxRooms = 15;
 
+    [Header("Table Bounds (centered on this position)")]
+    public Vector2 tableSize = new Vector2(2, 6);   // width (X), depth (Z)
+    public Vector3 tableCenter = new Vector3(0, 0, 1); // world position of table center
+
     private List<Room> spawnedRooms = new List<Room>();
     private List<Bounds> spawnedBounds = new List<Bounds>();
 
@@ -29,7 +33,7 @@ public class RoomGen : MonoBehaviour
         spawnedRooms.Clear();
         spawnedBounds.Clear();
 
-        Room startRoom = Instantiate(startRoomPrefab, Vector3.zero, Quaternion.identity);
+        Room startRoom = Instantiate(startRoomPrefab, new Vector3(0, transform.position.y, 0), Quaternion.identity);
         RegisterRoom(startRoom);
 
         List<ConnectorTransform> openConnectors = new List<ConnectorTransform>(startRoom.connectors);
@@ -53,7 +57,6 @@ public class RoomGen : MonoBehaviour
             {
                 prefabToUse = bossRoomPrefab;
             }
-            // 5% chance to use a side room if available, otherwise use a regular room
             else
             {
                 bool useSide = sideRoomPrefabs.Count > 0 && Random.value < 0.05f;
@@ -96,6 +99,26 @@ public class RoomGen : MonoBehaviour
         }
 
         Debug.Log("Dungeon generation complete.");
+    }
+
+    bool AlignToTable(Bounds b)
+    {
+        return !IsOutsideTable(b);
+    }
+
+    bool IsOutsideTable(Bounds b)
+    {
+        float halfW = tableSize.x / 2f;
+        float halfH = tableSize.y / 2f;
+
+        Vector3 c = tableCenter;
+
+        if (b.min.x < c.x - halfW) return true;
+        if (b.max.x > c.x + halfW) return true;
+        if (b.min.z < c.z - halfH) return true;
+        if (b.max.z > c.z + halfH) return true;
+
+        return false;
     }
 
     bool AlignRoomToConnector(Room room, ConnectorTransform parentConnector)
@@ -162,6 +185,11 @@ public class RoomGen : MonoBehaviour
 
     bool OverlapsExisting(Bounds newBounds)
     {
+        // First: check table boundaries
+        if (IsOutsideTable(newBounds))
+            return true;
+
+        // Then: check overlap with other rooms
         foreach (var b in spawnedBounds)
         {
             if (b.Intersects(newBounds))
@@ -169,5 +197,11 @@ public class RoomGen : MonoBehaviour
         }
 
         return false;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(tableCenter, new Vector3(tableSize.x, 0.1f, tableSize.y));
     }
 }
