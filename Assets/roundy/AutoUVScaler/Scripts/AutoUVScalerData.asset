@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7aa2a55c3d691f43b58aa8742aeb65c, type: 3}
+  m_Name: AutoUVScalerData
+  m_EditorClassIdentifier: 
+  meshMappings:
+  - gameObjectID: -40708
+    originalMeshGUID: 390edb8f6caa3bb4385e9d8c81fa316d
+    autoUVMeshAssetPath: 
+  - gameObjectID: -6494
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 33.asset
+  - gameObjectID: -40736
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 34.asset
+  - gameObjectID: -6276
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 35.asset
+  - gameObjectID: -40700
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 36.asset
