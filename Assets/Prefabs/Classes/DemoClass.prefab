@@ -1222,7 +1222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3265245462140858533, guid: 590149d58fd03ce4bb2a383c0e03bd9f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3265245462140858533, guid: 590149d58fd03ce4bb2a383c0e03bd9f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1294,9 +1294,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Height: 8
+  m_Height: 2
   m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 5}
+  m_Center: {x: 0, y: 0, z: 1}
 --- !u!114 &2123578553345722513 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5954167691689212049, guid: 590149d58fd03ce4bb2a383c0e03bd9f, type: 3}
