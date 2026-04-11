@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
-      value: Torch Variant
+      value: Small Torch
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: scalingMode
@@ -112,7 +112,9 @@ PrefabInstance:
       propertyPath: m_BounceIntensity
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5750653524283505952, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+    - {fileID: 7839365973633526417, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
