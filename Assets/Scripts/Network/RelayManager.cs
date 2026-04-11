@@ -17,6 +17,7 @@ public class RelayManager : MonoBehaviour
     [SerializeField] TMP_InputField joinInput;
     [SerializeField] TextMeshProUGUI codeText;
     [SerializeField] TextMeshProUGUI hostText;
+    [SerializeField] Canvas joinUI;
 
     private void Awake()
     {
@@ -28,8 +29,9 @@ public class RelayManager : MonoBehaviour
         await UnityServices.InitializeAsync();
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
-        hostButton.onClick.AddListener(() => print("yay you clicked it"));
+        hostButton.onClick.AddListener(HideJoinUI);
         hostButton.onClick.AddListener(CreateRelay);
+        joinButton.onClick.AddListener(HideJoinUI);
         joinButton.onClick.AddListener(() => JoinRelay(joinInput.text));
 
         startButton.onClick.AddListener(SwitchScene);
@@ -53,6 +55,11 @@ public class RelayManager : MonoBehaviour
         NetworkManager.Singleton.StartHost();
 
         UpdateHostStatus();
+    }
+
+    void HideJoinUI()
+    {
+        joinUI.gameObject.SetActive(false);
     }
 
     async void JoinRelay(string JoinCode)
