@@ -1032,7 +1032,7 @@ GameObject:
   - component: {fileID: 78055304}
   - component: {fileID: 78055303}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Join Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1378,12 +1378,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fda466ce9a33eb44ba6c1d5dde4d639d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hostButton: {fileID: 0}
+  hostButton: {fileID: 1933636153}
   joinButton: {fileID: 78055303}
   startButton: {fileID: 1360171373}
   joinInput: {fileID: 1881649174}
   codeText: {fileID: 1061412934}
   hostText: {fileID: 1928515971}
+  joinUI: {fileID: 1827762748}
 --- !u!1 &346438668
 GameObject:
   m_ObjectHideFlags: 0
