@@ -1,5 +1,4 @@
 using Interfaces;
-using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,7 +31,7 @@ public class HealthNoNetcode : MonoBehaviour, IDamageable
         if (currentHealth <= 0f) Destroy(gameObject);
     }
     
-    public void heal(float amount)
+    public void Heal(float amount)
     {
         currentHealth += amount;
         currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
