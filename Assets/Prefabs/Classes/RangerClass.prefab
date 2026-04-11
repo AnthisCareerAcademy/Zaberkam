@@ -80,7 +80,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-  moveSpeed: 12
+  moveSpeed: 10
   jumpHeight: 4
   gravity: -10
   scale: 0.5
@@ -136,14 +136,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3967131360
-  InScenePlacedSourceGlobalObjectIdHash: 0
+  GlobalObjectIdHash: 3151481531
+  InScenePlacedSourceGlobalObjectIdHash: 3967131360
   DeferredDespawnTick: 0
   Ownership: 1
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
+  SceneMigrationSynchronization: 0
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
