@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -94,6 +95,9 @@ public class GrabbableObjectSpawner : XRBaseInteractable
             
             // Instantiate new object.
             GameObject grabbable = Instantiate(grabbableObject, spawnPoint.position, Quaternion.identity);
+
+            NetworkObject netObject = grabbable.GetComponent<NetworkObject>();
+            netObject.Spawn();
             
             // Force the player to grab the object.
             XRGrabInteractable interactable = grabbable.GetComponent<XRGrabInteractable>();

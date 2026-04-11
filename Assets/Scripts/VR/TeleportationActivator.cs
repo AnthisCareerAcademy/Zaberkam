@@ -10,7 +10,6 @@ public class TeleportationActivator : MonoBehaviour
     
     void Start()
     {
-        teleportInteractor.gameObject.SetActive(false);
         teleportAction.action.performed += ActionPerformed;
         rayInteractor.uiHoverEntered.AddListener(x => DisableTeleport());
     }

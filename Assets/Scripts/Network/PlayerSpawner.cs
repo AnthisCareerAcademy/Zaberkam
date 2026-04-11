@@ -10,10 +10,6 @@ public class PlayerSpawner : NetworkBehaviour
     private GameObject host;
     private GameObject client;
 
-    private void Start()
-    {
-        host = GameObject.Find("Complete VR Setup");
-    }
     public override void OnNetworkSpawn()
     {
         if (NetworkManager.Singleton.IsHost)
