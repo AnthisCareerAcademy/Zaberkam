@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
 
     [SerializeField] float lifetime = 5f;
 
-    void Start()
+    public virtual void Start()
     {
         rb = GetComponent<Rigidbody>();
         if (rb == null) Debug.LogError($"No Rigidbody found on {name}");

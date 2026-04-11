@@ -97,10 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c01d82d54f8c524d8d7e855581ac47f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  rotationSpeed: 5
   damage: 20
+  rb: {fileID: 5757228830787490393}
   lifetime: 5
+  speed: 10
 --- !u!1 &6901066295314207868
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,9 +8,10 @@ public class MagicMissile : Projectile
     // THIS MUST BE SET IN PREFAB--the normal speed setter doesn't work.
     public float speed = 10f;
 
-    void Start()
+    public override void Start()
     {
         FindTarget();
+        base.Start();
     }
 
     void FixedUpdate()
@@ -18,6 +19,7 @@ public class MagicMissile : Projectile
         if (target)
         {
             Vector3 direction = (target.transform.position - transform.position).normalized;
+            //transform.LookAt(target.transform.position);
             rb.AddForce(direction * speed);
         }
         else
@@ -34,7 +36,7 @@ public class MagicMissile : Projectile
         
         if (Physics.Raycast(ray, out hit, 100f))
         {
-            if (hit.collider)
+            if (hit.collider.gameObject.CompareTag("Enemy"))
             {
                 return hit.collider.gameObject;
             }
@@ -45,7 +47,7 @@ public class MagicMissile : Projectile
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Enemy"))
+        if (!other.CompareTag("Player") && !other.isTrigger)
         {
             IDamageable damageable = other.GetComponent<IDamageable>();
             if (damageable != null)
