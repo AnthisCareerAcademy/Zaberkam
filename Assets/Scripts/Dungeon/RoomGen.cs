@@ -11,8 +11,13 @@ public class RoomGen : MonoBehaviour
     public int maxRooms = 15;
 
     [Header("Table Bounds (centered on this position)")]
+<<<<<<< HEAD
     public Vector2 tableSize;
     public Vector3 tableCenter;
+=======
+    public Vector2 tableSize = new Vector2(2, 6);
+    public Vector3 tableCenter = new Vector3(0, 0, 1);
+>>>>>>> b821c4bffd67778a24c24a675350e299d24aa128
 
     private List<Room> spawnedRooms = new List<Room>();
     private List<Bounds> spawnedBounds = new List<Bounds>();
@@ -33,7 +38,11 @@ public class RoomGen : MonoBehaviour
         spawnedRooms.Clear();
         spawnedBounds.Clear();
 
+<<<<<<< HEAD
         Room startRoom = Instantiate(startRoomPrefab, transform.position, Quaternion.identity);
+=======
+        Room startRoom = Instantiate(startRoomPrefab, new Vector3(0, transform.position.y, 0), Quaternion.identity);
+>>>>>>> b821c4bffd67778a24c24a675350e299d24aa128
         RegisterRoom(startRoom);
 
         List<ConnectorTransform> openConnectors = new List<ConnectorTransform>(startRoom.connectors);

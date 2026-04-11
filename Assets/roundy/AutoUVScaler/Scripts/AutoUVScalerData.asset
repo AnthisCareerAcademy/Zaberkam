@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: AutoUVScalerData
   m_EditorClassIdentifier: 
   meshMappings:
+<<<<<<< HEAD
   - gameObjectID: -40708
     originalMeshGUID: 390edb8f6caa3bb4385e9d8c81fa316d
     autoUVMeshAssetPath: 
@@ -145,3 +146,122 @@ MonoBehaviour:
   - gameObjectID: 91188
     originalMeshGUID: 0000000000000000e000000000000000
     autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_07 2.asset
+=======
+  - gameObjectID: 143628
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Plane_AutoUV_00 2.asset
+  - gameObjectID: 143630
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 37.asset
+  - gameObjectID: 143564
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 38.asset
+  - gameObjectID: 143660
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 39.asset
+  - gameObjectID: 143608
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 40.asset
+  - gameObjectID: 143572
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 41.asset
+  - gameObjectID: 143592
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 42.asset
+  - gameObjectID: 143662
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 43.asset
+  - gameObjectID: 146036
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 44.asset
+  - gameObjectID: 146086
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 60.asset
+  - gameObjectID: 146178
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 62.asset
+  - gameObjectID: 146202
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 63.asset
+  - gameObjectID: 146272
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 65.asset
+  - gameObjectID: 146276
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 50.asset
+  - gameObjectID: 146306
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 68.asset
+  - gameObjectID: 146118
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 52.asset
+  - gameObjectID: 146076
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 53.asset
+  - gameObjectID: 146088
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 67.asset
+  - gameObjectID: 146052
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 55.asset
+  - gameObjectID: 146152
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 56.asset
+  - gameObjectID: 146296
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 57.asset
+  - gameObjectID: 146128
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 58.asset
+  - gameObjectID: 146192
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 59.asset
+  - gameObjectID: 146238
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 61.asset
+  - gameObjectID: 146122
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 64.asset
+  - gameObjectID: 160178
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 69.asset
+  - gameObjectID: 160234
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 70.asset
+  - gameObjectID: 160214
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 71.asset
+  - gameObjectID: 160240
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 72.asset
+  - gameObjectID: 160184
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 73.asset
+  - gameObjectID: 160246
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 74.asset
+  - gameObjectID: 160254
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Plane_AutoUV_00 4.asset
+  - gameObjectID: 161760
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 81.asset
+  - gameObjectID: 161746
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 76.asset
+  - gameObjectID: 161766
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 77.asset
+  - gameObjectID: 161772
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 78.asset
+  - gameObjectID: 161796
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 79.asset
+  - gameObjectID: 161834
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 80.asset
+  - gameObjectID: 161812
+    originalMeshGUID: 0000000000000000e000000000000000
+    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Plane_AutoUV_00 5.asset
+>>>>>>> b821c4bffd67778a24c24a675350e299d24aa128
