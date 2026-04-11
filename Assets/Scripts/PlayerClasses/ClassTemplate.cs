@@ -194,7 +194,7 @@ public abstract class ClassTemplate : MonoBehaviour
             Pause();
         }
         
-        if (pause.action.WasPressedThisFrame() || attackInputs.primary.action.WasPressedThisFrame())
+        if (attackInputs.primary.action.WasPressedThisFrame())
         {
             Unpause();
         }
