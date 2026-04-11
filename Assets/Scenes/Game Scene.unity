@@ -945,26 +945,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d7a7e2ca64162c4480930c27607f987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
   startRoomPrefab: {fileID: 7551399147445353226, guid: 5d6fb5743e4a81048979bbd9ba06693e, type: 3}
   bossRoomPrefab: {fileID: 8501153169542685276, guid: 1fef5c62a33aa004e8ee70832672a8ee, type: 3}
   roomPrefabs:
   - {fileID: 8504488979673083061, guid: cf48361b72fd9284e861579b63b78831, type: 3}
-  sideRoomPrefabs: []
-  maxRooms: 10
-  tableSize: {x: 20, y: 60}
-  tableCenter: {x: 100, y: 0, z: 1}
-=======
-  startRoomPrefab: {fileID: 5505842626976039362, guid: 47fb003bb19a64d458709f57daebaf0d, type: 3}
-  bossRoomPrefab: {fileID: 1915829615570314385, guid: be7a146fcd8c3b243aa634d6ccfa8747, type: 3}
-  roomPrefabs:
-  - {fileID: 5810620976859467073, guid: 0fc628f11ff7841449cbe0a250210c1a, type: 3}
   sideRoomPrefabs:
-  - {fileID: 8112329035780753884, guid: 7d7bda9ade9f690488c44ee6c2a40ab3, type: 3}
-  maxRooms: 32
+  - {fileID: 8305833340241047557, guid: 77d16ebdc6eaa5843b25cff5ce0d4cd9, type: 3}
+  maxRooms: 10
   tableSize: {x: 2, y: 6}
   tableCenter: {x: 0, y: 0, z: 1}
->>>>>>> b821c4bffd67778a24c24a675350e299d24aa128
 --- !u!4 &487712890
 Transform:
   m_ObjectHideFlags: 0
@@ -974,11 +963,7 @@ Transform:
   m_GameObject: {fileID: 487712888}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-<<<<<<< HEAD
-  m_LocalPosition: {x: 100, y: 1.2, z: 1}
-=======
   m_LocalPosition: {x: 0, y: 1.2, z: 1}
->>>>>>> b821c4bffd67778a24c24a675350e299d24aa128
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
