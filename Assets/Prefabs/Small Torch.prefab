@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: LightsModule.rangeCurve.scalar
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 0.5
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: TrailModule.generateLightingData
@@ -78,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
-      value: -0.25
+      value: -0.025
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: TrailModule.colorOverTrail.maxColor.b
