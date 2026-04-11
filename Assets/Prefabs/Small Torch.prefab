@@ -12,8 +12,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Small Torch
       objectReference: {fileID: 0}
+    - target: {fileID: 2356594595431045703, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: m_RenderAlignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2356594595431045703, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 29ca0e21f2934444c90843fad634cd12, type: 2}
+    - target: {fileID: 2356594595431045703, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3868e1bc8aa042748909f0fcc25b9f56, type: 2}
+    - target: {fileID: 2932051248448144067, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: m_Name
+      value: Particles
+      objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: scalingMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: TrailModule.mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
@@ -22,6 +42,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: moveWithTransform
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: LightsModule.enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
@@ -41,12 +65,32 @@ PrefabInstance:
       value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: TrailModule.generateLightingData
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: TrailModule.inheritParticleColor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: LightsModule.intensityCurve.scalar
       value: 0.0025
       objectReference: {fileID: 0}
     - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: InitialModule.gravityModifier.scalar
       value: -0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5266215206331203589, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: TrailModule.colorOverTrail.maxColor.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalScale.x
