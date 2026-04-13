@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
-using Unity.XR.CoreUtils.Capabilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.XR.OpenXR.NativeTypes;
 using Random = UnityEngine.Random;
 
 // Don't mess with these; they're just naming the dropdowns.
@@ -128,9 +126,13 @@ public abstract class ClassTemplate : MonoBehaviour
     public virtual void Update()
     {
         CheckPause();
-        DoLook();
-        DoMove();
-        
+
+        if (!Cursor.visible)
+        {
+            DoLook();
+            DoMove();
+        }
+
         // I tried to make this a for-loop, but the structs weren't cooperating, so this works for now.
         HandleAction(attackInputs.primary, DoPrimary, cooldowns.primary, 0);
         HandleAction(attackInputs.secondary, DoSecondary, cooldowns.secondary, 1);
@@ -192,7 +194,7 @@ public abstract class ClassTemplate : MonoBehaviour
             Pause();
         }
         
-        if (pause.action.WasPressedThisFrame() || attackInputs.primary.action.WasPressedThisFrame())
+        if (attackInputs.primary.action.WasPressedThisFrame())
         {
             Unpause();
         }
@@ -201,11 +203,13 @@ public abstract class ClassTemplate : MonoBehaviour
     void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     
     void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private IEnumerator Cooldown(float cooldown, int id)

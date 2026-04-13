@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour
 
         print($"Doing {damage} to {contact.otherCollider.name}");
 
-        damageable.TakeDamage(damage);
+        damageable?.TakeDamage(damage);
         Destroy(gameObject);
     }
 
