@@ -12,7 +12,7 @@ public class RangedAttack : AttackTemplate
         
         Projectile newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
         GameObject projectileObj = newProjectile.gameObject;
-        projectileObj.transform.localScale = Vector3.one * scale;
+        projectileObj.transform.localScale *= scale;
         newProjectile.transform.eulerAngles = direction.Value;
         newProjectile.damage = damage * multiplier;
         newProjectile.rb.useGravity = useGravity;
