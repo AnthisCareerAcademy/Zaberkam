@@ -7,9 +7,14 @@ public class NetcodeCameraCheck : NetworkBehaviour
 
     public override void OnNetworkSpawn()
     {
+        AudioListener listener = GetComponentInChildren<AudioListener>();
         if (!IsOwner)
         {
             myCamera.enabled = false;
+            if (listener != null)
+            {
+                listener.enabled = false;
+            }
         }
     }
 }
