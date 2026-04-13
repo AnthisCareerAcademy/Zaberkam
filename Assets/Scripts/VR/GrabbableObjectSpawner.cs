@@ -1,6 +1,7 @@
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
+using Unity.Netcode;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -92,17 +93,21 @@ public class GrabbableObjectSpawner : XRBaseInteractable
         if (resourcePool.Resources >= cost)
         {
             resourcePool.Resources -= cost;
-            
-            // Instantiate new object.
-            GameObject grabbable = Instantiate(grabbableObject, spawnPoint.position, Quaternion.identity);
 
-            NetworkObject netObject = grabbable.GetComponent<NetworkObject>();
-            netObject.Spawn();
-            
-            // Force the player to grab the object.
-            XRGrabInteractable interactable = grabbable.GetComponent<XRGrabInteractable>();
-            interactionManager.SelectEnter(args.interactorObject, interactable);
-            base.OnSelectEntered(args);
+            SpawnObjectServerRpc();
+
         }
+
+        base.OnSelectEntered(args);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    void SpawnObjectServerRpc(ServerRpcAttribute rpcParams = default)
+    {
+        GameObject obj = Instantiate(grabbableObject, spawnPoint.position, Quaternion.identity);
+        XRGrabInteractable interactable = obj.GetComponent<XRGrabInteractable>();
+
+        NetworkObject netObj = obj.GetComponent<NetworkObject>();
+        netObj.Spawn();
     }
 }
