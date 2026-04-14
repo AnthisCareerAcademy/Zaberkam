@@ -63,6 +63,7 @@ public class RoomGen : MonoBehaviour
                 : roomPrefabs[Random.Range(0, roomPrefabs.Count)];
 
             Room newRoom = Instantiate(prefabToUse);
+            newRoom.transform.localScale = Vector3.one * scale;
 
             if (!AlignRoomToConnector(newRoom, parentConnector))
             {
@@ -114,6 +115,7 @@ public class RoomGen : MonoBehaviour
                 continue;
 
             Room boss = Instantiate(bossRoomPrefab);
+            boss.transform.localScale = Vector3.one * scale;
 
             if (!AlignRoomToConnector(boss, parentConnector))
             {
