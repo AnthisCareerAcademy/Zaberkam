@@ -1,5 +1,10 @@
+using NUnit.Framework;
+using System.Collections;
+using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.XR;
+using UnityEngine.XR.Management;
 
 public class PlayerSpawner : NetworkBehaviour
 {
@@ -14,6 +19,7 @@ public class PlayerSpawner : NetworkBehaviour
     {
         host = GameObject.Find("Complete VR Setup");
     }
+
     public override void OnNetworkSpawn()
     {
         if (NetworkManager.Singleton.IsHost)

@@ -9,7 +9,6 @@ public class PlayerNetwork : NetworkBehaviour
     [SerializeField] float jumpPower = 7f;
     [SerializeField] float gravity = 10f;
 
-
     [SerializeField] float lookSpeed = 2f;
     [SerializeField] float lookXLimit = 45f;
 
@@ -23,7 +22,16 @@ public class PlayerNetwork : NetworkBehaviour
     CharacterController characterController;
     void Start()
     {
-        if (!IsOwner) playerCamera.GetComponent<Camera>().gameObject.SetActive(false);
+        AudioListener listener = GetComponentInChildren<AudioListener>();
+        if (!IsOwner) 
+        {
+            playerCamera.GetComponent<Camera>().gameObject.SetActive(false);
+            if (listener != null)
+            {
+                listener.enabled = false;
+            }
+        }
+        
         characterController = GetComponent<CharacterController>();
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;

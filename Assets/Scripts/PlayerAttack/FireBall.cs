@@ -1,36 +1,18 @@
+﻿using Interfaces;
 using UnityEngine;
-using System.Collections;
 
-public class FireBall : MonoBehaviour
+public class FireBall: Projectile
 {
-    public float speed = 40.0f;
-    public float timeOfSurvival = 5f;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(TimeOFSurvival());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.Self);
-    }
-    private IEnumerator TimeOFSurvival()
-    {
-        yield return new WaitForSeconds(timeOfSurvival);
-        Destroy(gameObject);
-
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player") && !other.isTrigger)
         {
-            return;
+            IDamageable damageable = other.GetComponent<IDamageable>();
+            if (damageable != null)
+            {
+                damageable.TakeDamage(damage);
+            }
+            Destroy(gameObject);
         }
-        
-        Destroy(gameObject);
     }
 }
-
