@@ -1251,7 +1251,7 @@ PrefabInstance:
     - target: {fileID: 576439891858260250, guid: 2f4bd34f00179d34882d1834aebcd288, type: 3}
       propertyPath: desktopPlayer
       value: 
-      objectReference: {fileID: 2502993944930348481, guid: fd723706b6fa9854596212624d1992b3, type: 3}
+      objectReference: {fileID: 1460173544637939895, guid: d3b9b035933f5c04c90579d5530bfe02, type: 3}
     - target: {fileID: 5971294177470202857, guid: 2f4bd34f00179d34882d1834aebcd288, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

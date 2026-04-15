@@ -15,7 +15,7 @@ public class PlayerSpawner : NetworkBehaviour
     private GameObject host;
     private GameObject client;
 
-    private void Start()
+    private void Awake()
     {
         host = GameObject.Find("Complete VR Setup");
     }
