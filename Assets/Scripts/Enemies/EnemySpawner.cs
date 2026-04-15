@@ -50,6 +50,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void TrySpawnEnemies()
     {
+        
         while (spawnedEnemies.Count < maxEnemies)
         {
             if (enemyPrefabs.Count == 0) return;
@@ -66,6 +67,10 @@ public class EnemySpawner : MonoBehaviour
                 int randomIndex = Random.Range(0, enemyPrefabs.Count);
                 GameObject enemy = Instantiate(enemyPrefabs[randomIndex], hit.position, Quaternion.identity, transform);
                 spawnedEnemies.Add(enemy);
+            }
+            else {
+                Debug.LogWarning("Failed to find a valid spawn point for an enemy.");
+                return;
             }
         }
     }

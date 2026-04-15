@@ -30,7 +30,6 @@ public class RoomGen : MonoBehaviour
         spawnedRooms.Clear();
         spawnedBounds.Clear();
 
-        // ✅ Spawn start room at THIS object's position & rotation
         Room startRoom = Instantiate(startRoomPrefab, transform.position, transform.rotation);
         RegisterRoom(startRoom);
 
