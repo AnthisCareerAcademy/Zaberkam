@@ -11,8 +11,8 @@ public class RoomGen : MonoBehaviour
     public int maxRooms = 15;
 
     [Header("Table Bounds (centered on this position)")]
-    public Vector2 tableSize = new Vector2(2, 6);
-    public Vector3 tableCenter = new Vector3(0, 0, 1);
+    public Vector2 tableSize;
+    public Vector3 tableCenter;
 
     private List<Room> spawnedRooms = new List<Room>();
     private List<Bounds> spawnedBounds = new List<Bounds>();
@@ -24,7 +24,7 @@ public class RoomGen : MonoBehaviour
 
     void GenerateDungeon()
     {
-        if (startRoomPrefab == null || bossRoomPrefab == null || roomPrefabs.Count == 0)
+        if (!startRoomPrefab || !bossRoomPrefab || roomPrefabs.Count == 0)
         {
             Debug.LogError("Missing room prefabs.");
             return;
@@ -33,7 +33,7 @@ public class RoomGen : MonoBehaviour
         spawnedRooms.Clear();
         spawnedBounds.Clear();
 
-        Room startRoom = Instantiate(startRoomPrefab, new Vector3(0, transform.position.y, 0), Quaternion.identity);
+        Room startRoom = Instantiate(startRoomPrefab, transform.position, Quaternion.identity);
         RegisterRoom(startRoom);
 
         List<ConnectorTransform> openConnectors = new List<ConnectorTransform>(startRoom.connectors);
