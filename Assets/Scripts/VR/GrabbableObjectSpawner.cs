@@ -1,7 +1,6 @@
 using TMPro;
 using Unity.Netcode;
 using UnityEngine;
-using Unity.Netcode;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
