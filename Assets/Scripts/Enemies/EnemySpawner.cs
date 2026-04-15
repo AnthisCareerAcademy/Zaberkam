@@ -16,6 +16,7 @@ public class EnemySpawner : MonoBehaviour
 
     public int EnemyCount => spawnedEnemies.Count;
     public Material transMat;
+    private int spawnEnemyTrys = 0;
 
     void Start()
     {
@@ -53,25 +54,20 @@ public class EnemySpawner : MonoBehaviour
         
         while (spawnedEnemies.Count < maxEnemies)
         {
+            spawnEnemyTrys++;
+            if (spawnEnemyTrys > 100) return; // Prevent infinite loop 😭
+
             if (enemyPrefabs.Count == 0) return;
 
             Bounds bounds = box.bounds;
             Vector3 randomPoint = new Vector3(
                 Random.Range(bounds.min.x, bounds.max.x),
                 transform.position.y,
-                Random.Range(bounds.min.z, bounds.max.z)
-            );
+                
+            Random.Range(bounds.min.z, bounds.max.z));
+            GameObject enemy = Instantiate(enemyPrefabs[Random.Range(0, enemyPrefabs.Count)], randomPoint, Quaternion.identity, transform);
+            spawnedEnemies.Add(enemy);
 
-            if (NavMesh.SamplePosition(randomPoint, out NavMeshHit hit, 5f, NavMesh.AllAreas))
-            {
-                int randomIndex = Random.Range(0, enemyPrefabs.Count);
-                GameObject enemy = Instantiate(enemyPrefabs[randomIndex], hit.position, Quaternion.identity, transform);
-                spawnedEnemies.Add(enemy);
-            }
-            else {
-                Debug.LogWarning("Failed to find a valid spawn point for an enemy.");
-                return;
-            }
         }
     }
 
