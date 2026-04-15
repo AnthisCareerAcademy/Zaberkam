@@ -1,23 +1,20 @@
-using NUnit.Framework;
-using System.Collections;
-using System.Collections.Generic;
+
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.XR;
-using UnityEngine.XR.Management;
+
 
 public class PlayerSpawner : NetworkBehaviour
 {
     [SerializeField] GameObject desktopPlayer;
     [SerializeField] Vector3 pcSpawn;
-    [SerializeField] GameObject VrPlayer;
-    [SerializeField] Vector3 vrSpawn;
+    [SerializeField] GameObject hostPlayer;
+    [SerializeField] Vector3 hostSpawn;
     private GameObject host;
     private GameObject client;
 
-    private void Start()
+    private void Awake()
     {
-        host = GameObject.Find("Complete VR Setup");
+        host = GameObject.Find("MageClass");
     }
 
     public override void OnNetworkSpawn()
@@ -38,16 +35,16 @@ public class PlayerSpawner : NetworkBehaviour
         ulong clientId = rpcParams.Receive.SenderClientId;
         client = Instantiate(desktopPlayer, pcSpawn, Quaternion.identity);
         client.GetComponent<NetworkObject>().SpawnWithOwnership(clientId);
-        client = GameObject.Find("PC Player(Clone)");
+        client = GameObject.Find("RangerClass(Clone)");
     }
 
     [ServerRpc(RequireOwnership = false)]
     void SpawnVrServerRpc(ServerRpcParams rpcParams = default)
     {
         ulong clientId = rpcParams.Receive.SenderClientId;
-        host = Instantiate(VrPlayer, vrSpawn, Quaternion.identity);
+        host = Instantiate(hostPlayer, hostSpawn, Quaternion.identity);
         host.GetComponent<NetworkObject>().SpawnWithOwnership(clientId);
-        host = GameObject.Find("Complete VR Setup(Clone)");
+        host = GameObject.Find("MageClass(Clone)");
     }
 
     public void DestroyHost()
