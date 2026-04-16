@@ -24,29 +24,34 @@ public struct PlaceableItems
         firstItem, secondItem, thirdItem, fourthItem;
 }
 
+[Serializable]
+public struct ItemPreviews
+{
+    public GameObject
+        firstItem, secondItem, thirdItem, fourthItem;
+}
+
 public class Overseer : MonoBehaviour
 {
-    [Header("Movement Options")] [SerializeField]
-    InputActionReference move;
-
+    [Header("Movement Options")]
+    [SerializeField] InputActionReference move;
     [SerializeField] InputActionReference jump;
     [SerializeField] float moveSpeed = 10f;
     [SerializeField] float jumpHeight = 5f;
     [SerializeField] float gravity = -10f;
 
-    [Header("Camera Options")] [SerializeField]
-    InputActionReference look;
-
+    [Header("Camera Options")]
+    [SerializeField] InputActionReference look;
     [SerializeField] InputActionReference pause;
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cam;
+    [SerializeField] Transform tableCam;
 
-    [Header("Item Placement Options")] [SerializeField]
-    PlacementActionReferences actions;
-
+    [Header("Item Placement Options")]
+    [SerializeField] PlacementActionReferences actions;
     [SerializeField] PlacementCosts costs;
     [SerializeField] PlaceableItems items;
-    [SerializeField] GameObject itemPreview;
+    [SerializeField] ItemPreviews previews;
 
     private ResourcePool resourcePool;
 
@@ -54,6 +59,7 @@ public class Overseer : MonoBehaviour
     private Transform camTransform;
     private Vector3 velocity;
     private float xRotation;
+    private bool viewing;
 
     void Start()
     {
@@ -73,17 +79,19 @@ public class Overseer : MonoBehaviour
 
         if (!Cursor.visible)
         {
-            DoLook();
+            if (!viewing) DoLook();
             DoMove();
+            
+            if (!viewing) ChangeCamera(camTransform);
+            viewing = false;
+            
+            HandleAction(actions.place, Place);
+            HandleAction(actions.view, View);
+            HandleAction(actions.firstItem, FirstItem);
+            HandleAction(actions.secondItem, SecondItem);
+            HandleAction(actions.thirdItem, ThirdItem);
+            HandleAction(actions.fourthItem, FourthItem);
         }
-
-        // I tried to make this a for-loop, but the structs weren't cooperating, so this works for now.
-        HandleAction(actions.place, Place);
-        HandleAction(actions.view, View);
-        HandleAction(actions.firstItem, FirstItem);
-        HandleAction(actions.secondItem, SecondItem);
-        HandleAction(actions.thirdItem, ThirdItem);
-        HandleAction(actions.fourthItem, FourthItem);
     }
 
     void DoLook()
@@ -95,7 +103,7 @@ public class Overseer : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         // Turn the camera and the player
-        camTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * lookInput.x);
     }
 
@@ -156,31 +164,48 @@ public class Overseer : MonoBehaviour
 
     void Place()
     {
-
+        print("Placed an item");
     }
 
     void View()
     {
-        
+        viewing = true;
+        ChangeCamera(camTransform);
     }
 
     void FirstItem()
     {
-        
+        previews.firstItem.SetActive(true);
     }
 
     void SecondItem()
     {
-
+        previews.secondItem.SetActive(true);
     }
 
     void ThirdItem()
     {
-
+        previews.thirdItem.SetActive(true);
     }
 
     void FourthItem()
     {
-        
+        previews.fourthItem.SetActive(true);
+    }
+    
+    protected void ChangeCamera(Transform newCam, float speed = 1f)
+    {
+        if (speed == 0)
+        {
+            cam.transform.SetPositionAndRotation(newCam.position, newCam.rotation);
+        }
+        else
+        {
+            float t = speed * Time.deltaTime;
+            cam.transform.SetPositionAndRotation(
+                Vector3.Lerp(cam.transform.position, newCam.transform.position, t),
+                Quaternion.Lerp(cam.transform.rotation, newCam.transform.rotation, t)
+            );
+        }
     }
 }

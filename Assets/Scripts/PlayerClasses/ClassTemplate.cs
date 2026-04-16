@@ -131,15 +131,15 @@ public abstract class ClassTemplate : MonoBehaviour
         {
             DoLook();
             DoMove();
+            
+            // I tried to make this a for-loop, but the structs weren't cooperating, so this works for now.
+            HandleAction(attackInputs.primary, DoPrimary, cooldowns.primary, 0);
+            HandleAction(attackInputs.secondary, DoSecondary, cooldowns.secondary, 1);
+            HandleAction(attackInputs.firstAbility, DoFirstAbility, cooldowns.firstAbility, 2);
+            HandleAction(attackInputs.secondAbility, DoSecondAbility, cooldowns.secondAbility, 3);
+            HandleAction(attackInputs.thirdAbility, DoThirdAbility, cooldowns.thirdAbility, 4);
+            HandleAction(attackInputs.fourthAbility, DoFourthAbility, cooldowns.fourthAbility, 5);
         }
-
-        // I tried to make this a for-loop, but the structs weren't cooperating, so this works for now.
-        HandleAction(attackInputs.primary, DoPrimary, cooldowns.primary, 0);
-        HandleAction(attackInputs.secondary, DoSecondary, cooldowns.secondary, 1);
-        HandleAction(attackInputs.firstAbility, DoFirstAbility, cooldowns.firstAbility, 2);
-        HandleAction(attackInputs.secondAbility, DoSecondAbility, cooldowns.secondAbility, 3);
-        HandleAction(attackInputs.thirdAbility, DoThirdAbility, cooldowns.thirdAbility, 4);
-        HandleAction(attackInputs.fourthAbility, DoFourthAbility, cooldowns.fourthAbility, 5);
     }
 
     void DoLook()
