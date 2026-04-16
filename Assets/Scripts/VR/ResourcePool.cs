@@ -6,15 +6,15 @@ public class ResourcePool : MonoBehaviour
 {
     [Header("Default Values")]
         [Tooltip("Starting amount of resources.")]
-        [SerializeField] float resources;
+        [SerializeField] float resources = 100;
         
         [Tooltip("Maximum amount of resources.")]
-        [SerializeField] float maxResources;
+        [SerializeField] float maxResources = 100;
         
         [Tooltip("Name of resource (used in UI).")]
-        [SerializeField] string resourceName;
+        [SerializeField] string resourceName = "Lifeblood";
 
-        [Tooltip("Amount of lifeblood recovered each second.")]
+        [Tooltip("Amount of resource recovered each second.")]
         [SerializeField] float recoveryRate = 1;
 
     [Header("Display Options (optional)")]
