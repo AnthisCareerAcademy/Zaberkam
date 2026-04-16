@@ -25,7 +25,8 @@ public class RangedAttack : AttackTemplate
         newProjectile.damage = damage * multiplier;
         newProjectile.rb.useGravity = useGravity;
 
-        newProjectile.GetComponent<NetworkObject>();
+        NetworkObject netObj = newProjectile.GetComponent<NetworkObject>();
+        netObj.Spawn();
 
         newProjectile.Fire(speed * scale);
     }
