@@ -18,6 +18,8 @@ EditorBuildSettings:
     path: Assets/sure/testing.unity
     guid: ddb52f9dd55fed44cac74650512c33f4
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2d6e92a98b21f1a45aa65adb6c28af20, type: 2}
+    com.unity.input.settings: {fileID: 11400000, guid: 26248a544a24ac74caa8f56e276bd976, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 00217dc6a1868d64fa3f985e4eb25c0a, type: 2}
     com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9ea3532ca8497854a92aea422d1acd4c, type: 2}
