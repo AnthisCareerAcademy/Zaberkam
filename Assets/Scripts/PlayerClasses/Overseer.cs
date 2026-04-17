@@ -175,7 +175,7 @@ public class Overseer : MonoBehaviour
     void Place()
     {
         RaycastHit hit;
-        if (Physics.Raycast(originalCam.position, originalCam.forward, out hit, 0.5f))
+        if (Physics.Raycast(originalCam.position, originalCam.forward, out hit, 2f))
         {
             Debug.DrawRay(originalCam.position, originalCam.forward * hit.distance, Color.red);
         }
