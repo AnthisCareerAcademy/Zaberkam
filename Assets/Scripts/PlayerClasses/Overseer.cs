@@ -1,7 +1,7 @@
 using System;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 [Serializable]
 public struct PlacementActionReferences
@@ -45,7 +45,9 @@ public class Overseer : MonoBehaviour
     [SerializeField] InputActionReference pause;
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cam;
+    [SerializeField] Transform originalCam;
     [SerializeField] Transform tableCam;
+    [SerializeField] float camSpeed;
 
     [Header("Item Placement Options")]
     [SerializeField] PlacementActionReferences actions;
@@ -56,10 +58,11 @@ public class Overseer : MonoBehaviour
     private ResourcePool resourcePool;
 
     private CharacterController controller;
-    private Transform camTransform;
     private Vector3 velocity;
     private float xRotation;
     private bool viewing;
+
+    private int currentItemID;
 
     void Start()
     {
@@ -67,8 +70,6 @@ public class Overseer : MonoBehaviour
         if (!resourcePool) Debug.LogError("ResourcePool not found");
         controller = GetComponent<CharacterController>();
         if (!controller) Debug.LogError("CharacterController not found");
-
-        camTransform = cam.transform;
 
         Unpause();
     }
@@ -79,11 +80,11 @@ public class Overseer : MonoBehaviour
 
         if (!Cursor.visible)
         {
-            if (!viewing) DoLook();
-            DoMove();
-            
-            if (!viewing) ChangeCamera(camTransform);
-            viewing = false;
+            if (!viewing)
+            {
+                DoLook();
+                DoMove();
+            }
             
             HandleAction(actions.place, Place);
             HandleAction(actions.view, View);
@@ -92,6 +93,15 @@ public class Overseer : MonoBehaviour
             HandleAction(actions.thirdItem, ThirdItem);
             HandleAction(actions.fourthItem, FourthItem);
         }
+        
+        if (viewing) ChangeCamera(tableCam, camSpeed);
+        else ChangeCamera(originalCam, camSpeed * 2);
+        viewing = false;
+        
+        previews.firstItem.SetActive(currentItemID == 0);
+        previews.secondItem.SetActive(currentItemID == 1);
+        previews.thirdItem.SetActive(currentItemID == 2);
+        previews.fourthItem.SetActive(currentItemID == 3);
     }
 
     void DoLook()
@@ -103,7 +113,7 @@ public class Overseer : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         // Turn the camera and the player
-        cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        originalCam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * lookInput.x);
     }
 
@@ -164,36 +174,43 @@ public class Overseer : MonoBehaviour
 
     void Place()
     {
-        print("Placed an item");
+        RaycastHit hit;
+        if (Physics.Raycast(originalCam.position, originalCam.forward, out hit, 2f))
+        {
+            Debug.DrawRay(originalCam.position, originalCam.forward * hit.distance, Color.red);
+        }
+        else
+        {
+            Debug.DrawRay(originalCam.position, originalCam.forward * 1000, Color.white);
+        }
     }
 
     void View()
     {
         viewing = true;
-        ChangeCamera(camTransform);
     }
 
     void FirstItem()
     {
-        previews.firstItem.SetActive(true);
+        currentItemID = 0;
     }
 
     void SecondItem()
     {
-        previews.secondItem.SetActive(true);
+        currentItemID = 1;
     }
 
     void ThirdItem()
     {
-        previews.thirdItem.SetActive(true);
+        currentItemID = 2;
     }
 
     void FourthItem()
     {
-        previews.fourthItem.SetActive(true);
+        currentItemID = 3;
     }
     
-    protected void ChangeCamera(Transform newCam, float speed = 1f)
+    void ChangeCamera(Transform newCam, float speed = 1f)
     {
         if (speed == 0)
         {
@@ -206,6 +223,11 @@ public class Overseer : MonoBehaviour
                 Vector3.Lerp(cam.transform.position, newCam.transform.position, t),
                 Quaternion.Lerp(cam.transform.rotation, newCam.transform.rotation, t)
             );
+        }
+
+        if (Vector3.Distance(cam.transform.position, newCam.position) < 0.025f)
+        {
+            cam.transform.SetPositionAndRotation(newCam.position, newCam.rotation);
         }
     }
 }
