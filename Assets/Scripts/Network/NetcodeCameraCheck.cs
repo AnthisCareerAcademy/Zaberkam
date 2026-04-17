@@ -4,6 +4,7 @@ using UnityEngine;
 public class NetcodeCameraCheck : NetworkBehaviour
 {
     [SerializeField] Camera myCamera;
+    [SerializeField] Canvas myUI;
 
     public override void OnNetworkSpawn()
     {
@@ -11,6 +12,7 @@ public class NetcodeCameraCheck : NetworkBehaviour
         if (!IsOwner)
         {
             myCamera.enabled = false;
+            myUI.enabled = false;
             if (listener != null)
             {
                 listener.enabled = false;

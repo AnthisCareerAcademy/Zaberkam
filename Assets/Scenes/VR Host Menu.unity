@@ -1051,6 +1051,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1029878765}
+  - {fileID: 1881649173}
   m_Father: {fileID: 1827762749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1105,6 +1106,18 @@ MonoBehaviour:
       - m_Target: {fileID: 274381604}
         m_TargetAssemblyTypeName: RelayManager, Assembly-CSharp
         m_MethodName: PrintMessage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 576439891858260250, guid: 2f4bd34f00179d34882d1834aebcd288, type: 3}
+        m_TargetAssemblyTypeName: PlayerSpawner, Assembly-CSharp
+        m_MethodName: DestroyHost
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6248,7 +6261,6 @@ RectTransform:
   m_Children:
   - {fileID: 2022532807}
   - {fileID: 1691005576}
-  - {fileID: 1881649173}
   - {fileID: 78055302}
   - {fileID: 344542725}
   - {fileID: 953788588}
@@ -6422,13 +6434,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1881649172}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1275075903}
-  m_Father: {fileID: 1827762749}
+  m_Father: {fileID: 78055302}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

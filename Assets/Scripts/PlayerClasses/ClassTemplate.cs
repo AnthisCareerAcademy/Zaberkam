@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using Unity.Netcode;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
@@ -34,7 +35,7 @@ public struct AttackHandlers
         primary, secondary, firstAbility, secondAbility, thirdAbility, fourthAbility;
 }
 
-public abstract class ClassTemplate : MonoBehaviour
+public abstract class ClassTemplate : NetworkBehaviour
 {
     [Header("Movement Options")]
     [SerializeField] InputActionReference move;
@@ -125,6 +126,8 @@ public abstract class ClassTemplate : MonoBehaviour
 
     public virtual void Update()
     {
+        if (!IsOwner) return;
+
         CheckPause();
 
         if (!Cursor.visible)
