@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     [Header("Join Server")]
     public TMP_InputField codeInput;
 
-    // MAIN MENU
+    //main menu
     public void OnPlayPressed()
     {
         mainMenu.SetActive(false);
@@ -35,12 +35,14 @@ public class UIManager : MonoBehaviour
         Application.Quit();
     }
 
-    //Settings!!
-    public void OnBackFromSettings()
+    //back to main menu button 
+    public void OnBackToMain()
     {
-        settingsMenu.SetActive(false);
         mainMenu.SetActive(true);
+        settingsMenu.SetActive(false);
+        joinServerMenu.SetActive(false);
     }
+
 
     //Server Join (which theoretically we'll add Julians code where the TODO is at
     public void OnJoinPressed()
