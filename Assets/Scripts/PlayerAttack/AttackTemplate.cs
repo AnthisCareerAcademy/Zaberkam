@@ -1,7 +1,8 @@
 using UnityEngine;
+using Unity.Netcode;
 
 // Attack script should be placed on all attack hitboxes.
-public abstract class AttackTemplate : MonoBehaviour
+public abstract class AttackTemplate : NetworkBehaviour
 {
     [SerializeField] protected float damage;
     public float scale = 1f;

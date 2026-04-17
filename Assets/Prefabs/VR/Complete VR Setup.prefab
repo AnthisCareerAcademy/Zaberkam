@@ -2485,6 +2485,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   myCamera: {fileID: 2762457286325693165}
+  myUI: {fileID: 0}
 --- !u!114 &4670583611721513583
 MonoBehaviour:
   m_ObjectHideFlags: 0

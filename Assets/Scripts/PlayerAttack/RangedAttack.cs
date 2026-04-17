@@ -6,9 +6,11 @@ public class RangedAttack : AttackTemplate
     [SerializeField] Projectile projectile;
     [SerializeField] float speed;
     [SerializeField] bool useGravity;
-    
+
     public override void DoAttack(float multiplier = 1f, Vector3? direction = null)
     {
+        if (!IsOwner) return;
+
         direction ??= transform.eulerAngles;
 
         ShootServerRpc(direction.Value, multiplier);
@@ -25,7 +27,8 @@ public class RangedAttack : AttackTemplate
         newProjectile.damage = damage * multiplier;
         newProjectile.rb.useGravity = useGravity;
 
-        newProjectile.GetComponent<NetworkObject>();
+        NetworkObject netObj = newProjectile.GetComponent<NetworkObject>();
+        netObj.Spawn();
 
         newProjectile.Fire(speed * scale);
     }
