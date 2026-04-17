@@ -10,6 +10,8 @@ public class RoomGen : MonoBehaviour
 
     public int maxRooms = 15;
 
+    [SerializeField] float scale;
+
     [Header("Table Bounds (centered on this position)")]
     public Vector2 tableSize;
     public Vector3 tableCenter;
@@ -34,6 +36,7 @@ public class RoomGen : MonoBehaviour
         spawnedBounds.Clear();
 
         Room startRoom = Instantiate(startRoomPrefab, transform.position, Quaternion.identity);
+        startRoom.transform.localScale = Vector3.one * scale;
         RegisterRoom(startRoom);
 
         List<ConnectorTransform> openConnectors = new List<ConnectorTransform>(startRoom.connectors);
@@ -60,6 +63,7 @@ public class RoomGen : MonoBehaviour
                 : roomPrefabs[Random.Range(0, roomPrefabs.Count)];
 
             Room newRoom = Instantiate(prefabToUse);
+            newRoom.transform.localScale = Vector3.one * scale;
 
             if (!AlignRoomToConnector(newRoom, parentConnector))
             {
@@ -111,6 +115,7 @@ public class RoomGen : MonoBehaviour
                 continue;
 
             Room boss = Instantiate(bossRoomPrefab);
+            boss.transform.localScale = Vector3.one * scale;
 
             if (!AlignRoomToConnector(boss, parentConnector))
             {
