@@ -62,7 +62,7 @@ public class Overseer : MonoBehaviour
     private float xRotation;
     private bool viewing;
 
-    private FieldInfo currentItemName;
+    private int currentItemID;
 
     void Start()
     {
@@ -85,10 +85,6 @@ public class Overseer : MonoBehaviour
                 DoLook();
                 DoMove();
             }
-
-            if (viewing) ChangeCamera(tableCam, camSpeed);
-            else ChangeCamera(originalCam, camSpeed * 2);
-            viewing = false;
             
             HandleAction(actions.place, Place);
             HandleAction(actions.view, View);
@@ -97,6 +93,15 @@ public class Overseer : MonoBehaviour
             HandleAction(actions.thirdItem, ThirdItem);
             HandleAction(actions.fourthItem, FourthItem);
         }
+        
+        if (viewing) ChangeCamera(tableCam, camSpeed);
+        else ChangeCamera(originalCam, camSpeed * 2);
+        viewing = false;
+        
+        previews.firstItem.SetActive(currentItemID == 0);
+        previews.secondItem.SetActive(currentItemID == 1);
+        previews.thirdItem.SetActive(currentItemID == 2);
+        previews.fourthItem.SetActive(currentItemID == 3);
     }
 
     void DoLook()
@@ -169,7 +174,15 @@ public class Overseer : MonoBehaviour
 
     void Place()
     {
-        print("Placed an item");
+        RaycastHit hit;
+        if (Physics.Raycast(originalCam.position, originalCam.forward, out hit, 0.5f))
+        {
+            Debug.DrawRay(originalCam.position, originalCam.forward * hit.distance, Color.red);
+        }
+        else
+        {
+            Debug.DrawRay(originalCam.position, originalCam.forward * 1000, Color.white);
+        }
     }
 
     void View()
@@ -179,26 +192,22 @@ public class Overseer : MonoBehaviour
 
     void FirstItem()
     {
-        ResetPreviews();
-        previews.firstItem.SetActive(true);
+        currentItemID = 0;
     }
 
     void SecondItem()
     {
-        ResetPreviews();
-        previews.secondItem.SetActive(true);
+        currentItemID = 1;
     }
 
     void ThirdItem()
     {
-        ResetPreviews();
-        previews.thirdItem.SetActive(true);
+        currentItemID = 2;
     }
 
     void FourthItem()
     {
-        ResetPreviews();
-        previews.fourthItem.SetActive(true);
+        currentItemID = 3;
     }
     
     void ChangeCamera(Transform newCam, float speed = 1f)
@@ -219,15 +228,6 @@ public class Overseer : MonoBehaviour
         if (Vector3.Distance(cam.transform.position, newCam.position) < 0.025f)
         {
             cam.transform.SetPositionAndRotation(newCam.position, newCam.rotation);
-        }
-    }
-
-    void ResetPreviews()
-    {
-        foreach (FieldInfo field in typeof(ItemPreviews).GetFields())
-        {
-            GameObject item = field.GetValue(previews) as GameObject;
-            item?.SetActive(false);
         }
     }
 }

@@ -916,59 +916,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8226714617130758240, guid: bb11435ed7d176b4a8c6584a0e5d66f3, type: 3}
   m_PrefabInstance: {fileID: 310345684}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &487712888
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 487712890}
-  - component: {fileID: 487712889}
-  m_Layer: 0
-  m_Name: RoomGen
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &487712889
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487712888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d7a7e2ca64162c4480930c27607f987, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startRoomPrefab: {fileID: 7551399147445353226, guid: 5d6fb5743e4a81048979bbd9ba06693e, type: 3}
-  bossRoomPrefab: {fileID: 8501153169542685276, guid: 1fef5c62a33aa004e8ee70832672a8ee, type: 3}
-  roomPrefabs:
-  - {fileID: 8504488979673083061, guid: cf48361b72fd9284e861579b63b78831, type: 3}
-  sideRoomPrefabs: []
-  maxRooms: 10
-  scale: 0.05
-  tableSize: {x: 2, y: 6}
-  tableCenter: {x: 0, y: 1.15, z: 1}
---- !u!4 &487712890
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487712888}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.15, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &517313944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4079,14 +4026,6 @@ PrefabInstance:
       propertyPath: tableCam
       value: 
       objectReference: {fileID: 1706208292}
-    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
-      propertyPath: tableBounds.x
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
-      propertyPath: tableBounds.y
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4867,5 +4806,4 @@ SceneRoots:
   - {fileID: 546575195}
   - {fileID: 2066581721}
   - {fileID: 1130588215}
-  - {fileID: 487712890}
   - {fileID: 2477954142023379345}
