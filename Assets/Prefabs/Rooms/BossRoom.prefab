@@ -190,7 +190,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 32, y: 0.1, z: 32}
+  m_LocalScale: {x: 33, y: 0.1, z: 33}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6359069300463916729}
@@ -871,7 +871,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 32, y: 5, z: 32}
+  m_Size: {x: 31, y: 5, z: 31}
   m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!114 &8501153169542685276
 MonoBehaviour:
@@ -1152,10 +1152,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: faf124db17b9dbe4489360d240bbaa04, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch
@@ -1200,6 +1196,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: faf124db17b9dbe4489360d240bbaa04, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1218,10 +1218,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: f21c5c68d5aa4c24d9b3e35acedf09fa, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (10)
@@ -1266,6 +1262,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: f21c5c68d5aa4c24d9b3e35acedf09fa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1284,10 +1284,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: c372c76a7198734498d18f4a0fad7644, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (3)
@@ -1332,6 +1328,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: c372c76a7198734498d18f4a0fad7644, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1350,10 +1350,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 5cb05a08a39593a49a52002297649f44, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (11)
@@ -1398,6 +1394,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 5cb05a08a39593a49a52002297649f44, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1416,10 +1416,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 5c7817ea14bcf0c45813d18d09d58801, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (17)
@@ -1464,6 +1460,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 5c7817ea14bcf0c45813d18d09d58801, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1482,10 +1482,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: b308582130a23a74cb6d12cb753f09fd, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (5)
@@ -1530,6 +1526,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: b308582130a23a74cb6d12cb753f09fd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1548,10 +1548,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 921b617f3a510b64c8d93f0d14c7a8f6, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (9)
@@ -1596,6 +1592,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 921b617f3a510b64c8d93f0d14c7a8f6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1614,10 +1614,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 99c10aa650369854aa57963afff36ebc, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (7)
@@ -1662,6 +1658,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 99c10aa650369854aa57963afff36ebc, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1680,10 +1680,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: f9cef92039892ed4486b7d536cd541f5, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (19)
@@ -1728,6 +1724,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: f9cef92039892ed4486b7d536cd541f5, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1746,10 +1746,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 0d0afd13e1a4ff947868e36536406cd9, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (21)
@@ -1794,6 +1790,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 0d0afd13e1a4ff947868e36536406cd9, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1812,10 +1812,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: c17efcfeeebc9424e9656ba62d195aed, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (12)
@@ -1860,6 +1856,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: c17efcfeeebc9424e9656ba62d195aed, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1878,10 +1878,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 3d6333ad34a1cfa48b180e7c694b0ea3, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (13)
@@ -1926,6 +1922,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 3d6333ad34a1cfa48b180e7c694b0ea3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1944,10 +1944,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: d7d6a2813e81b434aa7d235cb06c612a, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (4)
@@ -1992,6 +1988,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: d7d6a2813e81b434aa7d235cb06c612a, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2010,10 +2010,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 65ba6ada44bb7d340889ca53a51e0854, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (1)
@@ -2058,6 +2054,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 65ba6ada44bb7d340889ca53a51e0854, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2076,10 +2076,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 113e8c77a61b7214e92bab985fdafcad, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (20)
@@ -2124,6 +2120,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 113e8c77a61b7214e92bab985fdafcad, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2142,10 +2142,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 354ff7117745ea2489d6fcd0a45db4db, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (18)
@@ -2190,6 +2186,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 354ff7117745ea2489d6fcd0a45db4db, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2208,10 +2208,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 6cf58de15029e2949a42e067329689ea, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (2)
@@ -2256,6 +2252,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 6cf58de15029e2949a42e067329689ea, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2274,10 +2274,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 99b415d7c28a533429d34fb2acf4c2e3, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (16)
@@ -2322,6 +2318,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 99b415d7c28a533429d34fb2acf4c2e3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2340,10 +2340,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 649ac1cc53fe3ac4d8e963427c4eaffb, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (14)
@@ -2388,6 +2384,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 649ac1cc53fe3ac4d8e963427c4eaffb, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2406,10 +2406,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: 20d900b11d2ca4143ae01ce0f4b3d2c6, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (8)
@@ -2454,6 +2450,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 20d900b11d2ca4143ae01ce0f4b3d2c6, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2472,10 +2472,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: f5837a6ef7a7deb4eb17fef7e4a6d199, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (6)
@@ -2520,6 +2516,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: f5837a6ef7a7deb4eb17fef7e4a6d199, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2538,10 +2538,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7006642743248851006}
     m_Modifications:
-    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: f5e5c221493e01841a0bbc65c8199f9b, type: 2}
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (15)
@@ -2586,6 +2582,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1333783805435317927, guid: d0373baf9070c334882463178265bde7, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: f5e5c221493e01841a0bbc65c8199f9b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

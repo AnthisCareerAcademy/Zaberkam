@@ -1,7 +1,7 @@
 using System;
+using System.Reflection;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 [Serializable]
 public struct PlacementActionReferences
@@ -45,7 +45,9 @@ public class Overseer : MonoBehaviour
     [SerializeField] InputActionReference pause;
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cam;
+    [SerializeField] Transform originalCam;
     [SerializeField] Transform tableCam;
+    [SerializeField] float camSpeed;
 
     [Header("Item Placement Options")]
     [SerializeField] PlacementActionReferences actions;
@@ -56,7 +58,6 @@ public class Overseer : MonoBehaviour
     private ResourcePool resourcePool;
 
     private CharacterController controller;
-    private Transform camTransform;
     private Vector3 velocity;
     private float xRotation;
     private bool viewing;
@@ -68,8 +69,6 @@ public class Overseer : MonoBehaviour
         controller = GetComponent<CharacterController>();
         if (!controller) Debug.LogError("CharacterController not found");
 
-        camTransform = cam.transform;
-
         Unpause();
     }
 
@@ -79,10 +78,14 @@ public class Overseer : MonoBehaviour
 
         if (!Cursor.visible)
         {
-            if (!viewing) DoLook();
-            DoMove();
-            
-            if (!viewing) ChangeCamera(camTransform);
+            if (!viewing)
+            {
+                DoLook();
+                DoMove();
+            }
+
+            if (viewing) ChangeCamera(tableCam, camSpeed);
+            else ChangeCamera(originalCam, camSpeed * 2);
             viewing = false;
             
             HandleAction(actions.place, Place);
@@ -103,7 +106,7 @@ public class Overseer : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         // Turn the camera and the player
-        cam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        originalCam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * lookInput.x);
     }
 
@@ -170,30 +173,33 @@ public class Overseer : MonoBehaviour
     void View()
     {
         viewing = true;
-        ChangeCamera(camTransform);
     }
 
     void FirstItem()
     {
+        ResetPreviews();
         previews.firstItem.SetActive(true);
     }
 
     void SecondItem()
     {
+        ResetPreviews();
         previews.secondItem.SetActive(true);
     }
 
     void ThirdItem()
     {
+        ResetPreviews();
         previews.thirdItem.SetActive(true);
     }
 
     void FourthItem()
     {
+        ResetPreviews();
         previews.fourthItem.SetActive(true);
     }
     
-    protected void ChangeCamera(Transform newCam, float speed = 1f)
+    void ChangeCamera(Transform newCam, float speed = 1f)
     {
         if (speed == 0)
         {
@@ -206,6 +212,20 @@ public class Overseer : MonoBehaviour
                 Vector3.Lerp(cam.transform.position, newCam.transform.position, t),
                 Quaternion.Lerp(cam.transform.rotation, newCam.transform.rotation, t)
             );
+        }
+
+        if (Vector3.Distance(cam.transform.position, newCam.position) < 0.025f)
+        {
+            cam.transform.SetPositionAndRotation(newCam.position, newCam.rotation);
+        }
+    }
+
+    void ResetPreviews()
+    {
+        foreach (FieldInfo field in typeof(ItemPreviews).GetFields())
+        {
+            GameObject item = field.GetValue(previews) as GameObject;
+            item?.SetActive(false);
         }
     }
 }
