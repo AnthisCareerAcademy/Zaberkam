@@ -269,81 +269,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &591005498445164326
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6323954368809796877}
-  - component: {fileID: 5744835987536666167}
-  - component: {fileID: 921498993398924660}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6323954368809796877
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591005498445164326}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 662953601938026504}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5744835987536666167
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591005498445164326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2afdb7946b4efb448da5f5700366117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 1995320748524104084, guid: 3c2240dd5d4cef24ca938a8806f2ada4, type: 3}
-  doors:
-  - {fileID: 2935489485708363443}
-  - {fileID: 4111163117899771420}
-  - {fileID: 1332871015174645433}
-  - {fileID: 1087686786883047249}
-  maxEnemies: 5
-  transMat: {fileID: 2100000, guid: 942cfe8c29ad614409201a7edcdb213a, type: 2}
---- !u!65 &921498993398924660
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 591005498445164326}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 9, y: 3, z: 9}
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &1010710871788699773
 GameObject:
   m_ObjectHideFlags: 0
@@ -377,7 +302,6 @@ Transform:
   m_Children:
   - {fileID: 8952041305671866798}
   - {fileID: 4163693278197845983}
-  - {fileID: 6323954368809796877}
   - {fileID: 9090151729945789148}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -417,7 +341,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 10, y: 5, z: 10}
+  m_Size: {x: 11, y: 5, z: 11}
   m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!1 &1087686786883047249
 GameObject:
@@ -941,7 +865,7 @@ Transform:
   m_GameObject: {fileID: 2517730843975681118}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: -6, y: -0.5, z: -0.00000059604645}
+  m_LocalPosition: {x: -6, y: -0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3032,7 +2956,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
-      value: Torch (5)
+      value: Torch (4)
       objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3098,7 +3022,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
-      value: Torch (3)
+      value: Torch (7)
       objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3164,7 +3088,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
-      value: Torch
+      value: Torch (6)
       objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3228,10 +3152,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7472589498052802294}
     m_Modifications:
-    - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
-      propertyPath: m_Name
-      value: Torch (6)
-      objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.55
@@ -3296,7 +3216,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
-      value: Torch (7)
+      value: Torch (5)
       objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3362,7 +3282,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
-      value: Torch (1)
+      value: Torch (3)
       objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3494,7 +3414,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
-      value: Torch (4)
+      value: Torch (1)
       objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x

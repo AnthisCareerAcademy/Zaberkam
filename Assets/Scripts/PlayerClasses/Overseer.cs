@@ -62,6 +62,8 @@ public class Overseer : MonoBehaviour
     private float xRotation;
     private bool viewing;
 
+    private FieldInfo currentItemName;
+
     void Start()
     {
         resourcePool = GetComponent<ResourcePool>();

@@ -4079,6 +4079,14 @@ PrefabInstance:
       propertyPath: tableCam
       value: 
       objectReference: {fileID: 1706208292}
+    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
+      propertyPath: tableBounds.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
+      propertyPath: tableBounds.y
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
