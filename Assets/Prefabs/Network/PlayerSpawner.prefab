@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1710303126
+  GlobalObjectIdHash: 2237863672
   InScenePlacedSourceGlobalObjectIdHash: 1448755567
   DeferredDespawnTick: 0
   Ownership: 1
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
-  desktopPlayer: {fileID: 2600043559358336248, guid: e8e02912748db3949a92f5f802cb55ed, type: 3}
-  pcSpawn: {x: 0, y: 1.2, z: 0}
-  VrPlayer: {fileID: 2606563795174566423, guid: d4d3c30603e7de44e9bf5064f1ea5af2, type: 3}
-  vrSpawn: {x: 0, y: 0, z: -5}
+  desktopPlayer: {fileID: 2502993944930348481, guid: fd723706b6fa9854596212624d1992b3, type: 3}
+  pcSpawn: {x: 0, y: 1.1, z: 0}
+  hostPlayer: {fileID: 0}
+  hostSpawn: {x: 0, y: 0, z: 0}

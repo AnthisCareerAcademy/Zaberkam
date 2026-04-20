@@ -1,6 +1,7 @@
 using System;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [Serializable]
@@ -54,6 +55,9 @@ public class Overseer : MonoBehaviour
     [SerializeField] PlacementCosts costs;
     [SerializeField] PlaceableItems items;
     [SerializeField] ItemPreviews previews;
+    [SerializeField] GameObject pointer;
+    [SerializeField] float placementDistance = 2f;
+    [SerializeField] float scale = 0.1f;
 
     private ResourcePool resourcePool;
 
@@ -63,6 +67,8 @@ public class Overseer : MonoBehaviour
     private bool viewing;
 
     private int currentItemID;
+    
+    RaycastHit hit;
 
     void Start()
     {
@@ -87,21 +93,38 @@ public class Overseer : MonoBehaviour
             }
             
             HandleAction(actions.place, Place);
-            HandleAction(actions.view, View);
-            HandleAction(actions.firstItem, FirstItem);
-            HandleAction(actions.secondItem, SecondItem);
-            HandleAction(actions.thirdItem, ThirdItem);
-            HandleAction(actions.fourthItem, FourthItem);
+            
+            // The item swaps just change the current item id.
+            HandleAction(actions.firstItem, () => currentItemID = 0);
+            HandleAction(actions.secondItem, () => currentItemID = 1);
+            HandleAction(actions.thirdItem, () => currentItemID = 2);
+            HandleAction(actions.fourthItem, () => currentItemID = 3);
         }
         
-        if (viewing) ChangeCamera(tableCam, camSpeed);
+        if (actions.view.action.IsPressed()) ChangeCamera(tableCam, camSpeed);
         else ChangeCamera(originalCam, camSpeed * 2);
+        
         viewing = false;
         
         previews.firstItem.SetActive(currentItemID == 0);
         previews.secondItem.SetActive(currentItemID == 1);
         previews.thirdItem.SetActive(currentItemID == 2);
         previews.fourthItem.SetActive(currentItemID == 3);
+    }
+
+    void FixedUpdate()
+    {
+        if (Physics.Raycast(originalCam.position, originalCam.forward, out hit, placementDistance))
+        {
+            Debug.DrawRay(originalCam.position, originalCam.forward * hit.distance, Color.red);
+            pointer.transform.position = hit.point;
+            pointer.SetActive(true);
+        }
+        else
+        {
+            Debug.DrawRay(originalCam.position, originalCam.forward * 1000, Color.white);
+            pointer.SetActive(false);
+        }
     }
 
     void DoLook()
@@ -140,7 +163,7 @@ public class Overseer : MonoBehaviour
 
     void HandleAction(InputActionReference input, Action action)
     {
-        if (input.action.IsPressed())
+        if (input.action.WasReleasedThisFrame())
         {
             action();
         }
@@ -174,40 +197,42 @@ public class Overseer : MonoBehaviour
 
     void Place()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(originalCam.position, originalCam.forward, out hit, 2f))
+        // The pointer is active if the object can be placed. Otherwise, skip.
+        if (!pointer.activeSelf) return;
+        
+        GameObject item;
+        float cost;
+        
+        switch (currentItemID)
         {
-            Debug.DrawRay(originalCam.position, originalCam.forward * hit.distance, Color.red);
+            case 0:
+                item = items.firstItem;
+                cost = costs.firstItem;
+                break;
+            case 1:
+                item = items.secondItem;
+                cost = costs.secondItem;
+                break;
+            case 2:
+                item = items.thirdItem;
+                cost = costs.thirdItem;
+                break;
+            case 3:
+                item = items.fourthItem;
+                cost = costs.fourthItem;
+                break;
+            default:
+                item = null;
+                cost = 0f;
+                break;
         }
-        else
+
+        if (item && resourcePool.Resources >= cost)
         {
-            Debug.DrawRay(originalCam.position, originalCam.forward * 1000, Color.white);
+            resourcePool.Resources -= cost;
+            GameObject newObj = Instantiate(item, pointer.transform.position, item.transform.rotation);
+            newObj.transform.localScale = Vector3.one * scale;
         }
-    }
-
-    void View()
-    {
-        viewing = true;
-    }
-
-    void FirstItem()
-    {
-        currentItemID = 0;
-    }
-
-    void SecondItem()
-    {
-        currentItemID = 1;
-    }
-
-    void ThirdItem()
-    {
-        currentItemID = 2;
-    }
-
-    void FourthItem()
-    {
-        currentItemID = 3;
     }
     
     void ChangeCamera(Transform newCam, float speed = 1f)
