@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8620828147610043929}
   - component: {fileID: -5549980531286828233}
   - component: {fileID: -5111129005758888918}
+  - component: {fileID: -2869803045762736823}
   m_Layer: 0
   m_Name: Bomb Arrow
   m_TagString: Untagged
@@ -173,6 +174,23 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-2869803045762736823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65373018969207744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  NetworkRigidbodyBaseExpanded: 0
+  UseRigidBodyForMotion: 0
+  AutoUpdateKinematicState: 1
+  AutoSetKinematicOnDespawn: 1
 --- !u!1001 &268785892458156879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -279,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae86f615f9e76de4da3cc5aa23699314, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   damage: 30
   scale: 1
   explosionParticles: {fileID: 741392083957093136, guid: df8fa677d169eef4f948fba7143e37d5, type: 3}
