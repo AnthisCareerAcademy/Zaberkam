@@ -323,7 +323,7 @@ MonoBehaviour:
     thirdAbility: {fileID: 7639127881253810524}
     fourthAbility: {fileID: 1601271216222667345}
   attackHandlers:
-    primary: {fileID: 0}
+    primary: {fileID: 354319361161473641}
     secondary: {fileID: 4047619751243799415}
     firstAbility: {fileID: 3150140816804352554}
     secondAbility: {fileID: 4906928871184445347}
@@ -893,6 +893,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 590149d58fd03ce4bb2a383c0e03bd9f, type: 3}
+--- !u!114 &354319361161473641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5954167691689212049, guid: 590149d58fd03ce4bb2a383c0e03bd9f, type: 3}
+  m_PrefabInstance: {fileID: 6218266488792192760}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80890c31ca2d3b141bcb440e0ede7d5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8870898426203612765 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3265245462140858533, guid: 590149d58fd03ce4bb2a383c0e03bd9f, type: 3}
@@ -1267,6 +1278,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4011611420181048371, guid: ac20d513a1d063843940498a2a070e12, type: 3}
       propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4740660448847769037, guid: ac20d513a1d063843940498a2a070e12, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5670868439801263752, guid: ac20d513a1d063843940498a2a070e12, type: 3}

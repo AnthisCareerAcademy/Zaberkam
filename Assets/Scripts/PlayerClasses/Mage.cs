@@ -21,6 +21,8 @@ public class Mage : ClassTemplate
     public override void Update()
     {
         // Handle all attack functions at the end of the update function.
+        if (!IsOwner) return;
+
         base.Update();
         ManaRegen();
     }
