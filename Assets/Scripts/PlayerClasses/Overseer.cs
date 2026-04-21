@@ -46,8 +46,9 @@ public class Overseer : MonoBehaviour
     [SerializeField] InputActionReference pause;
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cam;
-    [SerializeField] Transform originalCam;
     [SerializeField] Transform tableCam;
+    [SerializeField] Transform originalCam;
+    [SerializeField] Transform originalTableTransform;
     [SerializeField] float camSpeed;
 
     [Header("Item Placement Options")]
@@ -64,9 +65,10 @@ public class Overseer : MonoBehaviour
     private CharacterController controller;
     private Vector3 velocity;
     private float xRotation;
-    private bool viewing;
 
     private int currentItemID;
+    private float itemCost;
+    private GameObject itemToPlace;
     
     RaycastHit hit;
 
@@ -76,6 +78,11 @@ public class Overseer : MonoBehaviour
         if (!resourcePool) Debug.LogError("ResourcePool not found");
         controller = GetComponent<CharacterController>();
         if (!controller) Debug.LogError("CharacterController not found");
+        
+        originalTableTransform.position = tableCam.position;
+        originalTableTransform.rotation = tableCam.rotation;
+        originalCam.position = cam.transform.position;
+        originalCam.rotation = cam.transform.rotation;
 
         Unpause();
     }
@@ -86,26 +93,28 @@ public class Overseer : MonoBehaviour
 
         if (!Cursor.visible)
         {
-            if (!viewing)
+            if (actions.view.action.IsPressed())
             {
-                DoLook();
-                DoMove();
+                ChangeCamera(tableCam, camSpeed);
+                DoTableLook();
             }
-            
+            else
+            {
+                tableCam.position = originalTableTransform.position;
+                ChangeCamera(originalCam, camSpeed * 2);
+                DoMove();
+                DoLook();
+            }
+
             HandleAction(actions.place, Place);
             
             // The item swaps just change the current item id.
-            HandleAction(actions.firstItem, () => currentItemID = 0);
+            HandleAction(actions.firstItem, () => currentItemID = 0); 
             HandleAction(actions.secondItem, () => currentItemID = 1);
             HandleAction(actions.thirdItem, () => currentItemID = 2);
             HandleAction(actions.fourthItem, () => currentItemID = 3);
         }
-        
-        if (actions.view.action.IsPressed()) ChangeCamera(tableCam, camSpeed);
-        else ChangeCamera(originalCam, camSpeed * 2);
-        
-        viewing = false;
-        
+
         previews.firstItem.SetActive(currentItemID == 0);
         previews.secondItem.SetActive(currentItemID == 1);
         previews.thirdItem.SetActive(currentItemID == 2);
@@ -114,15 +123,40 @@ public class Overseer : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Physics.Raycast(originalCam.position, originalCam.forward, out hit, placementDistance))
+        switch (currentItemID)
         {
-            Debug.DrawRay(originalCam.position, originalCam.forward * hit.distance, Color.red);
+            case 0:
+                itemToPlace = items.firstItem;
+                itemCost = costs.firstItem;
+                break;
+            case 1:
+                itemToPlace = items.secondItem;
+                itemCost = costs.secondItem;
+                break;
+            case 2:
+                itemToPlace = items.thirdItem;
+                itemCost = costs.thirdItem;
+                break;
+            case 3:
+                itemToPlace = items.fourthItem;
+                itemCost = costs.fourthItem;
+                break;
+            default:
+                itemToPlace = null;
+                itemCost = 0f;
+                break;
+        }
+        
+        // Check if there's a placeable surface nearby.
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, placementDistance))
+        {
+            resourcePool.PreviewCost(itemCost);
             pointer.transform.position = hit.point;
             pointer.SetActive(true);
         }
         else
         {
-            Debug.DrawRay(originalCam.position, originalCam.forward * 1000, Color.white);
+            resourcePool.PreviewCost();
             pointer.SetActive(false);
         }
     }
@@ -138,6 +172,14 @@ public class Overseer : MonoBehaviour
         // Turn the camera and the player
         originalCam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         transform.Rotate(Vector3.up * lookInput.x);
+    }
+    
+    void DoTableLook()
+    {
+        Vector2 lookInput = look.action.ReadValue<Vector2>() * (mouseSensitivity * 0.025f * Time.deltaTime);
+
+        // Move the camera around.
+        tableCam.Translate(new Vector3(lookInput.x, lookInput.y, 0f));
     }
 
     void DoMove()
@@ -198,39 +240,12 @@ public class Overseer : MonoBehaviour
     void Place()
     {
         // The pointer is active if the object can be placed. Otherwise, skip.
-        if (!pointer.activeSelf) return;
-        
-        GameObject item;
-        float cost;
-        
-        switch (currentItemID)
-        {
-            case 0:
-                item = items.firstItem;
-                cost = costs.firstItem;
-                break;
-            case 1:
-                item = items.secondItem;
-                cost = costs.secondItem;
-                break;
-            case 2:
-                item = items.thirdItem;
-                cost = costs.thirdItem;
-                break;
-            case 3:
-                item = items.fourthItem;
-                cost = costs.fourthItem;
-                break;
-            default:
-                item = null;
-                cost = 0f;
-                break;
-        }
+        if (!pointer.activeSelf) return; 
 
-        if (item && resourcePool.Resources >= cost)
+        if (itemToPlace && resourcePool.Resources >= itemCost)
         {
-            resourcePool.Resources -= cost;
-            GameObject newObj = Instantiate(item, pointer.transform.position, item.transform.rotation);
+            resourcePool.Resources -= itemCost;
+            GameObject newObj = Instantiate(itemToPlace, pointer.transform.position, itemToPlace.transform.rotation);
             newObj.transform.localScale = Vector3.one * scale;
         }
     }
