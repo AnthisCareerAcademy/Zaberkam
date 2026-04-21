@@ -205,9 +205,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93bb292363e463944a7681d2a6d40b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   damage: 25
   scale: 1
-  projectile: {fileID: 550212258013626905, guid: 7dd4d339b7f21e14290a15174de5c01b, type: 3}
+  projectile: {fileID: 593310795356907929, guid: 7dd4d339b7f21e14290a15174de5c01b, type: 3}
   speed: 25
   useGravity: 0
 --- !u!1 &2842763438409607025
@@ -219,11 +220,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1606564518946260134}
-  - component: {fileID: 4572081267514955712}
   - component: {fileID: 1242335526885520353}
+  - component: {fileID: 4572081267514955712}
   - component: {fileID: 9137836499206965676}
   - component: {fileID: 5357568231703400890}
   - component: {fileID: 5852849322447735063}
+  - component: {fileID: -7412604454094636347}
   m_Layer: 0
   m_Name: MageClass
   m_TagString: Player
@@ -250,6 +252,31 @@ Transform:
   - {fileID: 8825692381308784108}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1242335526885520353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842763438409607025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 795603595
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 0
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
 --- !u!114 &4572081267514955712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +289,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0c4e8357102794193290fd52ff7e34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
   move: {fileID: -1680190386980627800, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   jump: {fileID: -2099379676528639254, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   moveSpeed: 8
@@ -307,31 +335,6 @@ MonoBehaviour:
   maxMana: 100
   mana: 100
   manaRegenRate: 5
---- !u!114 &1242335526885520353
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2842763438409607025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 795603595
-  InScenePlacedSourceGlobalObjectIdHash: 0
-  DeferredDespawnTick: 0
-  Ownership: 1
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 0
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
-  SyncOwnerTransformWhenParented: 1
-  AllowOwnerToParent: 0
 --- !u!114 &9137836499206965676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,6 +423,21 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-7412604454094636347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2842763438409607025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb043b3dec2e5e64fa7f93b65c653b93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  myCamera: {fileID: 3740263172622304198}
+  myUI: {fileID: 4319469580121584850}
 --- !u!1 &3884458769443387741
 GameObject:
   m_ObjectHideFlags: 0
@@ -1285,6 +1303,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &4319469580121584850 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5934795197565455622, guid: ac20d513a1d063843940498a2a070e12, type: 3}
+  m_PrefabInstance: {fileID: 7614872817096849876}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4573040696328504088 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6258809633889401548, guid: ac20d513a1d063843940498a2a070e12, type: 3}
