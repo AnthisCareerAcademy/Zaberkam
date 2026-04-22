@@ -90,22 +90,22 @@ public class Overseer : MonoBehaviour
     void Update()
     {
         CheckPause();
+        
+        if (actions.view.action.IsPressed())
+        {
+            ChangeCamera(tableCam, camSpeed);
+            DoTableLook();
+        }
+        else
+        {
+            tableCam.position = originalTableTransform.position;
+            ChangeCamera(originalCam, camSpeed * 2);
+            DoMove();
+            DoLook();
+        }
 
         if (!Cursor.visible)
         {
-            if (actions.view.action.IsPressed())
-            {
-                ChangeCamera(tableCam, camSpeed);
-                DoTableLook();
-            }
-            else
-            {
-                tableCam.position = originalTableTransform.position;
-                ChangeCamera(originalCam, camSpeed * 2);
-                DoMove();
-                DoLook();
-            }
-
             HandleAction(actions.place, Place);
             
             // The item swaps just change the current item id.
@@ -169,24 +169,32 @@ public class Overseer : MonoBehaviour
         xRotation -= lookInput.y;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        // Turn the camera and the player
-        originalCam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * lookInput.x);
+        // Turn the camera and the player.
+        if (!Cursor.visible)
+        {
+            originalCam.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            transform.Rotate(Vector3.up * lookInput.x);
+        }
     }
     
     void DoTableLook()
     {
         Vector2 lookInput = look.action.ReadValue<Vector2>() * (mouseSensitivity * 0.025f * Time.deltaTime);
-
+        
         // Move the camera around.
-        tableCam.Translate(new Vector3(lookInput.x, lookInput.y, 0f));
+        if (!Cursor.visible) tableCam.Translate(new Vector3(lookInput.x, lookInput.y, 0f));
     }
 
     void DoMove()
     {
         Vector2 movement = move.action.ReadValue<Vector2>().normalized;
-        velocity.x = movement.x * moveSpeed;
-        velocity.z = movement.y * moveSpeed;
+        
+        // Apply movement only if the mouse is locked (the game is paused). Otherwise, just gravity.
+        if (!Cursor.visible)
+        {
+            velocity.x = movement.x * moveSpeed;
+            velocity.z = movement.y * moveSpeed;
+        }
 
         bool isGrounded = controller.isGrounded;
 
