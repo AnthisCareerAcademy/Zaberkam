@@ -1,7 +1,5 @@
 using System;
-using System.Reflection;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 [Serializable]
@@ -20,13 +18,6 @@ public struct PlacementCosts
 
 [Serializable]
 public struct PlaceableItems
-{
-    public GameObject
-        firstItem, secondItem, thirdItem, fourthItem;
-}
-
-[Serializable]
-public struct ItemPreviews
 {
     public GameObject
         firstItem, secondItem, thirdItem, fourthItem;
@@ -55,7 +46,8 @@ public class Overseer : MonoBehaviour
     [SerializeField] PlacementActionReferences actions;
     [SerializeField] PlacementCosts costs;
     [SerializeField] PlaceableItems items;
-    [SerializeField] ItemPreviews previews;
+    [SerializeField] MeshFilter previewMesh;
+    [SerializeField] MeshRenderer previewRenderer;
     [SerializeField] GameObject pointer;
     [SerializeField] float placementDistance = 2f;
     [SerializeField] float scale = 0.1f;
@@ -83,6 +75,9 @@ public class Overseer : MonoBehaviour
         originalTableTransform.rotation = tableCam.rotation;
         originalCam.position = cam.transform.position;
         originalCam.rotation = cam.transform.rotation;
+        
+        previewMesh.mesh = SetMeshFromGameObject(items.firstItem);
+        previewRenderer.materials = SetMaterials(items.firstItem);
 
         Unpause();
     }
@@ -114,11 +109,6 @@ public class Overseer : MonoBehaviour
             HandleAction(actions.thirdItem, () => currentItemID = 2);
             HandleAction(actions.fourthItem, () => currentItemID = 3);
         }
-
-        previews.firstItem.SetActive(currentItemID == 0);
-        previews.secondItem.SetActive(currentItemID == 1);
-        previews.thirdItem.SetActive(currentItemID == 2);
-        previews.fourthItem.SetActive(currentItemID == 3);
     }
 
     void FixedUpdate()
@@ -216,6 +206,25 @@ public class Overseer : MonoBehaviour
         if (input.action.WasReleasedThisFrame())
         {
             action();
+            switch (currentItemID)
+            {
+                case 0:
+                    previewMesh.mesh = SetMeshFromGameObject(items.firstItem);
+                    previewRenderer.materials = SetMaterials(items.firstItem);
+                    break;
+                case 1:
+                    previewMesh.mesh = SetMeshFromGameObject(items.secondItem);
+                    previewRenderer.materials = SetMaterials(items.secondItem);
+                    break;
+                case 2:
+                    previewMesh.mesh = SetMeshFromGameObject(items.thirdItem);
+                    previewRenderer.materials = SetMaterials(items.thirdItem);
+                    break;
+                case 3:
+                    previewMesh.mesh = SetMeshFromGameObject(items.fourthItem);
+                    previewRenderer.materials = SetMaterials(items.fourthItem);
+                    break;
+            }
         }
     }
 
@@ -277,5 +286,17 @@ public class Overseer : MonoBehaviour
         {
             cam.transform.SetPositionAndRotation(newCam.position, newCam.rotation);
         }
+    }
+
+    Mesh SetMeshFromGameObject(GameObject go)
+    {
+        MeshFilter mf = go.GetComponentInChildren<MeshFilter>();
+        return mf.sharedMesh;
+    }
+
+    Material[] SetMaterials(GameObject go)
+    {
+        MeshRenderer mr = go.GetComponentInChildren<MeshRenderer>();
+        return mr.sharedMaterials;
     }
 }
