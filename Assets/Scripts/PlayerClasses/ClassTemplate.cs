@@ -63,7 +63,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     [SerializeField] protected float critMultiplier;
     [SerializeField] protected float critChance;
 
-    private bool[] activeActions = new bool[6];
+    private float[] activeActions = new float[6];
     
     protected CharacterController Controller;
     protected Health HealthManager;
@@ -110,12 +110,6 @@ public abstract class ClassTemplate : NetworkBehaviour
         camLens.nearClipPlane *= scale;
         camLens.farClipPlane *= scale;
         
-        // Activate all actions.
-        for (int i = 0; i < activeActions.Length; i++)
-        {
-            activeActions[i] = true;
-        }
-        
         // Set all the images to be filled so they can display cooldown properly.
         indicators.primary.type = Image.Type.Filled;
         indicators.secondary.type = Image.Type.Filled;
@@ -146,6 +140,14 @@ public abstract class ClassTemplate : NetworkBehaviour
             HandleAction(attackInputs.thirdAbility, DoThirdAbility, cooldowns.thirdAbility, 4);
             HandleAction(attackInputs.fourthAbility, DoFourthAbility, cooldowns.fourthAbility, 5);
         }
+        
+        // I don't think the for loop would be any smaller here...
+        if (indicators.primary) indicators.primary.fillAmount = (activeActions[0] - Time.time) / cooldowns.primary;
+        if (indicators.secondary) indicators.secondary.fillAmount = (activeActions[1] - Time.time) / cooldowns.secondary;
+        if (indicators.firstAbility) indicators.firstAbility.fillAmount = (activeActions[2] - Time.time) / cooldowns.firstAbility;
+        if (indicators.secondAbility) indicators.secondAbility.fillAmount = (activeActions[3] - Time.time) / cooldowns.secondAbility;
+        if (indicators.thirdAbility) indicators.thirdAbility.fillAmount = (activeActions[4] - Time.time) / cooldowns.thirdAbility;
+        if (indicators.fourthAbility) indicators.fourthAbility.fillAmount = (activeActions[5] - Time.time) / cooldowns.fourthAbility;
     }
 
     void DoLook()
@@ -192,10 +194,10 @@ public abstract class ClassTemplate : NetworkBehaviour
     void HandleAction(InputActionReference input, Action action, float cooldown, int id)
     {
         // Check if the action can be activated. This can also be used to hide/show UI elements.
-        if (input.action.IsPressed() && activeActions[id])
+        if (input.action.IsPressed() && Time.time > activeActions[id])
         {
             action();
-            StartCoroutine(Cooldown(cooldown, id));
+            activeActions[id] = Time.time + cooldown;
         }
     }
 
@@ -225,31 +227,6 @@ public abstract class ClassTemplate : NetworkBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         paused = false;
-    }
-
-    private IEnumerator Cooldown(float cooldown, int id)
-    {
-        float time = 0f;
-
-        Image indicator = id switch
-        {
-            0 => indicators.primary,
-            1 => indicators.secondary,
-            2 => indicators.firstAbility,
-            3 => indicators.secondAbility,
-            4 => indicators.thirdAbility,
-            5 => indicators.fourthAbility,
-            _ => null
-        };
-
-        activeActions[id] = false;
-        while (time < cooldown)
-        {
-            time += Time.deltaTime;
-            if (indicator) indicator.fillAmount = time / cooldown;
-            yield return null;
-        }
-        activeActions[id] = true;
     }
     
     // These are the empty attack actions, to be overridden in child classes.

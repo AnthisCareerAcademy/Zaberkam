@@ -1,4 +1,5 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -23,7 +24,7 @@ public struct PlaceableItems
         firstItem, secondItem, thirdItem, fourthItem;
 }
 
-public class Overseer : MonoBehaviour
+public class Overseer : NetworkBehaviour
 {
     [Header("Movement Options")]
     [SerializeField] InputActionReference move;
@@ -37,9 +38,6 @@ public class Overseer : MonoBehaviour
     [SerializeField] InputActionReference pause;
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cam;
-    [SerializeField] Transform tableCam;
-    [SerializeField] Transform originalCam;
-    [SerializeField] Transform originalTableTransform;
     [SerializeField] float camSpeed;
 
     [Header("Item Placement Options")]
@@ -62,6 +60,10 @@ public class Overseer : MonoBehaviour
     private float itemCost;
     private GameObject itemToPlace;
     
+    private Transform tableCam;
+    private Transform originalTableTransform;
+    private Transform originalCam;
+    
     RaycastHit hit;
 
     void Start()
@@ -71,15 +73,35 @@ public class Overseer : MonoBehaviour
         controller = GetComponent<CharacterController>();
         if (!controller) Debug.LogError("CharacterController not found");
         
-        originalTableTransform.position = tableCam.position;
-        originalTableTransform.rotation = tableCam.rotation;
-        originalCam.position = cam.transform.position;
-        originalCam.rotation = cam.transform.rotation;
-        
         previewMesh.mesh = SetMeshFromGameObject(items.firstItem);
         previewRenderer.materials = SetMaterials(items.firstItem);
 
         Unpause();
+    }
+
+    void Awake()
+    {
+        tableCam = GameObject.Find("TableCam")?.transform;
+
+        if (!tableCam)
+        {
+            tableCam = new GameObject("TableCam").transform;
+            tableCam.SetParent(transform);
+            tableCam.position = cam.transform.position;
+            tableCam.Translate(Vector3.up * 1.5f);
+            tableCam.rotation = Quaternion.LookRotation(-transform.up);
+        }
+
+        originalTableTransform = new GameObject("TableCamRef").transform;
+        
+        originalTableTransform.position = tableCam.position;
+        originalTableTransform.rotation = tableCam.rotation;
+
+        originalCam = new GameObject("OriginalCamRef").transform;
+        originalCam.SetParent(transform);
+        
+        originalCam.position = cam.transform.position;
+        originalCam.rotation = cam.transform.rotation;
     }
 
     void Update()
