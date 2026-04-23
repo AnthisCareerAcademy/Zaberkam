@@ -3623,6 +3623,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TableCam
       objectReference: {fileID: 0}
+    - target: {fileID: 5400354731004996080, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5539240521631234136, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
       propertyPath: m_LocalScale.z
       value: 3.5
