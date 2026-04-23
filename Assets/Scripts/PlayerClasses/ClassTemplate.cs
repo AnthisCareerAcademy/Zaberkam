@@ -5,6 +5,7 @@ using Unity.Netcode;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using UnityEngine.Android;
 
 // Don't mess with these; they're just naming the dropdowns.
 [Serializable]
@@ -73,6 +74,8 @@ public abstract class ClassTemplate : NetworkBehaviour
     private float xRotation;
     private Camera camLens;
 
+    private bool paused;
+
     public virtual void Start()
     {
         Controller = GetComponent<CharacterController>();
@@ -129,41 +132,48 @@ public abstract class ClassTemplate : NetworkBehaviour
         if (!IsOwner) return;
 
         CheckPause();
+        
+        DoLook();
+        DoMove();
 
-        if (!Cursor.visible)
+        if (!paused)
         {
-            DoLook();
-            DoMove();
+            // I tried to make this a for-loop, but the structs weren't cooperating, so this works for now.
+            HandleAction(attackInputs.primary, DoPrimary, cooldowns.primary, 0);
+            HandleAction(attackInputs.secondary, DoSecondary, cooldowns.secondary, 1);
+            HandleAction(attackInputs.firstAbility, DoFirstAbility, cooldowns.firstAbility, 2);
+            HandleAction(attackInputs.secondAbility, DoSecondAbility, cooldowns.secondAbility, 3);
+            HandleAction(attackInputs.thirdAbility, DoThirdAbility, cooldowns.thirdAbility, 4);
+            HandleAction(attackInputs.fourthAbility, DoFourthAbility, cooldowns.fourthAbility, 5);
         }
-
-        // I tried to make this a for-loop, but the structs weren't cooperating, so this works for now.
-        HandleAction(attackInputs.primary, DoPrimary, cooldowns.primary, 0);
-        HandleAction(attackInputs.secondary, DoSecondary, cooldowns.secondary, 1);
-        HandleAction(attackInputs.firstAbility, DoFirstAbility, cooldowns.firstAbility, 2);
-        HandleAction(attackInputs.secondAbility, DoSecondAbility, cooldowns.secondAbility, 3);
-        HandleAction(attackInputs.thirdAbility, DoThirdAbility, cooldowns.thirdAbility, 4);
-        HandleAction(attackInputs.fourthAbility, DoFourthAbility, cooldowns.fourthAbility, 5);
     }
 
     void DoLook()
     {
         Vector2 lookInput = look.action.ReadValue<Vector2>() * (mouseSensitivity * Time.deltaTime);
-        
+
         // Limit vertical rotation.
         xRotation -= lookInput.y;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        
-        // Turn the camera and the player
-        CamTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * lookInput.x);
+
+        // Turn the camera and the player.
+        if (!paused)
+        {
+            CamTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            transform.Rotate(Vector3.up * lookInput.x);
+        }
     }
 
     void DoMove()
     {
         Vector2 movement = move.action.ReadValue<Vector2>().normalized;
-        Velocity.x = movement.x * moveSpeed;
-        Velocity.z = movement.y * moveSpeed;
-        
+
+        if (!paused)
+        {
+            Velocity.x = movement.x * moveSpeed;
+            Velocity.z = movement.y * moveSpeed;
+        }
+
         bool isGrounded = Controller.isGrounded;
 
         // Apply gravity.
@@ -207,12 +217,14 @@ public abstract class ClassTemplate : NetworkBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        paused = true;
     }
     
     void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        paused = false;
     }
 
     private IEnumerator Cooldown(float cooldown, int id)
@@ -243,6 +255,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     // These are the empty attack actions, to be overridden in child classes.
     protected virtual void DoPrimary()
     {
+        print("Doing primary");
         if (Random.value < critChance) attackHandlers.primary.DoAttack(critMultiplier);
         else attackHandlers.primary.DoAttack();
     }

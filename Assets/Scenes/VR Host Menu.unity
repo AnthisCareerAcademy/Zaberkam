@@ -4531,11 +4531,11 @@ PrefabInstance:
     - target: {fileID: 576439891858260250, guid: 2f4bd34f00179d34882d1834aebcd288, type: 3}
       propertyPath: hostPlayer
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 5403302010011947887, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
     - target: {fileID: 576439891858260250, guid: 2f4bd34f00179d34882d1834aebcd288, type: 3}
       propertyPath: desktopPlayer
       value: 
-      objectReference: {fileID: 1460173544637939895, guid: d3b9b035933f5c04c90579d5530bfe02, type: 3}
+      objectReference: {fileID: 2842763438409607025, guid: 5fca1ee23112e634990cf78e0a1d7257, type: 3}
     - target: {fileID: 5971294177470202857, guid: 2f4bd34f00179d34882d1834aebcd288, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

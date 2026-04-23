@@ -22,9 +22,9 @@ public class Mage : ClassTemplate
     {
         // Handle all attack functions at the end of the update function.
         if (!IsOwner) return;
-
-        base.Update();
         ManaRegen();
+        UpdateManaUI();
+        base.Update();
     }
 
     void ManaRegen()
@@ -49,9 +49,8 @@ public class Mage : ClassTemplate
     protected override void DoPrimary()
     {
         
-        mana += 10f;
+        mana += 5f;
         mana = Mathf.Clamp(mana, 0f, maxMana);
-        UpdateManaUI();
         base.DoPrimary();
     }
 
