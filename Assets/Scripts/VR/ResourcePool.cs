@@ -1,4 +1,5 @@
 using TMPro;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,8 @@ public class ResourcePool : MonoBehaviour
         
         [Tooltip("UI slider component showing how close to full the resource pool is.")]
         [SerializeField] Slider[] resourceSlider;
+
+    private float preview;
     
     // We only want to *read* the resource name in other scripts, not change it.
     public string ResourceName => resourceName;
@@ -47,10 +50,23 @@ public class ResourcePool : MonoBehaviour
 
         if (resourceSlider.Length > 0)
         {
+            float width = 1 - preview / resources;
+            if (width < 0) width = 1;
+            
             foreach (var t in resourceSlider)
             {
                 t.value = resources / maxResources;
+                
+                t.handleRect.anchorMin = new Vector2(width, 0);
+                t.handleRect.anchorMax = Vector2.one;
+                t.handleRect.sizeDelta = Vector2.zero;
+                t.handleRect.anchoredPosition = Vector2.zero;
             }
         }
+    }
+
+    public void PreviewCost(float amount = 0f)
+    {
+        preview = amount;
     }
 }

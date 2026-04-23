@@ -126,15 +126,14 @@ public abstract class ClassTemplate : NetworkBehaviour
 
     public virtual void Update()
     {
-        if (!IsOwner) return;
 
         CheckPause();
+        
+        DoLook();
+        DoMove();
 
         if (!Cursor.visible)
         {
-            DoLook();
-            DoMove();
-            
             // I tried to make this a for-loop, but the structs weren't cooperating, so this works for now.
             HandleAction(attackInputs.primary, DoPrimary, cooldowns.primary, 0);
             HandleAction(attackInputs.secondary, DoSecondary, cooldowns.secondary, 1);
@@ -148,22 +147,29 @@ public abstract class ClassTemplate : NetworkBehaviour
     void DoLook()
     {
         Vector2 lookInput = look.action.ReadValue<Vector2>() * (mouseSensitivity * Time.deltaTime);
-        
+
         // Limit vertical rotation.
         xRotation -= lookInput.y;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
-        
-        // Turn the camera and the player
-        CamTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * lookInput.x);
+
+        // Turn the camera and the player.
+        if (!Cursor.visible)
+        {
+            CamTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            transform.Rotate(Vector3.up * lookInput.x);
+        }
     }
 
     void DoMove()
     {
         Vector2 movement = move.action.ReadValue<Vector2>().normalized;
-        Velocity.x = movement.x * moveSpeed;
-        Velocity.z = movement.y * moveSpeed;
-        
+
+        if (!Cursor.visible)
+        {
+            Velocity.x = movement.x * moveSpeed;
+            Velocity.z = movement.y * moveSpeed;
+        }
+
         bool isGrounded = Controller.isGrounded;
 
         // Apply gravity.
