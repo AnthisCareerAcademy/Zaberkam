@@ -255,11 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   myCamera: {fileID: 2392196835858307398}
-<<<<<<< HEAD
-  myUI: {fileID: 791888606393356349}
-=======
   myUI: {fileID: 0}
->>>>>>> d32365288b053f3758f0da2ade4b1af2d45d4a46
 --- !u!1 &5324753939604554626
 GameObject:
   m_ObjectHideFlags: 0
@@ -1632,11 +1628,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac20d513a1d063843940498a2a070e12, type: 3}
---- !u!223 &791888606393356349 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 5934795197565455622, guid: ac20d513a1d063843940498a2a070e12, type: 3}
-  m_PrefabInstance: {fileID: 6386661398131514683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1043208419123734519 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6258809633889401548, guid: ac20d513a1d063843940498a2a070e12, type: 3}
