@@ -5,6 +5,7 @@ using Unity.Netcode;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using UnityEngine.Android;
 
 // Don't mess with these; they're just naming the dropdowns.
 [Serializable]
@@ -73,6 +74,8 @@ public abstract class ClassTemplate : NetworkBehaviour
     private float xRotation;
     private Camera camLens;
 
+    private bool paused;
+
     public virtual void Start()
     {
         Controller = GetComponent<CharacterController>();
@@ -126,13 +129,14 @@ public abstract class ClassTemplate : NetworkBehaviour
 
     public virtual void Update()
     {
+        if (!IsOwner) return;
 
         CheckPause();
         
         DoLook();
         DoMove();
 
-        if (!Cursor.visible)
+        if (!paused)
         {
             // I tried to make this a for-loop, but the structs weren't cooperating, so this works for now.
             HandleAction(attackInputs.primary, DoPrimary, cooldowns.primary, 0);
@@ -153,7 +157,7 @@ public abstract class ClassTemplate : NetworkBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         // Turn the camera and the player.
-        if (!Cursor.visible)
+        if (!paused)
         {
             CamTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             transform.Rotate(Vector3.up * lookInput.x);
@@ -164,7 +168,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     {
         Vector2 movement = move.action.ReadValue<Vector2>().normalized;
 
-        if (!Cursor.visible)
+        if (!paused)
         {
             Velocity.x = movement.x * moveSpeed;
             Velocity.z = movement.y * moveSpeed;
@@ -213,12 +217,14 @@ public abstract class ClassTemplate : NetworkBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        paused = true;
     }
     
     void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        paused = false;
     }
 
     private IEnumerator Cooldown(float cooldown, int id)
@@ -249,6 +255,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     // These are the empty attack actions, to be overridden in child classes.
     protected virtual void DoPrimary()
     {
+        print("Doing primary");
         if (Random.value < critChance) attackHandlers.primary.DoAttack(critMultiplier);
         else attackHandlers.primary.DoAttack();
     }
