@@ -1,8 +1,10 @@
 using System;
+using System.Net;
 using Interfaces;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 [Serializable]
 public struct PlacementActionReferences
@@ -32,6 +34,7 @@ public class Overseer : NetworkBehaviour
     [SerializeField] InputActionReference pause;
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] GameObject cam;
+    [SerializeField] Image crosshair;
     [SerializeField] float camSpeed;
 
     [Header("Item Placement Options")]
@@ -52,13 +55,15 @@ public class Overseer : NetworkBehaviour
     private int currentItemID;
     private float itemCost;
     private GameObject itemToPlace;
+    private Color crosshairPlaceColor = new(0.5f, 0f, 0.67f);
+    private Color crosshairSwapColor = new(1f, 1f, 0f);
     
     private Transform tableCam;
     private Transform originalTableTransform;
     private Transform originalCam;
     
-    private RaycastHit placementHit;
-    private RaycastHit switchHit;
+    private RaycastHit hit;
+    private PlacementProperties switchItem;
 
     void Start()
     {
@@ -67,8 +72,8 @@ public class Overseer : NetworkBehaviour
         controller = GetComponent<CharacterController>();
         if (!controller) Debug.LogError("CharacterController not found");
 
-        previewMesh.mesh = items.FirstItem.Mesh.mesh;
-        previewRenderer.materials = items.SecondItem.Renderer.materials;
+        previewMesh.mesh = items.FirstItem.Mesh.sharedMesh;
+        previewRenderer.materials = items.FirstItem.Renderer.sharedMaterials;
 
         Unpause();
     }
@@ -124,8 +129,6 @@ public class Overseer : NetworkBehaviour
             HandleAction(actions.secondItem, () => currentItemID = 1);
             HandleAction(actions.thirdItem, () => currentItemID = 2);
             HandleAction(actions.fourthItem, () => currentItemID = 3);
-            
-            HandleAction(actions.switchItem, Switch);
         }
     }
 
@@ -156,16 +159,27 @@ public class Overseer : NetworkBehaviour
         }
         
         // Check if there's a placeable surface nearby.
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out placementHit, placementDistance))
+        resourcePool.PreviewCost();
+        pointer.SetActive(false);
+        crosshair.color = Color.white;
+        
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, placementDistance))
         {
+            // Check if a new item is being targeted.
+            switchItem = hit.collider.gameObject.GetComponent<PlacementProperties>();
+            
+            if (switchItem)
+            {
+                crosshair.color = crosshairSwapColor;
+                HandleAction(actions.switchItem, Switch);
+                return;
+            }
+            
+            // Show the pointer.
+            crosshair.color = crosshairPlaceColor;
             resourcePool.PreviewCost(itemCost);
-            pointer.transform.position = placementHit.point;
+            pointer.transform.position = hit.point;
             pointer.SetActive(true);
-        }
-        else
-        {
-            resourcePool.PreviewCost();
-            pointer.SetActive(false);
         }
     }
 
@@ -227,20 +241,20 @@ public class Overseer : NetworkBehaviour
             switch (currentItemID)
             {
                 case 0:
-                    previewMesh.mesh = items.FirstItem.Mesh.mesh;
-                    previewRenderer.materials = items.FirstItem.Renderer.materials;
+                    previewMesh.mesh = items.FirstItem.Mesh.sharedMesh;
+                    previewRenderer.materials = items.FirstItem.Renderer.sharedMaterials;
                     break;
                 case 1:
-                    previewMesh.mesh = items.SecondItem.Mesh.mesh;
-                    previewRenderer.materials = items.SecondItem.Renderer.materials;
+                    previewMesh.mesh = items.SecondItem.Mesh.sharedMesh;
+                    previewRenderer.materials = items.SecondItem.Renderer.sharedMaterials;
                     break;
                 case 2:
-                    previewMesh.mesh = items.ThirdItem.Mesh.mesh;
-                    previewRenderer.materials = items.ThirdItem.Renderer.materials;
+                    previewMesh.mesh = items.ThirdItem.Mesh.sharedMesh;
+                    previewRenderer.materials = items.ThirdItem.Renderer.sharedMaterials;
                     break;
                 case 3:
-                    previewMesh.mesh = items.FourthItem.Mesh.mesh;
-                    previewRenderer.materials = items.FourthItem.Renderer.materials;
+                    previewMesh.mesh = items.FourthItem.Mesh.sharedMesh;
+                    previewRenderer.materials = items.FourthItem.Renderer.sharedMaterials;
                     break;
             }
         }
@@ -287,24 +301,20 @@ public class Overseer : NetworkBehaviour
     
     void Switch()
     { 
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out switchHit, placementDistance))
+        switch (currentItemID)
         {
-            PlacementProperties newItem = switchHit.collider.gameObject.GetComponent<PlacementProperties>();
-            switch (currentItemID)
-            {
-                case 0:
-                    items.FirstItem = newItem;
-                    break;
-                case 1:
-                    items.SecondItem = newItem;
-                    break;
-                case 2:
-                    items.ThirdItem = newItem;
-                    break;
-                case 3:
-                    items.FourthItem = newItem;
-                    break;
-            }
+            case 0:
+                items.FirstItem = switchItem;
+                break;
+            case 1:
+                items.SecondItem = switchItem;
+                break;
+            case 2:
+                items.ThirdItem = switchItem;
+                break;
+            case 3:
+                items.FourthItem = switchItem;
+                break;
         }
     }
     

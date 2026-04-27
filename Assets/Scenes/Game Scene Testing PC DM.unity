@@ -1352,6 +1352,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 30833944}
     m_Modifications:
+    - target: {fileID: 5400354731004996080, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
+      propertyPath: m_Name
+      value: TableCam
+      objectReference: {fileID: 0}
     - target: {fileID: 5675336814269478703, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1397,7 +1401,8 @@ PrefabInstance:
       value: Table
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2317068341646566167, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
@@ -3275,11 +3280,6 @@ Transform:
   - {fileID: 204276717}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1706208292 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1320889502240373248, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
-  m_PrefabInstance: {fileID: 557268884}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1714369991
 GameObject:
   m_ObjectHideFlags: 0
@@ -3919,11 +3919,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3591072307428592019, guid: fcd1c5940911fd3458220578387d6719, type: 3}
   m_PrefabInstance: {fileID: 2093460971}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2108495559 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1209377839109710302, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
-  m_PrefabInstance: {fileID: 557268884}
-  m_PrefabAsset: {fileID: 0}
 --- !u!33 &256556098055236085
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4362,6 +4357,14 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 4025191441
       objectReference: {fileID: 0}
+    - target: {fileID: 648516928514197004, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
+      propertyPath: m_Color.b
+      value: 0.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 648516928514197004, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2596694670737599944, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4426,34 +4429,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
-      propertyPath: tableCam
-      value: 
-      objectReference: {fileID: 1706208292}
-    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
-      propertyPath: items.FirstItem
-      value: 
-      objectReference: {fileID: 5595151067311348221, guid: 8d0f795389f84164d857260187e0d08d, type: 3}
-    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
-      propertyPath: items.ThirdItem
-      value: 
-      objectReference: {fileID: 7216927451337424655, guid: b29cf0e5cf096ae4b99a4896fcb7552d, type: 3}
-    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
-      propertyPath: items.FourthItem
-      value: 
-      objectReference: {fileID: 6210617916954894246, guid: 900471aad1f4efe49a4d335ad356ce80, type: 3}
-    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
-      propertyPath: items.SecondItem
-      value: 
-      objectReference: {fileID: 7682855313112262692, guid: f6288f240ca4ae74396f4933789b0d5e, type: 3}
-    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
-      propertyPath: actions.switchItem
-      value: 
-      objectReference: {fileID: 1781555164194001046, guid: 052faaac586de48259a63d0c4782560b, type: 3}
-    - target: {fileID: 7236403808136309811, guid: 7c1d1964a048e244daf49b2a617bb5e1, type: 3}
-      propertyPath: originalTableTransform
-      value: 
-      objectReference: {fileID: 2108495559}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
