@@ -50,15 +50,7 @@ public class Health : NetworkBehaviour, IDamageable
 
         if (_healthTracker.Value <= 0f)
         {
-            DespawnObject(selfNetwork);
-        }
-    }
-
-    public void DespawnObject(NetworkObject netObj)
-    {
-        if (IsServer)
-        {
-            netObj.Despawn(false);
+            selfNetwork.Despawn(true);
             Destroy(gameObject);
         }
     }
