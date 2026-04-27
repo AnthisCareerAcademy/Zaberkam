@@ -67,8 +67,8 @@ public class Overseer : NetworkBehaviour
         controller = GetComponent<CharacterController>();
         if (!controller) Debug.LogError("CharacterController not found");
 
-        previewMesh.mesh = items.FirstItem.Mesh;
-        previewRenderer.materials = items.SecondItem.Materials;
+        previewMesh.mesh = items.FirstItem.Mesh.mesh;
+        previewRenderer.materials = items.SecondItem.Renderer.materials;
 
         Unpause();
     }
@@ -227,20 +227,20 @@ public class Overseer : NetworkBehaviour
             switch (currentItemID)
             {
                 case 0:
-                    previewMesh.mesh = items.FirstItem.Mesh;
-                    previewRenderer.materials = items.FirstItem.Materials;
+                    previewMesh.mesh = items.FirstItem.Mesh.mesh;
+                    previewRenderer.materials = items.FirstItem.Renderer.materials;
                     break;
                 case 1:
-                    previewMesh.mesh = items.SecondItem.Mesh;
-                    previewRenderer.materials = items.SecondItem.Materials;
+                    previewMesh.mesh = items.SecondItem.Mesh.mesh;
+                    previewRenderer.materials = items.SecondItem.Renderer.materials;
                     break;
                 case 2:
-                    previewMesh.mesh = items.ThirdItem.Mesh;
-                    previewRenderer.materials = items.ThirdItem.Materials;
+                    previewMesh.mesh = items.ThirdItem.Mesh.mesh;
+                    previewRenderer.materials = items.ThirdItem.Renderer.materials;
                     break;
                 case 3:
-                    previewMesh.mesh = items.FourthItem.Mesh;
-                    previewRenderer.materials = items.FourthItem.Materials;
+                    previewMesh.mesh = items.FourthItem.Mesh.mesh;
+                    previewRenderer.materials = items.FourthItem.Renderer.materials;
                     break;
             }
         }

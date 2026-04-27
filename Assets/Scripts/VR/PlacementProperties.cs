@@ -1,22 +1,21 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Interfaces
 {
     public class PlacementProperties : MonoBehaviour
     {
         // Place this on ALL object spawners.
+        [Tooltip("The prefab to instantiate.")]
         public GameObject SpawnedItem;
-        [SerializeField] GameObject visual;
-        [NonSerialized] public Mesh Mesh;
-        [NonSerialized] public Material[] Materials;
+        
+        [Tooltip("The mesh from the Visual object.")]
+        public MeshFilter Mesh;
+        
+        [Tooltip("The material(s) from the Visual object.")]
+        public MeshRenderer Renderer;
+        
+        [Tooltip("How much the item costs to spawn.")]
         public float Cost;
-
-        public void Start()
-        {
-            Mesh = visual.GetComponent<MeshFilter>().sharedMesh;
-            Materials = visual.GetComponent<MeshRenderer>().sharedMaterials;
-        }
     }
 }
