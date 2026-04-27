@@ -927,11 +927,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 2
   windowsGamepadBackendHint: 0
-  cloudProjectId: 6f8a832d-98f3-40c1-970b-b274a6c6a4e5
+  cloudProjectId: 4467be98-d245-4621-a1d2-aa81269cd527
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: MultiplayerTest
-  organizationId: kasuraq
+  projectName: Zaberkam
+  organizationId: fwcs-career-academy
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
