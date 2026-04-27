@@ -42,6 +42,13 @@ public class UIManager : MonoBehaviour
         settingsMenu.SetActive(false);
         joinServerMenu.SetActive(false);
     }
+    public void OnLeaveServer()
+    {
+        Debug.Log("Leaving server...");
+        //add networking disconnects logic here
+        //after leaving, return to main menu
+        OnBackToMain();
+    }
 
 
     //Server Join (which theoretically we'll add Julians code where the TODO is at
@@ -53,9 +60,5 @@ public class UIManager : MonoBehaviour
         //TODO: add the networking code that allows the pc user(s) to join the vr
     }
 
-    public void OnBackFromJoin()
-    {
-        joinServerMenu.SetActive(false);
-        mainMenu.SetActive(true);
-    }
+
 }
