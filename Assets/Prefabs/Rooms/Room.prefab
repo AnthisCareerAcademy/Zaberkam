@@ -358,7 +358,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 1995320748524104084, guid: 3c2240dd5d4cef24ca938a8806f2ada4, type: 3}
-  doors: []
+  doors:
+  - {fileID: 1332871015174645433}
+  - {fileID: 2935489485708363443}
+  - {fileID: 4111163117899771420}
+  - {fileID: 1087686786883047249}
   maxEnemies: 5
   transMat: {fileID: 0}
 --- !u!1 &1087686786883047249
