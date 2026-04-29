@@ -36,6 +36,7 @@ public class Overseer : NetworkBehaviour
     [SerializeField] GameObject cam;
     [SerializeField] Image crosshair;
     [SerializeField] float camSpeed;
+    [SerializeField] GameObject pauseMenu;
 
     [Header("Item Placement Options")]
     [SerializeField] PlacementActionReferences actions;
@@ -263,27 +264,25 @@ public class Overseer : NetworkBehaviour
     void CheckPause()
     {
         // Unlock cursor on pause. Change to a pause menu eventually.
-        if (pause.action.WasPressedThisFrame())
+        if (pause.action.WasReleasedThisFrame())
         {
-            Pause();
-        }
-
-        if (actions.place.action.WasPressedThisFrame())
-        {
-            Unpause();
+            if (!Cursor.visible) Pause();
+            else Unpause();
         }
     }
 
-    void Pause()
+    public void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        pauseMenu?.SetActive(true);
     }
 
-    void Unpause()
+    public void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        pauseMenu?.SetActive(false);
     }
 
     void Place()
