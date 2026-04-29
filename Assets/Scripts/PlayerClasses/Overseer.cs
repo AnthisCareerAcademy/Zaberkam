@@ -105,6 +105,8 @@ public class Overseer : NetworkBehaviour
 
     void Update()
     {
+        if (!IsOwner) return;
+
         CheckPause();
         
         if (actions.view.action.IsPressed())
@@ -122,7 +124,7 @@ public class Overseer : NetworkBehaviour
 
         if (!Cursor.visible)
         {
-            HandleAction(actions.place, Place);
+            HandleAction(actions.place, PlaceServerRpc);
             
             // The item swaps just change the current item id.
             HandleAction(actions.firstItem, () => currentItemID = 0); 
@@ -286,7 +288,8 @@ public class Overseer : NetworkBehaviour
         Cursor.visible = false;
     }
 
-    void Place()
+    [ServerRpc(RequireOwnership = false)]
+    void PlaceServerRpc()
     {
         // The pointer is active if the object can be placed. Otherwise, skip.
         if (!pointer.activeSelf) return; 
@@ -296,6 +299,9 @@ public class Overseer : NetworkBehaviour
             resourcePool.Resources -= itemCost;
             GameObject newObj = Instantiate(itemToPlace, pointer.transform.position, itemToPlace.transform.rotation);
             newObj.transform.localScale = Vector3.one * scale;
+
+            NetworkObject netObj = newObj.GetComponent<NetworkObject>();
+            netObj.Spawn();
         }
     }
     
