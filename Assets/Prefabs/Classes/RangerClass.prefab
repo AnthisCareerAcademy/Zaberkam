@@ -115,7 +115,7 @@ MonoBehaviour:
   mouseSensitivity: 75
   defaultFOV: 60
   cam: {fileID: 7509386947758527609}
-  pauseMenu: {fileID: 0}
+  pauseMenu: {fileID: 1502664061252260025, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
   attackInputs:
     primary: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     secondary: {fileID: 8446814527111976826, guid: 052faaac586de48259a63d0c4782560b, type: 3}
