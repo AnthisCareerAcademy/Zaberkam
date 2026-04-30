@@ -20,14 +20,11 @@ public class SetRoomGen : MonoBehaviour
 
         int randomIndex = Random.Range(0, Dungeons.Count);
 
-        Vector3 randomPosition = new Vector3(
-            Random.Range(-tableSize.x / 2, tableSize.x / 2),
-            0,
-            Random.Range(-tableSize.y / 2, tableSize.y / 2)
-        ) + tableCenter;
+        
 
-        GameObject dungeon = Instantiate(Dungeons[randomIndex], randomPosition, Quaternion.identity);
+        GameObject dungeon = Instantiate(Dungeons[randomIndex], tableCenter, Quaternion.identity);
         dungeon.transform.localScale = Vector3.one * scale;
+        dungeon.transform.Rotate(Vector3.up, 90);
     }
 
     void OnDrawGizmos()

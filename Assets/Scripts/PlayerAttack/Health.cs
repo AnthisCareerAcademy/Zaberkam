@@ -15,6 +15,8 @@ public class Health : NetworkBehaviour, IDamageable
 
     public float CurrentHealth => _healthTracker.Value;
 
+    private NetworkObject selfNetwork;
+
     public override void OnNetworkSpawn()
     {
         if (IsServer)
@@ -23,6 +25,8 @@ public class Health : NetworkBehaviour, IDamageable
         }
 
         _healthTracker.OnValueChanged += OnHealthChanged;
+
+        selfNetwork = GetComponent<NetworkObject>();
     }
 
     private void OnHealthChanged(float oldValue, float newValue)
@@ -46,7 +50,8 @@ public class Health : NetworkBehaviour, IDamageable
 
         if (_healthTracker.Value <= 0f)
         {
-            GetComponent<NetworkObject>().Despawn();
+            selfNetwork.Despawn(true);
+            Destroy(gameObject);
         }
     }
 

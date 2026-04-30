@@ -95,9 +95,5 @@ public class RelayManager : MonoBehaviour
             Debug.LogWarning("You need to be connected to the network");
         }
     }
-    public void PrintMessage()
-    {
-        Debug.Log("Button was clicked!");
-    }
 }
 

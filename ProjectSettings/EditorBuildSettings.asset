@@ -8,9 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VR Host Menu.unity
     guid: 11639cb70e4df7c4cb99e5a7d46adf1f
-  - enabled: 0
-    path: Assets/Scenes/PC Join Menu.unity
-    guid: 6ed089d61f1445b40ac097957be1b615
   - enabled: 1
     path: Assets/Scenes/Game Scene.unity
     guid: 92b1951e86e3956468c1e5517844b0eb
@@ -19,6 +16,7 @@ EditorBuildSettings:
     guid: ddb52f9dd55fed44cac74650512c33f4
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 2d6e92a98b21f1a45aa65adb6c28af20, type: 2}
+    com.unity.dt.app-ui: {fileID: 11400000, guid: 1b1c20d82303e4b5781c3ef50ac1449f, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 26248a544a24ac74caa8f56e276bd976, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 00217dc6a1868d64fa3f985e4eb25c0a, type: 2}
