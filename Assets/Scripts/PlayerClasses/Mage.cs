@@ -10,9 +10,9 @@ public class Mage : ClassTemplate
     [SerializeField] private float mana = 100f;
     [SerializeField] private float manaRegenRate = 5f;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
         
         mana = maxMana;
         UpdateManaUI();

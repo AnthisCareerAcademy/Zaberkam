@@ -75,7 +75,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     private float xRotation;
     private Camera camLens;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         Controller = GetComponent<CharacterController>();
         if (Controller == null) Debug.LogError("CharacterController not found");
