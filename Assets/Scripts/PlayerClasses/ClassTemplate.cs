@@ -122,7 +122,7 @@ public abstract class ClassTemplate : NetworkBehaviour
 
     public virtual void Update()
     {
-        if (!IsOwner) return;
+        // if (!IsOwner) return;
 
         CheckPause();
         
