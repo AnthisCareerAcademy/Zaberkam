@@ -11,5 +11,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7aa2a55c3d691f43b58aa8742aeb65c, type: 3}
   m_Name: AutoUVScalerData
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::AutoUVScaler.Scripts.AutoUVScalerData
   meshMappings: []
