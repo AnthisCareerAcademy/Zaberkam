@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
@@ -18,12 +17,7 @@ public class RelayManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI codeText;
     [SerializeField] TextMeshProUGUI hostText;
 
-    private void Awake()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
-
-    async void Start()
+    private async void Awake()
     {
         await UnityServices.InitializeAsync();
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
@@ -34,37 +28,52 @@ public class RelayManager : MonoBehaviour
         startButton.onClick.AddListener(SwitchScene);
         
         UpdateHostStatus();
+        
+        DontDestroyOnLoad(gameObject);
     }
 
     async void CreateRelay()
     {
-        Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3);
-        
-        string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-        
-        codeText.text = "Code: " + joinCode;
-        codeText.gameObject.SetActive(true);
+        try
+        {
+            Allocation allocation = await RelayService.Instance.CreateAllocationAsync(3);
 
-        var relayServerData = AllocationUtils.ToRelayServerData(allocation, "dtls");
-        
-        NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+            string joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
 
-        NetworkManager.Singleton.StartHost();
+            codeText.text = "Code: " + joinCode;
+            codeText.gameObject.SetActive(true);
 
-        UpdateHostStatus();
+            var relayServerData = AllocationUtils.ToRelayServerData(allocation, "udp");
+
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+
+            NetworkManager.Singleton.StartHost();
+
+            UpdateHostStatus();
+        }
+        catch (RelayServiceException e)
+        {
+            Debug.LogError(e);
+        }
     }
 
     async void JoinRelay(string JoinCode)
     {
-        var joinAllocation = await RelayService.Instance.JoinAllocationAsync(JoinCode);
-        
-        var relayServerData = AllocationUtils.ToRelayServerData(joinAllocation, "dtls");
-        
-        NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
-        
-        NetworkManager.Singleton.StartClient();
+        try {
+            JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(JoinCode);
+            
+            var relayServerData = AllocationUtils.ToRelayServerData(joinAllocation, "udp");
+            
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
+            
+            NetworkManager.Singleton.StartClient();
 
-        UpdateHostStatus();
+            UpdateHostStatus();
+        }
+        catch (RelayServiceException e)
+        {
+            Debug.LogError(e);
+        }
     }
 
     void UpdateHostStatus()
@@ -94,10 +103,6 @@ public class RelayManager : MonoBehaviour
         {
             Debug.LogWarning("You need to be connected to the network");
         }
-    }
-    public void PrintMessage()
-    {
-        Debug.Log("Button was clicked!");
     }
 }
 

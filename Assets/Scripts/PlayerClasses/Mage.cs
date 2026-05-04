@@ -10,9 +10,9 @@ public class Mage : ClassTemplate
     [SerializeField] private float mana = 100f;
     [SerializeField] private float manaRegenRate = 5f;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
         
         mana = maxMana;
         UpdateManaUI();
@@ -21,8 +21,10 @@ public class Mage : ClassTemplate
     public override void Update()
     {
         // Handle all attack functions at the end of the update function.
-        base.Update();
+        if (!IsOwner) return;
         ManaRegen();
+        UpdateManaUI();
+        base.Update();
     }
 
     void ManaRegen()
@@ -47,9 +49,8 @@ public class Mage : ClassTemplate
     protected override void DoPrimary()
     {
         
-        mana += 10f;
+        mana += 5f;
         mana = Mathf.Clamp(mana, 0f, maxMana);
-        UpdateManaUI();
         base.DoPrimary();
     }
 

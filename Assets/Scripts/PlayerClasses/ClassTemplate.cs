@@ -5,6 +5,7 @@ using Unity.Netcode;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Random = UnityEngine.Random;
+using UnityEngine.Android;
 
 // Don't mess with these; they're just naming the dropdowns.
 [Serializable]
@@ -51,6 +52,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] protected float defaultFOV = 60f;
     [SerializeField] GameObject cam;
+    [SerializeField] GameObject pauseMenu;
     
     [Header("Attack Options")]
     [SerializeField] AttackActionReferences attackInputs;
@@ -62,7 +64,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     [SerializeField] protected float critMultiplier;
     [SerializeField] protected float critChance;
 
-    private bool[] activeActions = new bool[6];
+    private float[] activeActions = new float[6];
     
     protected CharacterController Controller;
     protected Health HealthManager;
@@ -73,7 +75,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     private float xRotation;
     private Camera camLens;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
         Controller = GetComponent<CharacterController>();
         if (Controller == null) Debug.LogError("CharacterController not found");
@@ -107,12 +109,6 @@ public abstract class ClassTemplate : NetworkBehaviour
         camLens.nearClipPlane *= scale;
         camLens.farClipPlane *= scale;
         
-        // Activate all actions.
-        for (int i = 0; i < activeActions.Length; i++)
-        {
-            activeActions[i] = true;
-        }
-        
         // Set all the images to be filled so they can display cooldown properly.
         indicators.primary.type = Image.Type.Filled;
         indicators.secondary.type = Image.Type.Filled;
@@ -126,6 +122,7 @@ public abstract class ClassTemplate : NetworkBehaviour
 
     public virtual void Update()
     {
+        if (!IsOwner) return;
 
         CheckPause();
         
@@ -142,6 +139,14 @@ public abstract class ClassTemplate : NetworkBehaviour
             HandleAction(attackInputs.thirdAbility, DoThirdAbility, cooldowns.thirdAbility, 4);
             HandleAction(attackInputs.fourthAbility, DoFourthAbility, cooldowns.fourthAbility, 5);
         }
+        
+        // I don't think the for loop would be any smaller here...
+        if (indicators.primary) indicators.primary.fillAmount = (activeActions[0] - Time.time) / cooldowns.primary;
+        if (indicators.secondary) indicators.secondary.fillAmount = (activeActions[1] - Time.time) / cooldowns.secondary;
+        if (indicators.firstAbility) indicators.firstAbility.fillAmount = (activeActions[2] - Time.time) / cooldowns.firstAbility;
+        if (indicators.secondAbility) indicators.secondAbility.fillAmount = (activeActions[3] - Time.time) / cooldowns.secondAbility;
+        if (indicators.thirdAbility) indicators.thirdAbility.fillAmount = (activeActions[4] - Time.time) / cooldowns.thirdAbility;
+        if (indicators.fourthAbility) indicators.fourthAbility.fillAmount = (activeActions[5] - Time.time) / cooldowns.fourthAbility;
     }
 
     void DoLook()
@@ -188,67 +193,41 @@ public abstract class ClassTemplate : NetworkBehaviour
     void HandleAction(InputActionReference input, Action action, float cooldown, int id)
     {
         // Check if the action can be activated. This can also be used to hide/show UI elements.
-        if (input.action.IsPressed() && activeActions[id])
+        if (input.action.IsPressed() && Time.time > activeActions[id])
         {
             action();
-            StartCoroutine(Cooldown(cooldown, id));
+            activeActions[id] = Time.time + cooldown;
         }
     }
 
     void CheckPause()
     {
         // Unlock cursor on pause. Change to a pause menu eventually.
-        if (pause.action.WasPressedThisFrame())
+        if (pause.action.WasReleasedThisFrame())
         {
-            Pause();
-        }
-        
-        if (attackInputs.primary.action.WasPressedThisFrame())
-        {
-            Unpause();
+            if (!Cursor.visible) Pause();
+            else Unpause();
         }
     }
 
-    void Pause()
+    public void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        pauseMenu?.SetActive(true);
     }
     
-    void Unpause()
+    public void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-    }
-
-    private IEnumerator Cooldown(float cooldown, int id)
-    {
-        float time = 0f;
-
-        Image indicator = id switch
-        {
-            0 => indicators.primary,
-            1 => indicators.secondary,
-            2 => indicators.firstAbility,
-            3 => indicators.secondAbility,
-            4 => indicators.thirdAbility,
-            5 => indicators.fourthAbility,
-            _ => null
-        };
-
-        activeActions[id] = false;
-        while (time < cooldown)
-        {
-            time += Time.deltaTime;
-            if (indicator) indicator.fillAmount = time / cooldown;
-            yield return null;
-        }
-        activeActions[id] = true;
+        pauseMenu?.SetActive(false);
     }
     
     // These are the empty attack actions, to be overridden in child classes.
     protected virtual void DoPrimary()
     {
+        print("Doing primary");
         if (Random.value < critChance) attackHandlers.primary.DoAttack(critMultiplier);
         else attackHandlers.primary.DoAttack();
     }
