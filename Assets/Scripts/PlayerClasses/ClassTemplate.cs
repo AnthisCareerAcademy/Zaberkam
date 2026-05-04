@@ -141,12 +141,18 @@ public abstract class ClassTemplate : NetworkBehaviour
         }
         
         // I don't think the for loop would be any smaller here...
-        if (indicators.primary) indicators.primary.fillAmount = (activeActions[0] - Time.time) / cooldowns.primary;
-        if (indicators.secondary) indicators.secondary.fillAmount = (activeActions[1] - Time.time) / cooldowns.secondary;
-        if (indicators.firstAbility) indicators.firstAbility.fillAmount = (activeActions[2] - Time.time) / cooldowns.firstAbility;
-        if (indicators.secondAbility) indicators.secondAbility.fillAmount = (activeActions[3] - Time.time) / cooldowns.secondAbility;
-        if (indicators.thirdAbility) indicators.thirdAbility.fillAmount = (activeActions[4] - Time.time) / cooldowns.thirdAbility;
-        if (indicators.fourthAbility) indicators.fourthAbility.fillAmount = (activeActions[5] - Time.time) / cooldowns.fourthAbility;
+        if (indicators.primary) indicators.primary.fillAmount = FixIcons((activeActions[0] - Time.time) / cooldowns.primary);
+        if (indicators.secondary) indicators.secondary.fillAmount = FixIcons((activeActions[1] - Time.time) / cooldowns.secondary);
+        if (indicators.firstAbility) indicators.firstAbility.fillAmount = FixIcons((activeActions[2] - Time.time) / cooldowns.firstAbility);
+        if (indicators.secondAbility) indicators.secondAbility.fillAmount = FixIcons((activeActions[3] - Time.time) / cooldowns.secondAbility);
+        if (indicators.thirdAbility) indicators.thirdAbility.fillAmount = FixIcons((activeActions[4] - Time.time) / cooldowns.thirdAbility);
+        if (indicators.fourthAbility) indicators.fourthAbility.fillAmount = FixIcons((activeActions[5] - Time.time) / cooldowns.fourthAbility);
+    }
+
+    float FixIcons(float value)
+    {
+        // This is a fix for the icons; if the value is less than 0, set it to 1 so the icon shows.
+        return value < 0 ? 1 : value;
     }
 
     void DoLook()
@@ -227,7 +233,6 @@ public abstract class ClassTemplate : NetworkBehaviour
     // These are the empty attack actions, to be overridden in child classes.
     protected virtual void DoPrimary()
     {
-        print("Doing primary");
         if (Random.value < critChance) attackHandlers.primary.DoAttack(critMultiplier);
         else attackHandlers.primary.DoAttack();
     }
