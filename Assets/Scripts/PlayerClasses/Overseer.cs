@@ -105,7 +105,7 @@ public class Overseer : NetworkBehaviour
 
     void Update()
     {
-        if (!IsOwner) return;
+        //if (!IsOwner) return;
 
         CheckPause();
         
