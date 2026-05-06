@@ -5,9 +5,9 @@ public class WarriorClass : ClassTemplate
     [SerializeField] float lungeSpeed = 10f;
     [SerializeField] float leapHeight = 10f;
 
-    public override void Start()
+    public override void Awake()
     {
-        base.Start();
+        base.Awake();
 
         lungeSpeed *= scale;
         leapHeight *= scale;

@@ -1,5 +1,4 @@
 using System;
-using System.Net;
 using Interfaces;
 using Unity.Netcode;
 using UnityEngine;
@@ -36,6 +35,7 @@ public class Overseer : NetworkBehaviour
     [SerializeField] GameObject cam;
     [SerializeField] Image crosshair;
     [SerializeField] float camSpeed;
+    [SerializeField] GameObject pauseMenu;
 
     [Header("Item Placement Options")]
     [SerializeField] PlacementActionReferences actions;
@@ -105,6 +105,8 @@ public class Overseer : NetworkBehaviour
 
     void Update()
     {
+        //if (!IsOwner) return;
+
         CheckPause();
         
         if (actions.view.action.IsPressed())
@@ -122,7 +124,7 @@ public class Overseer : NetworkBehaviour
 
         if (!Cursor.visible)
         {
-            HandleAction(actions.place, Place);
+            HandleAction(actions.place, PlaceServerRpc);
             
             // The item swaps just change the current item id.
             HandleAction(actions.firstItem, () => currentItemID = 0); 
@@ -263,30 +265,29 @@ public class Overseer : NetworkBehaviour
     void CheckPause()
     {
         // Unlock cursor on pause. Change to a pause menu eventually.
-        if (pause.action.WasPressedThisFrame())
+        if (pause.action.WasReleasedThisFrame())
         {
-            Pause();
-        }
-
-        if (actions.place.action.WasPressedThisFrame())
-        {
-            Unpause();
+            if (!Cursor.visible) Pause();
+            else Unpause();
         }
     }
 
-    void Pause()
+    public void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        pauseMenu?.SetActive(true);
     }
 
-    void Unpause()
+    public void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        pauseMenu?.SetActive(false);
     }
 
-    void Place()
+    [ServerRpc(RequireOwnership = false)]
+    void PlaceServerRpc()
     {
         // The pointer is active if the object can be placed. Otherwise, skip.
         if (!pointer.activeSelf) return; 
@@ -296,6 +297,9 @@ public class Overseer : NetworkBehaviour
             resourcePool.Resources -= itemCost;
             GameObject newObj = Instantiate(itemToPlace, pointer.transform.position, itemToPlace.transform.rotation);
             newObj.transform.localScale = Vector3.one * scale;
+
+            NetworkObject netObj = newObj.GetComponent<NetworkObject>();
+            netObj.Spawn();
         }
     }
     
