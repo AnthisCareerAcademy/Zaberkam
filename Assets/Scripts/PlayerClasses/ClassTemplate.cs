@@ -122,7 +122,7 @@ public abstract class ClassTemplate : NetworkBehaviour
 
     public virtual void Update()
     {
-        // if (!IsOwner) return;
+        if (!IsOwner) return;
 
         CheckPause();
         
@@ -208,11 +208,10 @@ public abstract class ClassTemplate : NetworkBehaviour
 
     void CheckPause()
     {
-        // Unlock cursor on pause. Change to a pause menu eventually.
+        // Unlock cursor on pause.
         if (pause.action.WasReleasedThisFrame())
         {
-            if (!Cursor.visible) Pause();
-            else Unpause();
+            Pause();
         }
     }
 
@@ -220,14 +219,14 @@ public abstract class ClassTemplate : NetworkBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        pauseMenu?.SetActive(true);
+        pauseMenu.SetActive(true);
     }
     
     public void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        pauseMenu?.SetActive(false);
+        pauseMenu.SetActive(false);
     }
     
     // These are the empty attack actions, to be overridden in child classes.

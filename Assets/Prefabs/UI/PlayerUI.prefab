@@ -566,8 +566,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7088097563311939112}
-  - {fileID: 476663407861103488}
   - {fileID: 3672818860089756646}
+  - {fileID: 476663407861103488}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -593,7 +593,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1237,22 +1237,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pause Menu
       objectReference: {fileID: 0}
-    - target: {fileID: 1502664061252260025, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2313438952120673723, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2313438952120673723, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Unpause
-      objectReference: {fileID: 0}
-    - target: {fileID: 2313438952120673723, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Mage, Assembly-CSharp
-      objectReference: {fileID: 0}
     - target: {fileID: 3279618766931412894, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1263,11 +1247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3279618766931412894, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3279618766931412894, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3279618766931412894, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
       propertyPath: m_AnchorMin.x
@@ -1331,22 +1315,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3279618766931412894, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5429181855633125851, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6019431321833488018, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6442459161153799337, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7467011457537014106, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
-      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
