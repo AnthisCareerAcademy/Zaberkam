@@ -9,9 +9,11 @@ public class SetRoomGen : MonoBehaviour
     [Header("Table Bounds (centered on this position)")]
     public Vector2 tableSize;
     public Vector3 tableCenter;
+    private Vector3 dungeonCenter;
 
     void Start()
     {
+        
         if (Dungeons == null || Dungeons.Count == 0)
         {
             Debug.LogWarning("No dungeon prefabs assigned!");

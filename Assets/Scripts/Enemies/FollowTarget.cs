@@ -36,7 +36,8 @@ public class FollowTarget : MonoBehaviour
             if (Physics.SphereCast(transform.position, detectDistance, transform.forward, out hit))
             {
                 GameObject newTarget = hit.collider.gameObject;
-                if (newTarget.GetComponent<Health>().IsPlayer) target = newTarget;
+                // I had to compare to a boolean because the health component might not exist....
+                if (newTarget.GetComponent<Health>()?.IsPlayer == true) target = newTarget;
             }
         }
     }
