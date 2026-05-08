@@ -3,25 +3,22 @@ using UnityEngine;
 public class FollowTarget : MonoBehaviour
 {
     public float speed = 2f;
-    public float detectDistance = 5f;
+    public float detectDistance = 10f;
 
-    private CharacterController cc;
+    private Rigidbody rb;
     
     private GameObject target;
     private RaycastHit hit;
 
     void Awake()
     {
-        cc = GetComponent<CharacterController>();
-        if (!cc) Debug.LogError("No CharacterController found");
+        rb = GetComponent<Rigidbody>();
+        if (!rb) Debug.LogError("No Rigidbody found");
         
         float scale = transform.localScale.x;
         
         speed *= scale;
-        
-        cc.minMoveDistance *= scale;
-        cc.skinWidth = 0.05f * scale;
-        cc.stepOffset *= scale;
+        detectDistance *= scale;
     }
 
     void FixedUpdate()
@@ -29,13 +26,15 @@ public class FollowTarget : MonoBehaviour
         if (target)
         {
             transform.LookAt(target.transform);
-            cc.SimpleMove(transform.forward * (speed * Time.deltaTime));
+            rb.AddForce(transform.forward * (speed * Time.deltaTime), ForceMode.Impulse);
         }
         else
         {
             if (Physics.SphereCast(transform.position, detectDistance, transform.forward, out hit))
             {
+                Debug.DrawLine(transform.position, hit.point, Color.red);
                 GameObject newTarget = hit.collider.gameObject;
+                print("yay target! " + newTarget.name);
                 // I had to compare to a boolean because the health component might not exist....
                 if (newTarget.GetComponent<Health>()?.IsPlayer == true) target = newTarget;
             }
