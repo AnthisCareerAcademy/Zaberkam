@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3967131360
+  GlobalObjectIdHash: 1935045992
   InScenePlacedSourceGlobalObjectIdHash: 3967131360
   DeferredDespawnTick: 0
   Ownership: 1
@@ -115,7 +115,7 @@ MonoBehaviour:
   mouseSensitivity: 75
   defaultFOV: 60
   cam: {fileID: 7509386947758527609}
-  pauseMenu: {fileID: 1502664061252260025, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
+  pauseMenu: {fileID: 1384698165469597133}
   attackInputs:
     primary: {fileID: 1120369429361536294, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     secondary: {fileID: 8446814527111976826, guid: 052faaac586de48259a63d0c4782560b, type: 3}
@@ -1027,7 +1027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4594920926800637095, guid: ac20d513a1d063843940498a2a070e12, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5530101929291138372, guid: ac20d513a1d063843940498a2a070e12, type: 3}
       propertyPath: m_Layer
@@ -1129,6 +1129,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1384698165469597133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4594920926800637095, guid: ac20d513a1d063843940498a2a070e12, type: 3}
+  m_PrefabInstance: {fileID: 3238967302439739754}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2073457722064093337 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3473816045405168115, guid: ac20d513a1d063843940498a2a070e12, type: 3}

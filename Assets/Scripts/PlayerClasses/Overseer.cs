@@ -268,7 +268,7 @@ public class Overseer : NetworkBehaviour
     void CheckPause()
     {
         // Unlock cursor on pause.
-        if (pause.action.WasReleasedThisFrame())
+        if (pause.action.WasCompletedThisFrame())
         {
             Pause();
         }

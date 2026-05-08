@@ -3,14 +3,15 @@ using UnityEngine;
 public class FollowTarget : MonoBehaviour
 {
     public float speed = 2f;
-    public float detectDistance = 10f;
+    public float detectRadius = 1f;
+    public float detectDistance = 1f;
 
     private Rigidbody rb;
     
     private GameObject target;
     private RaycastHit hit;
 
-    void Awake()
+    void Start()
     {
         rb = GetComponent<Rigidbody>();
         if (!rb) Debug.LogError("No Rigidbody found");
@@ -18,6 +19,7 @@ public class FollowTarget : MonoBehaviour
         float scale = transform.localScale.x;
         
         speed *= scale;
+        detectRadius *= scale;
         detectDistance *= scale;
     }
 
@@ -25,12 +27,13 @@ public class FollowTarget : MonoBehaviour
     {
         if (target)
         {
+            print("has target " + target.name);
             transform.LookAt(target.transform);
             rb.AddForce(transform.forward * (speed * Time.deltaTime), ForceMode.Impulse);
         }
         else
         {
-            if (Physics.SphereCast(transform.position, detectDistance, transform.forward, out hit))
+            if (Physics.SphereCast(transform.position, detectRadius, transform.forward, out hit, detectDistance))
             {
                 Debug.DrawLine(transform.position, hit.point, Color.red);
                 GameObject newTarget = hit.collider.gameObject;
@@ -39,5 +42,12 @@ public class FollowTarget : MonoBehaviour
                 if (newTarget.GetComponent<Health>()?.IsPlayer == true) target = newTarget;
             }
         }
+    }
+    
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Vector3 pos = transform.position + transform.forward * detectDistance;
+        Gizmos.DrawWireSphere(pos, detectRadius);
     }
 }
