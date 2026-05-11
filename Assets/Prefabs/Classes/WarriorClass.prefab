@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7025046864143130324}
   - component: {fileID: 7764085487212673355}
   - component: {fileID: 443037598296245383}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WarriorClass
   m_TagString: Player
   m_Icon: {fileID: 0}
