@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 5357568231703400890}
   - component: {fileID: 5852849322447735063}
   - component: {fileID: -7412604454094636347}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: MageClass
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -852,6 +852,54 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1606564518946260134}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_Name
+      value: gnome wizard
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -9056504350950671053, guid: b52ba61b9981fcd49afc40c49a04cbfb, type: 3}
       propertyPath: m_Layer
       value: 0
@@ -1097,54 +1145,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8424696859537123389, guid: b52ba61b9981fcd49afc40c49a04cbfb, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
-      propertyPath: m_Name
-      value: gnome wizard
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: ce63701ed388a584f960a95d70d1d407, type: 3}
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}

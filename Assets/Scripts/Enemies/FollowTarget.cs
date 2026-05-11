@@ -1,45 +1,67 @@
+using NUnit.Framework.Constraints;
 using UnityEngine;
 
 public class FollowTarget : MonoBehaviour
 {
-    public float speed = 2f;
-    public float detectRadius = 1f;
-    public float detectDistance = 1f;
+    public float speed = 15f;
+    public float turnSpeed = 5f;
+    public float detectRadius = 5f;
+    public float followDistance = 1f;
+    public int maxChecks = 10;
+    [SerializeField] LayerMask layerMask;
 
     private Rigidbody rb;
     
-    private GameObject target;
-    private RaycastHit hit;
+    private Transform target;
+    private Collider[] results;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         if (!rb) Debug.LogError("No Rigidbody found");
         
+        results = new Collider[maxChecks];
+        
         float scale = transform.localScale.x;
+
+        rb.mass *= scale;
         
         speed *= scale;
         detectRadius *= scale;
-        detectDistance *= scale;
+        followDistance *= scale;
     }
 
     void FixedUpdate()
     {
         if (target)
         {
-            print("has target " + target.name);
-            transform.LookAt(target.transform);
-            rb.AddForce(transform.forward * (speed * Time.deltaTime), ForceMode.Impulse);
+            Vector3 lookPoint = target.position - transform.position;
+            Quaternion rotation = Quaternion.LookRotation(lookPoint, Vector3.up);
+            rb.rotation = Quaternion.Slerp(rb.rotation, rotation, Time.deltaTime * turnSpeed);
+            
+            print(lookPoint.sqrMagnitude);
+            
+            if (lookPoint.sqrMagnitude > followDistance)
+            {
+                rb.AddForce(transform.forward * (speed * Time.deltaTime), ForceMode.Impulse);
+            }
+            else
+            {
+                // add damage here
+            }
         }
         else
         {
-            if (Physics.SphereCast(transform.position, detectRadius, transform.forward, out hit, detectDistance))
+            Physics.OverlapSphereNonAlloc(transform.position, detectRadius, results, layerMask);
+
+            foreach (Collider col in results)
             {
-                Debug.DrawLine(transform.position, hit.point, Color.red);
-                GameObject newTarget = hit.collider.gameObject;
-                print("yay target! " + newTarget.name);
-                // I had to compare to a boolean because the health component might not exist....
-                if (newTarget.GetComponent<Health>()?.IsPlayer == true) target = newTarget;
+                if (col.gameObject.GetComponent<Health>()?.IsPlayer == true)
+                {
+                    target = col.transform;
+                    break;
+                }
+                Debug.DrawLine(transform.position, col.transform.position, Color.red);
             }
         }
     }
@@ -47,7 +69,7 @@ public class FollowTarget : MonoBehaviour
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Vector3 pos = transform.position + transform.forward * detectDistance;
+        Vector3 pos = transform.position;
         Gizmos.DrawWireSphere(pos, detectRadius);
     }
 }
