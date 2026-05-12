@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9026086926871734375}
   - component: {fileID: 6875003830974090202}
   - component: {fileID: 5484048732105968776}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: UI Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 6320694264031575074}
   - component: {fileID: 9037526723533333068}
   - component: {fileID: 2939305432088744351}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -213,7 +213,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4733004445991244235}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 307106081132968494}
   - component: {fileID: 8423963959526036936}
   - component: {fileID: 5484233475581927789}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Cost Preview
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -326,7 +326,7 @@ GameObject:
   - component: {fileID: 8097480065433113030}
   - component: {fileID: 6382633429345270031}
   - component: {fileID: 2933428736815960554}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
