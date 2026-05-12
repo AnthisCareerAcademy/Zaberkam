@@ -28,6 +28,7 @@ public class RangerClass : ClassTemplate
         // Zoom in to help with aiming.
         zooming = true;
         ChangeFOV(30, 2f);
+        
     }
     
     // All values for the first ability (charge shot) are set in the inspector.
