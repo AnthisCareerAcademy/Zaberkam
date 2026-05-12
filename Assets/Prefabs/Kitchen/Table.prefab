@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4958144262632468374}
   - component: {fileID: 5173986664400607736}
   - component: {fileID: 7360947998189593017}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Tabletop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -82,9 +84,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &2317068341646566167
 GameObject:
@@ -95,7 +99,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1209377839109710302}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Player View Ref
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3603102858819304173}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Panels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,6 +218,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -235,9 +241,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!64 &6174409132550305737
 MeshCollider:
@@ -272,7 +280,7 @@ GameObject:
   - component: {fileID: 7003688827688542412}
   - component: {fileID: 3484097528511921550}
   - component: {fileID: 7802506996648355459}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: W Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,6 +330,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -343,9 +353,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &3633707338939558242
 GameObject:
@@ -358,7 +370,7 @@ GameObject:
   - component: {fileID: 6695235209077218775}
   - component: {fileID: 8836922042961135624}
   - component: {fileID: 2371067084369239005}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: NE Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -408,6 +420,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -429,9 +443,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5400354731004996080
 GameObject:
@@ -442,7 +458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1320889502240373248}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Player View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -475,7 +491,7 @@ GameObject:
   - component: {fileID: 7580633837778726236}
   - component: {fileID: 633899524291748800}
   - component: {fileID: 4027590479335852574}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: NW Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,6 +541,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -546,9 +564,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &5837023681238193524
 GameObject:
@@ -559,7 +579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6072698669815820446}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Legs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -596,7 +616,7 @@ GameObject:
   - component: {fileID: 7749197274750934993}
   - component: {fileID: 8246938094830028287}
   - component: {fileID: 8368177631145655994}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: S Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,6 +666,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -667,9 +689,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6273569667698489814
 GameObject:
@@ -682,7 +706,7 @@ GameObject:
   - component: {fileID: 5539240521631234136}
   - component: {fileID: 6310441264066062344}
   - component: {fileID: 8527994595729385165}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: E Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -732,6 +756,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -753,9 +779,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &6966980807846161228
 GameObject:
@@ -767,7 +795,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5675336814269478703}
   - component: {fileID: 7783086160269037470}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Table
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -827,7 +855,7 @@ GameObject:
   - component: {fileID: 7671085994545318425}
   - component: {fileID: 316629762862365810}
   - component: {fileID: 4606199800437624438}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SW Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -877,6 +905,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -898,9 +928,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8633039242304778160
 GameObject:
@@ -913,7 +945,7 @@ GameObject:
   - component: {fileID: 4732014597539415590}
   - component: {fileID: 341020900822453115}
   - component: {fileID: 5494696392185911065}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: SE Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -963,6 +995,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -984,9 +1018,11 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8829932832644320283
 GameObject:
@@ -999,7 +1035,7 @@ GameObject:
   - component: {fileID: 5629655098310370417}
   - component: {fileID: 4443325157793463562}
   - component: {fileID: 4131161373523381270}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: N Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1049,6 +1085,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1070,7 +1108,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
