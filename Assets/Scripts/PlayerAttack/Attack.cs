@@ -29,13 +29,7 @@ public class Attack : AttackTemplate
     public override void DoAttack(float multiplier = 1f, Vector3? direction = null)
     {
         // Damage each enemy in the hitbox.
-        foreach (var damageable in Damageables)
-        {
-            // DEBUG: print damage
-            print($"Dealing {damage * multiplier} damage to {damageable}");
-            damageable?.TakeDamage(damage * multiplier);
-        }
-
+        foreach (var damageable in Damageables) damageable?.TakeDamage(damage * multiplier);
         Damageables.Clear();
     }
 }

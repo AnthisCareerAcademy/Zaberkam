@@ -1,20 +1,19 @@
 using UnityEngine;
-using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
     public float detectionRange = 15f;
     public float attackRange = 2f;
+    public float moveSpeed = 5f;
     public float repathRate = 0.2f;
-    public LayerMask wallMask; // Layer mask for walls/obstacles
+    public LayerMask wallMask;
 
-    private NavMeshAgent agent;
     private Transform player;
     private float repathTimer;
+    private Vector3 targetPosition;
 
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player")?.transform;
     }
 
@@ -30,30 +29,42 @@ public class EnemyMovement : MonoBehaviour
 
             if (repathTimer <= 0f)
             {
-                if (player.tag == "Player")
+                if (player.CompareTag("Player"))
                 {
-                    agent.SetDestination(player.position);
+                    targetPosition = player.position;
                 }
-                if (player.tag == "Untagged")
+                else
                 {
-                    agent.ResetPath();
+                    targetPosition = transform.position;
                 }
+
                 repathTimer = repathRate;
             }
 
             if (distance <= attackRange)
             {
-                agent.isStopped = true;
+                // Stop moving and attack
                 // TODO: Add attack logic here
             }
             else
             {
-                agent.isStopped = false;
+                MoveTowardsTarget();
             }
         }
-        else
+    }
+
+    void MoveTowardsTarget()
+    {
+        Vector3 direction = (targetPosition - transform.position).normalized;
+
+        // Move
+        transform.position += direction * moveSpeed * Time.deltaTime;
+
+        // Optional: rotate toward player
+        if (direction != Vector3.zero)
         {
-            agent.ResetPath();
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 10f * Time.deltaTime);
         }
     }
 
@@ -62,12 +73,11 @@ public class EnemyMovement : MonoBehaviour
         Vector3 direction = (player.position - transform.position).normalized;
         float distance = Vector3.Distance(transform.position, player.position);
 
-        // Raycast from enemy to player
         if (!Physics.Raycast(transform.position, direction, distance, wallMask))
         {
-            return true; // No obstacles in the way
+            return true;
         }
 
-        return false; // Player is blocked
+        return false;
     }
 }

@@ -9,9 +9,11 @@ public class SetRoomGen : MonoBehaviour
     [Header("Table Bounds (centered on this position)")]
     public Vector2 tableSize;
     public Vector3 tableCenter;
+    private Vector3 dungeonCenter;
 
     void Start()
     {
+        
         if (Dungeons == null || Dungeons.Count == 0)
         {
             Debug.LogWarning("No dungeon prefabs assigned!");
@@ -20,14 +22,11 @@ public class SetRoomGen : MonoBehaviour
 
         int randomIndex = Random.Range(0, Dungeons.Count);
 
-        Vector3 randomPosition = new Vector3(
-            Random.Range(-tableSize.x / 2, tableSize.x / 2),
-            0,
-            Random.Range(-tableSize.y / 2, tableSize.y / 2)
-        ) + tableCenter;
+        
 
-        GameObject dungeon = Instantiate(Dungeons[randomIndex], randomPosition, Quaternion.identity);
+        GameObject dungeon = Instantiate(Dungeons[randomIndex], tableCenter, Quaternion.identity);
         dungeon.transform.localScale = Vector3.one * scale;
+        dungeon.transform.Rotate(Vector3.up, 90);
     }
 
     void OnDrawGizmos()

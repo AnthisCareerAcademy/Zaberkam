@@ -52,6 +52,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     [SerializeField] float mouseSensitivity = 100f;
     [SerializeField] protected float defaultFOV = 60f;
     [SerializeField] GameObject cam;
+    [SerializeField] GameObject pauseMenu;
     
     [Header("Attack Options")]
     [SerializeField] AttackActionReferences attackInputs;
@@ -74,9 +75,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     private float xRotation;
     private Camera camLens;
 
-    private bool paused;
-
-    public virtual void Start()
+    public virtual void Awake()
     {
         Controller = GetComponent<CharacterController>();
         if (Controller == null) Debug.LogError("CharacterController not found");
@@ -123,14 +122,14 @@ public abstract class ClassTemplate : NetworkBehaviour
 
     public virtual void Update()
     {
-        if (!IsOwner) return;
+        // if (!IsOwner) return;
 
         CheckPause();
         
         DoLook();
         DoMove();
 
-        if (!paused)
+        if (!Cursor.visible)
         {
             // I tried to make this a for-loop, but the structs weren't cooperating, so this works for now.
             HandleAction(attackInputs.primary, DoPrimary, cooldowns.primary, 0);
@@ -142,12 +141,18 @@ public abstract class ClassTemplate : NetworkBehaviour
         }
         
         // I don't think the for loop would be any smaller here...
-        if (indicators.primary) indicators.primary.fillAmount = (activeActions[0] - Time.time) / cooldowns.primary;
-        if (indicators.secondary) indicators.secondary.fillAmount = (activeActions[1] - Time.time) / cooldowns.secondary;
-        if (indicators.firstAbility) indicators.firstAbility.fillAmount = (activeActions[2] - Time.time) / cooldowns.firstAbility;
-        if (indicators.secondAbility) indicators.secondAbility.fillAmount = (activeActions[3] - Time.time) / cooldowns.secondAbility;
-        if (indicators.thirdAbility) indicators.thirdAbility.fillAmount = (activeActions[4] - Time.time) / cooldowns.thirdAbility;
-        if (indicators.fourthAbility) indicators.fourthAbility.fillAmount = (activeActions[5] - Time.time) / cooldowns.fourthAbility;
+        if (indicators.primary) indicators.primary.fillAmount = FixIcons((activeActions[0] - Time.time) / cooldowns.primary);
+        if (indicators.secondary) indicators.secondary.fillAmount = FixIcons((activeActions[1] - Time.time) / cooldowns.secondary);
+        if (indicators.firstAbility) indicators.firstAbility.fillAmount = FixIcons((activeActions[2] - Time.time) / cooldowns.firstAbility);
+        if (indicators.secondAbility) indicators.secondAbility.fillAmount = FixIcons((activeActions[3] - Time.time) / cooldowns.secondAbility);
+        if (indicators.thirdAbility) indicators.thirdAbility.fillAmount = FixIcons((activeActions[4] - Time.time) / cooldowns.thirdAbility);
+        if (indicators.fourthAbility) indicators.fourthAbility.fillAmount = FixIcons((activeActions[5] - Time.time) / cooldowns.fourthAbility);
+    }
+
+    float FixIcons(float value)
+    {
+        // This is a fix for the icons; if the value is less than 0, set it to 1 so the icon shows.
+        return value < 0 ? 1 : value;
     }
 
     void DoLook()
@@ -159,7 +164,7 @@ public abstract class ClassTemplate : NetworkBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         // Turn the camera and the player.
-        if (!paused)
+        if (!Cursor.visible)
         {
             CamTransform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             transform.Rotate(Vector3.up * lookInput.x);
@@ -170,7 +175,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     {
         Vector2 movement = move.action.ReadValue<Vector2>().normalized;
 
-        if (!paused)
+        if (!Cursor.visible)
         {
             Velocity.x = movement.x * moveSpeed;
             Velocity.z = movement.y * moveSpeed;
@@ -204,35 +209,30 @@ public abstract class ClassTemplate : NetworkBehaviour
     void CheckPause()
     {
         // Unlock cursor on pause. Change to a pause menu eventually.
-        if (pause.action.WasPressedThisFrame())
+        if (pause.action.WasReleasedThisFrame())
         {
-            Pause();
-        }
-        
-        if (attackInputs.primary.action.WasPressedThisFrame())
-        {
-            Unpause();
+            if (!Cursor.visible) Pause();
+            else Unpause();
         }
     }
 
-    void Pause()
+    public void Pause()
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        paused = true;
+        pauseMenu?.SetActive(true);
     }
     
-    void Unpause()
+    public void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        paused = false;
+        pauseMenu?.SetActive(false);
     }
     
     // These are the empty attack actions, to be overridden in child classes.
     protected virtual void DoPrimary()
     {
-        print("Doing primary");
         if (Random.value < critChance) attackHandlers.primary.DoAttack(critMultiplier);
         else attackHandlers.primary.DoAttack();
     }

@@ -9,6 +9,7 @@ MonoImporter:
   - look: {fileID: -5630151704836100654, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   - pause: {fileID: 7875538837021241663, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   - cam: {instanceID: 0}
+  - pauseMenu: {fileID: 1502664061252260025, guid: e094fede0dbf2f443997ede9f38a54dc, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

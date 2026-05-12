@@ -13,11 +13,11 @@ public class RangedAttack : AttackTemplate
 
         direction ??= transform.eulerAngles;
 
-        ShootServerRpc(direction.Value, multiplier);
+        ShootServerRpc(multiplier, direction.Value);
     }
 
     [ServerRpc]
-    void ShootServerRpc(Vector3 direction, float multiplier)
+    void ShootServerRpc(float multiplier, Vector3 direction)
     {
         Projectile newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
 
