@@ -541,7 +541,6 @@ MonoBehaviour:
   m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
-  m_Version: 2
   m_TaaSettings:
     m_Quality: 3
     m_FrameInfluence: 0.1
@@ -549,6 +548,7 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
 --- !u!114 &6386835480957063664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,6 +910,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -931,9 +933,11 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
@@ -1224,6 +1228,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1245,9 +1251,11 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -1466,6 +1474,8 @@ MonoBehaviour:
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -1770,7 +1780,7 @@ MonoBehaviour:
     m_ManualValue: 0
 --- !u!120 &3195160333670683413
 LineRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1789,6 +1799,8 @@ LineRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1810,9 +1822,11 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
@@ -1878,7 +1892,6 @@ LineRenderer:
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
@@ -2044,6 +2057,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 30005
   m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!114 &2621915494938315231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2162,9 +2176,9 @@ MonoBehaviour:
   m_Mediator: {fileID: 531970565484236056}
   m_TransformationPriority: 0
   m_MoveSpeed: 2
+  m_InAirControlModifier: 0.5
   m_EnableStrafe: 1
   m_EnableFly: 0
-  m_UseGravity: 1
   m_ForwardSource: {fileID: 0}
   m_LeftHandMoveInput:
     m_InputSourceMode: 0
@@ -2194,6 +2208,7 @@ MonoBehaviour:
     m_InputActionReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
+  m_UseGravity: 1
 --- !u!1 &2287996001056467454
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,6 +2681,8 @@ MonoBehaviour:
   m_Mediator: {fileID: 531970565484236056}
   m_TransformationPriority: 0
   m_TurnSpeed: 60
+  m_EnableTurnLeftRight: 1
+  m_EnableTurnAround: 0
   m_LeftHandTurnInput:
     m_InputSourceMode: 0
     m_InputAction:
@@ -3286,6 +3303,8 @@ MonoBehaviour:
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -3479,6 +3498,8 @@ MonoBehaviour:
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -3907,6 +3928,8 @@ MonoBehaviour:
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -3930,8 +3953,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_PhysicsTriggerInteraction: 1
+  m_UIDocumentTriggerInteraction: 1
   m_RequirePokeFilter: 1
   m_EnableUIInteraction: 1
+  m_ClickUIOnDown: 0
   m_DebugVisualizationsEnabled: 0
   m_UIHoverEntered:
     m_PersistentCalls:
@@ -3939,6 +3964,7 @@ MonoBehaviour:
   m_UIHoverExited:
     m_PersistentCalls:
       m_Calls: []
+  m_EnableMultiPick: 0
 --- !u!114 &2027937637480128315
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4495,6 +4521,8 @@ MonoBehaviour:
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -4799,7 +4827,7 @@ MonoBehaviour:
     m_ManualValue: 0
 --- !u!120 &2685804152828691311
 LineRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4818,6 +4846,8 @@ LineRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4839,9 +4869,11 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
@@ -4907,7 +4939,6 @@ LineRenderer:
     textureScale: {x: 1, y: 1}
     shadowBias: 0
     generateLightingData: 0
-  m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
@@ -5073,6 +5104,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 30005
   m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!114 &6693554269840170213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5335,9 +5367,9 @@ MonoBehaviour:
   m_Mediator: {fileID: 531970565484236056}
   m_TransformationPriority: 0
   m_MoveSpeed: 2
+  m_InAirControlModifier: 0.5
   m_EnableStrafe: 0
   m_EnableFly: 0
-  m_UseGravity: 1
   m_ForwardSource: {fileID: 0}
   m_LeftHandMoveInput:
     m_InputSourceMode: 0
@@ -5367,6 +5399,7 @@ MonoBehaviour:
     m_InputActionReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
+  m_UseGravity: 1
 --- !u!1 &6527236034910017752
 GameObject:
   m_ObjectHideFlags: 0
@@ -5451,6 +5484,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5472,9 +5507,11 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 1
@@ -5581,6 +5618,8 @@ MonoBehaviour:
   m_Mediator: {fileID: 531970565484236056}
   m_TransformationPriority: 0
   m_TurnSpeed: 60
+  m_EnableTurnLeftRight: 1
+  m_EnableTurnAround: 0
   m_LeftHandTurnInput:
     m_InputSourceMode: 2
     m_InputAction:
@@ -5757,6 +5796,8 @@ SkinnedMeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -5778,9 +5819,11 @@ SkinnedMeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
@@ -5971,6 +6014,8 @@ MonoBehaviour:
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -6275,7 +6320,7 @@ MonoBehaviour:
     m_ManualValue: 0
 --- !u!120 &711034963638455461
 LineRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6294,6 +6339,8 @@ LineRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -6315,9 +6362,11 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
@@ -6383,7 +6432,6 @@ LineRenderer:
     textureScale: {x: 1, y: 1}
     shadowBias: 0.5
     generateLightingData: 0
-  m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
@@ -6549,6 +6597,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 30005
   m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!114 &8724367054521328194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6787,6 +6836,8 @@ MonoBehaviour:
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -6810,8 +6861,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_PhysicsTriggerInteraction: 1
+  m_UIDocumentTriggerInteraction: 1
   m_RequirePokeFilter: 1
   m_EnableUIInteraction: 1
+  m_ClickUIOnDown: 0
   m_DebugVisualizationsEnabled: 0
   m_UIHoverEntered:
     m_PersistentCalls:
@@ -6819,6 +6872,7 @@ MonoBehaviour:
   m_UIHoverExited:
     m_PersistentCalls:
       m_Calls: []
+  m_EnableMultiPick: 0
 --- !u!114 &2362743695467519031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7101,9 +7155,9 @@ MonoBehaviour:
   m_Mediator: {fileID: 531970565484236056}
   m_TransformationPriority: 0
   m_MoveSpeed: 2
+  m_InAirControlModifier: 0.5
   m_EnableStrafe: 1
   m_EnableFly: 0
-  m_UseGravity: 1
   m_ForwardSource: {fileID: 0}
   m_LeftHandMoveInput:
     m_InputSourceMode: 2
@@ -7133,6 +7187,7 @@ MonoBehaviour:
     m_InputActionReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
+  m_UseGravity: 1
 --- !u!1 &9072874467112385712
 GameObject:
   m_ObjectHideFlags: 0
@@ -7221,6 +7276,8 @@ MonoBehaviour:
   m_DisableVisualsWhenBlockedInGroup: 1
   m_StartingSelectedInteractable: {fileID: 0}
   m_StartingTargetFilter: {fileID: 0}
+  m_AutoFindParentInteractableInHierarchy: 0
+  m_ParentInteractableObject: {fileID: 0}
   m_HoverEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -7525,7 +7582,7 @@ MonoBehaviour:
     m_ManualValue: 0
 --- !u!120 &4347687193047439999
 LineRenderer:
-  serializedVersion: 2
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7544,6 +7601,8 @@ LineRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -7565,9 +7624,11 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Positions: []
   m_Parameters:
     serializedVersion: 3
@@ -7633,7 +7694,6 @@ LineRenderer:
     textureScale: {x: 1, y: 1}
     shadowBias: 0
     generateLightingData: 0
-  m_MaskInteraction: 0
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
@@ -7799,6 +7859,7 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 30005
   m_SortAtRoot: 0
+  m_Sort3DAs2D: 0
 --- !u!114 &6932182469668884252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7891,9 +7952,9 @@ MonoBehaviour:
   m_Mediator: {fileID: 531970565484236056}
   m_TransformationPriority: 0
   m_MoveSpeed: 2
+  m_InAirControlModifier: 0.5
   m_EnableStrafe: 0
   m_EnableFly: 0
-  m_UseGravity: 1
   m_ForwardSource: {fileID: 0}
   m_LeftHandMoveInput:
     m_InputSourceMode: 2
@@ -7923,6 +7984,7 @@ MonoBehaviour:
     m_InputActionReference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     m_ObjectReferenceObject: {fileID: 0}
     m_ManualValue: {x: 0, y: 0}
+  m_UseGravity: 1
 --- !u!1001 &4326373830816956621
 PrefabInstance:
   m_ObjectHideFlags: 0
