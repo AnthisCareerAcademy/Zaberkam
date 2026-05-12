@@ -11,8 +11,5 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b7aa2a55c3d691f43b58aa8742aeb65c, type: 3}
   m_Name: AutoUVScalerData
-  m_EditorClassIdentifier: 
-  meshMappings:
-  - gameObjectID: -43944
-    originalMeshGUID: b18bef437ab35b549b3b2f5c09e1d7e6
-    autoUVMeshAssetPath: Assets/roundy/AutoUVScaler/Meshes/Cube_AutoUV_00 53.asset
+  m_EditorClassIdentifier: Assembly-CSharp::AutoUVScaler.Scripts.AutoUVScalerData
+  meshMappings: []
