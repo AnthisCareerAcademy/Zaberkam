@@ -11,7 +11,10 @@
     "com.unity.multiplayer.playmode": "2.0.2",
     "com.unity.multiplayer.samples.coop": "https://github.com/Unity-Technologies/com.unity.multiplayer.samples.coop.git?path=/Packages/com.unity.multiplayer.samples.coop",
     "com.unity.multiplayer.tools": "2.2.8",
+<<<<<<< HEAD
     "com.unity.multiplayer.widgets": "1.0.5",
+=======
+>>>>>>> a538fe3afedce2e0ebdb540819f6b473cf7a1399
     "com.unity.netcode.gameobjects": "2.11.2",
     "com.unity.nuget.newtonsoft-json": "3.2.2",
     "com.unity.render-pipelines.universal": "17.3.0",
