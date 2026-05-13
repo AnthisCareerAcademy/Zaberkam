@@ -59,6 +59,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     [SerializeField] AttackCooldowns cooldowns;
     [SerializeField] AttackIndicators indicators;
     [SerializeField] protected AttackHandlers attackHandlers;
+    [SerializeField] int attackRandomness = 5;
 
     [Header("Stats")]
     [SerializeField] protected float critMultiplier;
@@ -74,6 +75,8 @@ public abstract class ClassTemplate : NetworkBehaviour
     protected Vector3 Velocity;
     private float xRotation;
     private Camera camLens;
+
+    private int attackBonus;  // This is a random value added to or subtracted from attacks.
 
     public virtual void Awake()
     {
@@ -129,6 +132,8 @@ public abstract class ClassTemplate : NetworkBehaviour
         DoLook();
         DoMove();
 
+        attackBonus = Random.Range(-attackRandomness, attackRandomness);
+
         if (!Cursor.visible)
         {
             // I tried to make this a for-loop, but the structs weren't cooperating, so this works for now.
@@ -141,12 +146,18 @@ public abstract class ClassTemplate : NetworkBehaviour
         }
         
         // I don't think the for loop would be any smaller here...
-        if (indicators.primary) indicators.primary.fillAmount = (activeActions[0] - Time.time) / cooldowns.primary;
-        if (indicators.secondary) indicators.secondary.fillAmount = (activeActions[1] - Time.time) / cooldowns.secondary;
-        if (indicators.firstAbility) indicators.firstAbility.fillAmount = (activeActions[2] - Time.time) / cooldowns.firstAbility;
-        if (indicators.secondAbility) indicators.secondAbility.fillAmount = (activeActions[3] - Time.time) / cooldowns.secondAbility;
-        if (indicators.thirdAbility) indicators.thirdAbility.fillAmount = (activeActions[4] - Time.time) / cooldowns.thirdAbility;
-        if (indicators.fourthAbility) indicators.fourthAbility.fillAmount = (activeActions[5] - Time.time) / cooldowns.fourthAbility;
+        if (indicators.primary) indicators.primary.fillAmount = FixIcons((activeActions[0] - Time.time) / cooldowns.primary);
+        if (indicators.secondary) indicators.secondary.fillAmount = FixIcons((activeActions[1] - Time.time) / cooldowns.secondary);
+        if (indicators.firstAbility) indicators.firstAbility.fillAmount = FixIcons((activeActions[2] - Time.time) / cooldowns.firstAbility);
+        if (indicators.secondAbility) indicators.secondAbility.fillAmount = FixIcons((activeActions[3] - Time.time) / cooldowns.secondAbility);
+        if (indicators.thirdAbility) indicators.thirdAbility.fillAmount = FixIcons((activeActions[4] - Time.time) / cooldowns.thirdAbility);
+        if (indicators.fourthAbility) indicators.fourthAbility.fillAmount = FixIcons((activeActions[5] - Time.time) / cooldowns.fourthAbility);
+    }
+
+    float FixIcons(float value)
+    {
+        // This is a fix for the icons; if the value is less than 0, set it to 1 so the icon shows.
+        return value < 0 ? 1 : value;
     }
 
     void DoLook()
@@ -202,11 +213,10 @@ public abstract class ClassTemplate : NetworkBehaviour
 
     void CheckPause()
     {
-        // Unlock cursor on pause. Change to a pause menu eventually.
-        if (pause.action.WasReleasedThisFrame())
+        // Unlock cursor on pause.
+        if (pause.action.WasCompletedThisFrame())
         {
-            if (!Cursor.visible) Pause();
-            else Unpause();
+            Pause();
         }
     }
 
@@ -214,42 +224,41 @@ public abstract class ClassTemplate : NetworkBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        pauseMenu?.SetActive(true);
+        pauseMenu.SetActive(true);
     }
     
     public void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        pauseMenu?.SetActive(false);
+        pauseMenu.SetActive(false);
     }
     
     // These are the empty attack actions, to be overridden in child classes.
     protected virtual void DoPrimary()
     {
-        print("Doing primary");
-        if (Random.value < critChance) attackHandlers.primary.DoAttack(critMultiplier);
-        else attackHandlers.primary.DoAttack();
+        if (Random.value < critChance) attackHandlers.primary.DoAttack(attackBonus, critMultiplier);
+        else attackHandlers.primary.DoAttack(attackBonus);
     }
     protected virtual void DoSecondary() 
     {
-        attackHandlers.secondary.DoAttack();
+        attackHandlers.secondary.DoAttack(attackBonus);
     }
     protected virtual void DoFirstAbility() 
     {
-        attackHandlers.firstAbility.DoAttack();
+        attackHandlers.firstAbility.DoAttack(attackBonus);
     }
     protected virtual void DoSecondAbility() 
     {
-        attackHandlers.secondAbility.DoAttack();
+        attackHandlers.secondAbility.DoAttack(attackBonus);
     }
     protected virtual void DoThirdAbility() 
     {
-        attackHandlers.thirdAbility.DoAttack();
+        attackHandlers.thirdAbility.DoAttack(attackBonus);
     }
     protected virtual void DoFourthAbility() 
     {
-        attackHandlers.fourthAbility.DoAttack();
+        attackHandlers.fourthAbility.DoAttack(attackBonus);
     }
     
     // Status effects. May eventually move to separate class.

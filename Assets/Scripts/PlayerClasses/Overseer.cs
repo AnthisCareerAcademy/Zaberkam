@@ -1,6 +1,7 @@
 using System;
 using Interfaces;
 using Unity.Netcode;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -167,6 +168,8 @@ public class Overseer : NetworkBehaviour
         
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, placementDistance))
         {
+            if (!hit.collider.gameObject.CompareTag("Placement")) return;
+            
             // Check if a new item is being targeted.
             switchItem = hit.collider.gameObject.GetComponent<PlacementProperties>();
             
@@ -264,11 +267,10 @@ public class Overseer : NetworkBehaviour
 
     void CheckPause()
     {
-        // Unlock cursor on pause. Change to a pause menu eventually.
-        if (pause.action.WasReleasedThisFrame())
+        // Unlock cursor on pause.
+        if (pause.action.WasCompletedThisFrame())
         {
-            if (!Cursor.visible) Pause();
-            else Unpause();
+            Pause();
         }
     }
 
@@ -276,14 +278,14 @@ public class Overseer : NetworkBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        pauseMenu?.SetActive(true);
+        pauseMenu.SetActive(true);
     }
 
     public void Unpause()
     {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        pauseMenu?.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
     [ServerRpc(RequireOwnership = false)]

@@ -26,16 +26,10 @@ public class Attack : AttackTemplate
         if (damageable != null && Damageables.Contains(damageable)) Damageables.Remove(damageable);
     }
     
-    public override void DoAttack(float multiplier = 1f, Vector3? direction = null)
+    public override void DoAttack(int bonus = 0, float multiplier = 1f, Vector3? direction = null)
     {
         // Damage each enemy in the hitbox.
-        foreach (var damageable in Damageables)
-        {
-            // DEBUG: print damage
-            print($"Dealing {damage * multiplier} damage to {damageable}");
-            damageable?.TakeDamage(damage * multiplier);
-        }
-
+        foreach (var damageable in Damageables) damageable?.TakeDamage((damage + bonus) * multiplier);
         Damageables.Clear();
     }
 }

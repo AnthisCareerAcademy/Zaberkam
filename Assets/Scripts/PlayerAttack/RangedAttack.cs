@@ -7,24 +7,24 @@ public class RangedAttack : AttackTemplate
     [SerializeField] float speed;
     [SerializeField] bool useGravity;
 
-    public override void DoAttack(float multiplier = 1f, Vector3? direction = null)
+    public override void DoAttack(int bonus = 0, float multiplier = 1F, Vector3? direction = null)
     {
         if (!IsOwner) return;
 
         direction ??= transform.eulerAngles;
 
-        ShootServerRpc(direction.Value, multiplier);
+        ShootServerRpc(bonus, multiplier, direction.Value);
     }
 
     [ServerRpc]
-    void ShootServerRpc(Vector3 direction, float multiplier)
+    void ShootServerRpc(int bonus, float multiplier, Vector3 direction)
     {
         Projectile newProjectile = Instantiate(projectile, transform.position, Quaternion.identity);
 
         GameObject projectileObj = newProjectile.gameObject;
         projectileObj.transform.localScale *= scale;
         newProjectile.transform.eulerAngles = direction;
-        newProjectile.damage = damage * multiplier;
+        newProjectile.damage = (damage + bonus) * multiplier;
         newProjectile.rb.useGravity = useGravity;
 
         NetworkObject netObj = newProjectile.GetComponent<NetworkObject>();
