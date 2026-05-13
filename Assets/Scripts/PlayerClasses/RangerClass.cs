@@ -38,9 +38,9 @@ public class RangerClass : ClassTemplate
         // Shoot three arrows in different directions.
         Quaternion left = transform.rotation * Quaternion.Euler(0, -30, 0);
         Quaternion right = transform.rotation * Quaternion.Euler(0, 30, 0);
-        attackHandlers.secondAbility.DoAttack(direction: left.eulerAngles);
-        attackHandlers.secondAbility.DoAttack(direction: transform.eulerAngles);
-        attackHandlers.secondAbility.DoAttack(direction: right.eulerAngles);
+        attackHandlers.secondAbility.DoAttack(0, direction: left.eulerAngles);
+        attackHandlers.secondAbility.DoAttack(0, direction: transform.eulerAngles);
+        attackHandlers.secondAbility.DoAttack(0, direction: right.eulerAngles);
     }
 
     // Third attack (shooting a bomb arrow) is also handled by scripts.
@@ -53,7 +53,7 @@ public class RangerClass : ClassTemplate
         {
             Vector3 randomDirection = new Vector3(Random.Range(-radius, radius), 0, Random.Range(-radius, radius));
             attackHandlers.fourthAbility.transform.localPosition = arrowRainCenter + randomDirection;
-            attackHandlers.fourthAbility.DoAttack(direction: angle.eulerAngles);
+            attackHandlers.fourthAbility.DoAttack(0, direction: angle.eulerAngles);
         }
     }
 }

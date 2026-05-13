@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     [Header("Attacking")]
-    public float damage = 10f;
+    public int damage = 10;
     public float cooldown = 5f;
     
     [Header("Movement")]
@@ -14,8 +14,11 @@ public class EnemyMove : MonoBehaviour
     public float detectRadius = 5f;
     public float followDistance = 1f;
     public int maxChecks = 10;
-    
     [SerializeField] LayerMask layerMask;
+
+    [Header("Randomness")]
+    public int damageRandomness = 3;
+    public float cooldownRandomness = 1.5f;
 
     private Rigidbody rb;
     
@@ -64,8 +67,9 @@ public class EnemyMove : MonoBehaviour
             }
             else if (time <= 0)
             {
-                targetHealth.TakeDamage(damage);
-                time = cooldown;
+                int dealing = damage + Random.Range(-damageRandomness, damageRandomness);
+                targetHealth.TakeDamage(dealing);
+                time = cooldown + Random.Range(-cooldownRandomness, cooldownRandomness);
             }
         }
     }
@@ -85,7 +89,6 @@ public class EnemyMove : MonoBehaviour
                     target = col.transform;
                     break;
                 }
-                Debug.DrawLine(transform.position, col.transform.position, Color.red);
             }
         }
     }
