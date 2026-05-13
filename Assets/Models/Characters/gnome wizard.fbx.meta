@@ -1,5 +1,17 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Models/Characters/gnome wizard.fbx.meta
 guid: b5c8cc80f3a4e7242a2ffb2ea8c790c7
+========
+guid: 33992452811c4c64d8fe5ffff0695906
+>>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158:Assets/Models/Characters/cat_archer_bow.fbx.meta
+=======
+<<<<<<<< HEAD:Assets/Models/Characters/overseer v2.fbx.meta
+guid: ced90aaae03263c4c8fec149b2ad5dc5
+========
+guid: ce63701ed388a584f960a95d70d1d407
+>>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158:Assets/Models/Characters/gnome wizard.fbx.meta
+>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -33,7 +45,19 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Models/Characters/gnome wizard.fbx.meta
     globalScale: 1
+========
+    globalScale: 1.4
+>>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158:Assets/Models/Characters/cat_archer_bow.fbx.meta
+=======
+<<<<<<<< HEAD:Assets/Models/Characters/overseer v2.fbx.meta
+    globalScale: 1
+========
+    globalScale: 4
+>>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158:Assets/Models/Characters/gnome wizard.fbx.meta
+>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -91,7 +115,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+<<<<<<< HEAD
+<<<<<<<< HEAD:Assets/Models/Characters/gnome wizard.fbx.meta
     globalScale: 1
+========
+    globalScale: 0.0139999995
+>>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158:Assets/Models/Characters/cat_archer_bow.fbx.meta
+=======
+<<<<<<<< HEAD:Assets/Models/Characters/overseer v2.fbx.meta
+    globalScale: 1
+========
+    globalScale: 0.04
+>>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158:Assets/Models/Characters/gnome wizard.fbx.meta
+>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

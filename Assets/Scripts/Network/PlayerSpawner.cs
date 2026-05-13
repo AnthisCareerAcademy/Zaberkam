@@ -14,7 +14,7 @@ public class PlayerSpawner : NetworkBehaviour
 
     private void Awake()
     {
-        host = GameObject.Find("MageClass");
+        host = GameObject.Find("PC Overseer(Clone)");
     }
 
     public override void OnNetworkSpawn()
@@ -44,7 +44,7 @@ public class PlayerSpawner : NetworkBehaviour
         ulong clientId = rpcParams.Receive.SenderClientId;
         host = Instantiate(hostPlayer, hostSpawn, Quaternion.identity);
         host.GetComponent<NetworkObject>().SpawnWithOwnership(clientId);
-        host = GameObject.Find("MageClass(Clone)");
+        host = GameObject.Find("PC Overseer(Clone)");
     }
 
     public void DestroyHost()

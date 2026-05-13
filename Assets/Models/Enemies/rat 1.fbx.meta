@@ -1,5 +1,13 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 70c30525463192e41ba01ef1ea3b593d
+=======
+<<<<<<<< HEAD:Assets/Models/Enemies/Slime 1.fbx.meta
+guid: be54b9378484cc34a9a761af7992b0c2
+========
+guid: e803a9261d471ab46994af2ce45d9651
+>>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158:Assets/Models/Enemies/rat 1.fbx.meta
+>>>>>>> 16ded1ba3174fea9ca4741120cc261c7ba9c0158
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []

@@ -51,7 +51,6 @@ public class Health : NetworkBehaviour, IDamageable
         if (_healthTracker.Value <= 0f)
         {
             selfNetwork.Despawn();
-            Destroy(gameObject);
         }
     }
 
