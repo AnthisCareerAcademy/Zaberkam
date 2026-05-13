@@ -78,6 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
         foreach (var door in doors)
         {
+            if (!door) continue;
             if (!door.activeSelf)
                 openDoors.Add(door);
         }
