@@ -3025,6 +3025,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 30833944}
     m_Modifications:
+    - target: {fileID: 1320889502240373248, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.75
+      objectReference: {fileID: 0}
     - target: {fileID: 4732014597539415590, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.8
@@ -3036,6 +3040,10 @@ PrefabInstance:
     - target: {fileID: 4958144262632468374, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5400354731004996080, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
+      propertyPath: m_Name
+      value: TableCam
       objectReference: {fileID: 0}
     - target: {fileID: 5539240521631234136, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3122,7 +3130,8 @@ PrefabInstance:
       value: 0.725
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 2317068341646566167, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39a196d678197964a839b5e3aa74da9c, type: 3}
