@@ -82,11 +82,11 @@ public class EnemyMove : MonoBehaviour
 
             foreach (Collider col in results)
             {
-                targetHealth = col.GetComponent<Health>();
+                targetHealth = col?.GetComponent<Health>();
                 
                 if (targetHealth && targetHealth.IsPlayer)
                 {
-                    target = col.transform;
+                    target = col?.transform;
                     break;
                 }
             }

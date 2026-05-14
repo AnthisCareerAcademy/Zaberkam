@@ -1,5 +1,6 @@
 
 using Unity.Netcode;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 
@@ -33,6 +34,7 @@ public class PlayerSpawner : NetworkBehaviour
     void SpawnPcServerRpc(ServerRpcParams rpcParams = default)
     {
         ulong clientId = rpcParams.Receive.SenderClientId;
+        pcSpawn = GameObject.FindWithTag("Respawn").transform.position;
         client = Instantiate(desktopPlayer, pcSpawn, Quaternion.identity);
         client.GetComponent<NetworkObject>().SpawnWithOwnership(clientId);
         client = GameObject.Find("RangerClass(Clone)");
