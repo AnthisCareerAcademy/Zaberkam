@@ -8,8 +8,10 @@ using Unity.Services.Relay.Models;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class RelayManager : MonoBehaviour
 {
+    public TMP_InputField joinCodeInput;
     [SerializeField] Button hostButton;
     [SerializeField] Button joinButton;
     [SerializeField] Button startButton;
@@ -22,11 +24,13 @@ public class RelayManager : MonoBehaviour
         await UnityServices.InitializeAsync();
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
 
+        Debug.Log("RelayManager Awake() is running");
+
         hostButton.onClick.AddListener(CreateRelay);
         joinButton.onClick.AddListener(() => JoinRelay(joinInput.text));
 
         startButton.onClick.AddListener(SwitchScene);
-        
+        Debug.Log("Join Button listerner added ");
         UpdateHostStatus();
         
         DontDestroyOnLoad(gameObject);
@@ -76,6 +80,10 @@ public class RelayManager : MonoBehaviour
         }
     }
 
+    public void JoinRelayButton()
+    {
+        JoinRelay(joinCodeInput.text);
+    }
     void UpdateHostStatus()
     {
         if (NetworkManager.Singleton.IsHost)
