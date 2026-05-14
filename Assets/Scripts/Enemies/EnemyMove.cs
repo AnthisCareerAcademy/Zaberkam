@@ -1,19 +1,34 @@
-using NUnit.Framework.Constraints;
 using UnityEngine;
 
-public class FollowTarget : MonoBehaviour
+public class EnemyMove : MonoBehaviour
 {
-    public float speed = 15f;
+    [Header("Attacking")]
+    public int damage = 10;
+    public float cooldown = 5f;
+    
+    [Header("Movement")]
+    public float speed = 10f;
     public float turnSpeed = 5f;
+    
+    [Header("Player Detection")]
     public float detectRadius = 5f;
     public float followDistance = 1f;
     public int maxChecks = 10;
     [SerializeField] LayerMask layerMask;
 
+    [Header("Randomness")]
+    public int damageRandomness = 3;
+    public float cooldownRandomness = 1.5f;
+
     private Rigidbody rb;
     
     private Transform target;
+    private Health targetHealth;
     private Collider[] results;
+
+    private float fdSquared;
+
+    private float time;
 
     void Start()
     {
@@ -29,39 +44,51 @@ public class FollowTarget : MonoBehaviour
         speed *= scale;
         detectRadius *= scale;
         followDistance *= scale;
+
+        fdSquared = followDistance * followDistance;  // Square it to avoid unintended behavior
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        time -= Time.deltaTime;
+        
         if (target)
         {
             Vector3 lookPoint = target.position - transform.position;
             Quaternion rotation = Quaternion.LookRotation(lookPoint, Vector3.up);
+            rotation.x = 0f;
+            rotation.z = 0f;
+            
             rb.rotation = Quaternion.Slerp(rb.rotation, rotation, Time.deltaTime * turnSpeed);
             
-            print(lookPoint.sqrMagnitude);
-            
-            if (lookPoint.sqrMagnitude > followDistance)
+            if (lookPoint.sqrMagnitude > fdSquared)
             {
                 rb.AddForce(transform.forward * (speed * Time.deltaTime), ForceMode.Impulse);
             }
-            else
+            else if (time <= 0)
             {
-                // add damage here
+                int dealing = damage + Random.Range(-damageRandomness, damageRandomness);
+                targetHealth.TakeDamage(dealing);
+                time = cooldown + Random.Range(-cooldownRandomness, cooldownRandomness);
             }
         }
-        else
+    }
+
+    void FixedUpdate()
+    {
+        if (!target)
         {
             Physics.OverlapSphereNonAlloc(transform.position, detectRadius, results, layerMask);
 
             foreach (Collider col in results)
             {
-                if (col.gameObject.GetComponent<Health>()?.IsPlayer == true)
+                targetHealth = col.GetComponent<Health>();
+                
+                if (targetHealth && targetHealth.IsPlayer)
                 {
                     target = col.transform;
                     break;
                 }
-                Debug.DrawLine(transform.position, col.transform.position, Color.red);
             }
         }
     }

@@ -47,7 +47,7 @@ public class RelayManager : MonoBehaviour
             codeText.text = "Code: " + joinCode;
             codeText.gameObject.SetActive(true);
 
-            var relayServerData = AllocationUtils.ToRelayServerData(allocation, "udp");
+            var relayServerData = allocation.ToRelayServerData("udp");
 
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
 
@@ -66,7 +66,7 @@ public class RelayManager : MonoBehaviour
         try {
             JoinAllocation joinAllocation = await RelayService.Instance.JoinAllocationAsync(JoinCode);
             
-            var relayServerData = AllocationUtils.ToRelayServerData(joinAllocation, "udp");
+            var relayServerData = joinAllocation.ToRelayServerData("udp");
             
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             

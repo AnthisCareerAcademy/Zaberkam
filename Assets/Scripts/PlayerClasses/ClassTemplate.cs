@@ -59,6 +59,7 @@ public abstract class ClassTemplate : NetworkBehaviour
     [SerializeField] AttackCooldowns cooldowns;
     [SerializeField] AttackIndicators indicators;
     [SerializeField] protected AttackHandlers attackHandlers;
+    [SerializeField] int attackRandomness = 5;
 
     [Header("Stats")]
     [SerializeField] protected float critMultiplier;
@@ -74,6 +75,8 @@ public abstract class ClassTemplate : NetworkBehaviour
     protected Vector3 Velocity;
     private float xRotation;
     private Camera camLens;
+
+    private int attackBonus;  // This is a random value added to or subtracted from attacks.
 
     public virtual void Awake()
     {
@@ -128,6 +131,8 @@ public abstract class ClassTemplate : NetworkBehaviour
         
         DoLook();
         DoMove();
+
+        attackBonus = Random.Range(-attackRandomness, attackRandomness);
 
         if (!Cursor.visible)
         {
@@ -232,28 +237,28 @@ public abstract class ClassTemplate : NetworkBehaviour
     // These are the empty attack actions, to be overridden in child classes.
     protected virtual void DoPrimary()
     {
-        if (Random.value < critChance) attackHandlers.primary.DoAttack(critMultiplier);
-        else attackHandlers.primary.DoAttack();
+        if (Random.value < critChance) attackHandlers.primary.DoAttack(attackBonus, critMultiplier);
+        else attackHandlers.primary.DoAttack(attackBonus);
     }
     protected virtual void DoSecondary() 
     {
-        attackHandlers.secondary.DoAttack();
+        attackHandlers.secondary.DoAttack(attackBonus);
     }
     protected virtual void DoFirstAbility() 
     {
-        attackHandlers.firstAbility.DoAttack();
+        attackHandlers.firstAbility.DoAttack(attackBonus);
     }
     protected virtual void DoSecondAbility() 
     {
-        attackHandlers.secondAbility.DoAttack();
+        attackHandlers.secondAbility.DoAttack(attackBonus);
     }
     protected virtual void DoThirdAbility() 
     {
-        attackHandlers.thirdAbility.DoAttack();
+        attackHandlers.thirdAbility.DoAttack(attackBonus);
     }
     protected virtual void DoFourthAbility() 
     {
-        attackHandlers.fourthAbility.DoAttack();
+        attackHandlers.fourthAbility.DoAttack(attackBonus);
     }
     
     // Status effects. May eventually move to separate class.
