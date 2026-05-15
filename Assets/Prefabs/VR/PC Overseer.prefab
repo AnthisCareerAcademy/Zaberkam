@@ -1589,7 +1589,7 @@ MonoBehaviour:
   previewMesh: {fileID: 1920880255743918628}
   previewRenderer: {fileID: 5205687287971377416}
   pointer: {fileID: 6215467279633980655}
-  placementDistance: 2
+  placementDistance: 3
   scale: 0.1
 --- !u!114 &1043140202451726236
 MonoBehaviour:

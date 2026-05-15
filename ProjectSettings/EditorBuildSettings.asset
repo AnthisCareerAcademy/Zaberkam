@@ -5,7 +5,7 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/VR Host Menu.unity
     guid: 11639cb70e4df7c4cb99e5a7d46adf1f
   - enabled: 1

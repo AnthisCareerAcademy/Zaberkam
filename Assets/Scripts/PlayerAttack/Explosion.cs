@@ -6,11 +6,13 @@ public class Explosion : Attack
     [SerializeField] ParticleSystem explosionParticles;
     [SerializeField] Vector2 randomMultiplier;
     
-    public void OnDestroy()
+    public override void OnDestroy()
     {
         DoAttack(multiplier: Random.Range(randomMultiplier.x, randomMultiplier.y));
 
         ParticleSystem particles = Instantiate(explosionParticles, transform.position, Quaternion.identity);
         particles.Play();
+        
+        base.OnDestroy();
     }
 }

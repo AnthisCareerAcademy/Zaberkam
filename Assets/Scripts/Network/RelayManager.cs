@@ -14,10 +14,10 @@ public class RelayManager : MonoBehaviour
     public TMP_InputField joinCodeInput;
     [SerializeField] Button hostButton;
     [SerializeField] Button joinButton;
-    [SerializeField] Button startButton;
     [SerializeField] TMP_InputField joinInput;
     [SerializeField] TextMeshProUGUI codeText;
     [SerializeField] TextMeshProUGUI hostText;
+    [SerializeField] GameObject menuUI;
 
     private async void Awake()
     {
@@ -28,8 +28,7 @@ public class RelayManager : MonoBehaviour
 
         hostButton.onClick.AddListener(CreateRelay);
         joinButton.onClick.AddListener(() => JoinRelay(joinInput.text));
-
-        startButton.onClick.AddListener(SwitchScene);
+        
         Debug.Log("Join Button listerner added ");
         UpdateHostStatus();
         
@@ -53,6 +52,8 @@ public class RelayManager : MonoBehaviour
 
             NetworkManager.Singleton.StartHost();
 
+            menuUI?.SetActive(false);
+
             UpdateHostStatus();
         }
         catch (RelayServiceException e)
@@ -71,6 +72,8 @@ public class RelayManager : MonoBehaviour
             NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(relayServerData);
             
             NetworkManager.Singleton.StartClient();
+            
+            menuUI?.SetActive(false);
 
             UpdateHostStatus();
         }
@@ -97,19 +100,6 @@ public class RelayManager : MonoBehaviour
         else
         {
             hostText.text = "Host: Not Connected";
-        }
-    }
-
-    void SwitchScene()
-    {
-        if (NetworkManager.Singleton.IsHost || NetworkManager.Singleton.IsClient)
-        {
-
-            NetworkManager.Singleton.SceneManager.LoadScene("Game Scene", UnityEngine.SceneManagement.LoadSceneMode.Single);
-        }
-        else
-        {
-            Debug.LogWarning("You need to be connected to the network");
         }
     }
 }
