@@ -120,10 +120,59 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: f138d49098a9ce246bb99b58c6f040c3
   m_FloatValues:
-    a422e838e0d6ce84289e4b8118c60da7: 0
-    e655a3ca95f5c6b4e82e36c8e1ab3fdc: 0.1847677
-    cd1754fd0082d6543a5e8a0f456c3bd0: 0
+    a422e838e0d6ce84289e4b8118c60da7: 20
+    e655a3ca95f5c6b4e82e36c8e1ab3fdc: 20
+    ba323e3c197702942a271825383bf2ab: 1
+    cd1754fd0082d6543a5e8a0f456c3bd0: 20
   m_TransitionOverrides: {}
+--- !u!244 &6384038759788999471
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 639afd523523f894896d29e1e332384f
+  m_EffectName: OculusSpatializerReflection
+  m_MixLevel: 4600269812bdad142a532de0ccecc5ea
+  m_Parameters:
+  - m_ParameterName: GScale
+    m_GUID: 4a396dbbb0020d24092f2f621022e62a
+  - m_ParameterName: E.Rflt On
+    m_GUID: b2c1089790f02c249a224e4f8b038973
+  - m_ParameterName: E.Rflt Rev On
+    m_GUID: 9f7f50f3ca63cfd48a55c60dcfe62947
+  - m_ParameterName: Room X
+    m_GUID: 0bf5a07d117001447bbf1d23579a9757
+  - m_ParameterName: Room Y
+    m_GUID: 3a0d9cb7fb7a72f4ebcc99b50e204693
+  - m_ParameterName: Room Z
+    m_GUID: 6ca9d1b2751b0e0408eab844219864c2
+  - m_ParameterName: Left
+    m_GUID: 27f9ad66ffba831468ccb7023da652da
+  - m_ParameterName: Right
+    m_GUID: 3c4e5ea59d512454f8c43b028d6c2c0a
+  - m_ParameterName: Up
+    m_GUID: f3c6cc034f81d7743850d2c13175bcfb
+  - m_ParameterName: Down
+    m_GUID: 3f4e9c5b8986a5a43baa2f8e8211ae60
+  - m_ParameterName: Behind
+    m_GUID: 3ce450d4b75c08c4bbb7ab6a5bbbe70d
+  - m_ParameterName: Front
+    m_GUID: 3cfe3b9c2b70dcc49a991d9952e56c53
+  - m_ParameterName: Shared Rev Min
+    m_GUID: 6f0c62df7f4c9fe46a4a660333eaa72f
+  - m_ParameterName: Shared Rev Max
+    m_GUID: 2f927c26fb6622f4a82730c00391b5b7
+  - m_ParameterName: Shared Rev Wet
+    m_GUID: effc80b21ef858f4da35c37d2048a0b2
+  - m_ParameterName: Prop Quality
+    m_GUID: 55656f6341c326744a077f4218664b25
+  - m_ParameterName: Voice Limit
+    m_GUID: d1abe90eeeb28534b8b553d0900ac3d8
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &8892880094521978998
 AudioMixerGroupController:
   m_ObjectHideFlags: 0

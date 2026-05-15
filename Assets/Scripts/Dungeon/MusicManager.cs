@@ -8,10 +8,7 @@ public class Musicmanager : MonoBehaviour
     void Start()
     {
         // Auto plays if a clip is already assigned 
-        if (musicSource != null && musicSource.clip != null)
-        {
-            musicSource.Play();
-        }
+        musicSource?.Play();
     }
 
     public void SetMusic(AudioClip newClip)
