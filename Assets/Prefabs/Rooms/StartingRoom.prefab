@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 103617708718330906}
   - component: {fileID: 4173498470677298253}
   - component: {fileID: 3719667152535008667}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 777688698059537208}
   - component: {fileID: 9192530109035282550}
   - component: {fileID: 4974384485345363639}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   - component: {fileID: 1867865724251533565}
   - component: {fileID: 7088067844311119095}
   - component: {fileID: 4405068335510938442}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 5302033029822086722}
   - component: {fileID: 4205105275679163583}
   - component: {fileID: 1933200591043885639}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Doorframe
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   - component: {fileID: 5859334381409719021}
   - component: {fileID: 182391170962438821}
   - component: {fileID: 7058708514869396790}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -768,7 +768,7 @@ GameObject:
   - component: {fileID: 7758048393311501565}
   - component: {fileID: 9155793136423065789}
   - component: {fileID: 2745737426054052174}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Roof
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -858,7 +858,7 @@ GameObject:
   - component: {fileID: 4393016563280828150}
   - component: {fileID: 7551399147445353226}
   - component: {fileID: 7589305944790355220}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StartingRoom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 6846964586868208515}
   - component: {fileID: 2835562683600445762}
   - component: {fileID: 5430098550892301919}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Door
   m_TagString: Door
   m_Icon: {fileID: 0}
@@ -1073,7 +1073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5421162217282933316}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1104,7 +1104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7542273789430483566}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1158,7 +1158,7 @@ Transform:
   m_GameObject: {fileID: 6265934411534267561}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 2.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1173,7 +1173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6464117752787793766}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Torches
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1256,7 +1256,7 @@ GameObject:
   - component: {fileID: 8912875696451919331}
   - component: {fileID: 4229213480477779024}
   - component: {fileID: 4162367570313856124}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1384,6 +1384,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932051248448144067, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.55
@@ -1449,6 +1457,14 @@ PrefabInstance:
     - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_Name
       value: Torch (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932051248448144067, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1516,6 +1532,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Torch (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932051248448144067, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.55
@@ -1578,6 +1602,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6464117752787793766}
     m_Modifications:
+    - target: {fileID: 2215445359583336588, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932051248448144067, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6270180413859329035, guid: 422dbcab89d33d44fbc3124c7dcf9c11, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.55

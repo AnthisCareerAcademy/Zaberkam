@@ -121,7 +121,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8952041305671866798}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Nav
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,8 +288,7 @@ GameObject:
   - component: {fileID: 662953601938026504}
   - component: {fileID: 8504488979673083061}
   - component: {fileID: 8472608156183030833}
-  - component: {fileID: 5962641463350568778}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -352,27 +351,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 11, y: 5, z: 11}
   m_Center: {x: 0, y: 2.5, z: 0}
---- !u!114 &5962641463350568778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010710871788699773}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2afdb7946b4efb448da5f5700366117, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 1995320748524104084, guid: 3c2240dd5d4cef24ca938a8806f2ada4, type: 3}
-  doors:
-  - {fileID: 1332871015174645433}
-  - {fileID: 2935489485708363443}
-  - {fileID: 4111163117899771420}
-  - {fileID: 1087686786883047249}
-  maxEnemies: 5
-  transMat: {fileID: 0}
 --- !u!1 &1087686786883047249
 GameObject:
   m_ObjectHideFlags: 0
